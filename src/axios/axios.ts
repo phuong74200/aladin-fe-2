@@ -1,9 +1,10 @@
 import axios from "axios";
 
-import { BASE_API_URL } from "../constants/env";
 import { getToken } from "../shared/services/authService";
 
 import { onRequest, onRequestError } from "./interceptors";
+
+import { BASE_API_URL } from "~/constants/env";
 
 const axiosInstance = axios.create({
     baseURL: BASE_API_URL,

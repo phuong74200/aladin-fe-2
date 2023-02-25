@@ -1,4 +1,4 @@
-export interface User {
+export interface UserModel {
     createdAt: string;
     name: string;
     avatar: string;

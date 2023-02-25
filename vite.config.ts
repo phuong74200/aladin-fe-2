@@ -12,6 +12,9 @@ export default defineConfig({
             eslint: {
                 lintCommand: 'eslint "./src/**/*.{ts,tsx}"', // for example, lint .ts & .tsx
             },
+            overlay: {
+                initialIsOpen: false,
+            },
         }),
     ],
     resolve: {

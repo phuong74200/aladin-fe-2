@@ -23,7 +23,6 @@
     },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "project": "./tsconfig.json",
         "ecmaFeatures": {
             "jsx": true
         },
@@ -43,6 +42,7 @@
         "import/no-unresolved": "error",
         "prettier/prettier": "error",
         "react/react-in-jsx-scope": "off",
+        "react-hooks/exhaustive-deps": "off",
         "simple-import-sort/imports": [
             "error",
             {
