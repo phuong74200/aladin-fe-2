@@ -27,7 +27,7 @@ export const browserRouter = createBrowserRouter(
             path: "/",
             element: <Navigate to="home" />,
         },
-        guestRoute,
+        ...guestRoute,
         userRoute,
         adminRoute,
         {

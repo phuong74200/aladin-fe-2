@@ -4,8 +4,6 @@ import reactLogo from "./assets/react.svg";
 import { useAuthService } from "./features/Authentication/services/authService";
 import { LayoutProps } from "./@types";
 
-import "./App.css";
-
 function App(props: LayoutProps) {
     console.log(props);
 

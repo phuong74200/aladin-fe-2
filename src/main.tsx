@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
+import { MantineProvider } from "@mantine/core";
 
 import { browserRouter } from "./router";
 
-import "./index.css";
-
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
-        <RouterProvider router={browserRouter} />
+        <MantineProvider withGlobalStyles withNormalizeCSS>
+            <RouterProvider router={browserRouter} />
+        </MantineProvider>
     </React.StrictMode>
 );
