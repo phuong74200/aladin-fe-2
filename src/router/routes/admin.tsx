@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { AuthRouteObject } from "~/@types";
-import PrivateRoute from "~/features/Authentication/pages/PrivateRoute";
+import PrivateRoute from "~/features/Authentication/components/PrivateRoute";
 import AdminLayout from "~/features/Layout/pages/AdminLayout";
 
 export const adminRoute: AuthRouteObject = {

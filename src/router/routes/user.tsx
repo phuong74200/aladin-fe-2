@@ -1,6 +1,6 @@
 import { AuthRouteObject } from "~/@types";
 import App from "~/App";
-import PrivateRoute from "~/features/Authentication/pages/PrivateRoute";
+import PrivateRoute from "~/features/Authentication/components/PrivateRoute";
 
 export const userRoute: AuthRouteObject = {
     path: "user",
