@@ -1,7 +1,8 @@
 import { create } from "zustand";
 
-import { UserModel } from "../../../@types/models/UserModel";
 import { authApi } from "../api/authApi";
+
+import { UserModel } from "~/@types/models/UserModel";
 
 interface AuthServiceState {
     me: UserModel | null;

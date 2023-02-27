@@ -1,6 +1,7 @@
 export interface PrivilegeModel {
-    createdAt: string;
-    name: string;
-    avatar: string;
-    id: string;
+    entity: string;
+    create?: boolean;
+    read?: boolean;
+    update?: boolean;
+    delete?: boolean;
 }
