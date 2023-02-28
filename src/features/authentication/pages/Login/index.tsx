@@ -35,8 +35,8 @@ export default function SignUp() {
     return (
         <Box w="100%">
             <Stack spacing={0} mb="lg" ml="md">
-                <AladinLogo>Chào mừng,</AladinLogo>
-                <Text>Đăng nhập và bắt đầu học từ hôm nay</Text>
+                <AladinLogo>Xin chào,</AladinLogo>
+                <Text>Đăng nhập và bắt đầu học ngay hôm nay</Text>
             </Stack>
             <Paper shadow="xl" p="lg" w="100%">
                 <form onSubmit={form.onSubmit((values) => console.log(values))}>
