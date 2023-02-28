@@ -14,6 +14,7 @@ import {
     TextInput,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { GoogleLogin } from "@react-oauth/google";
 import { IconAt, IconBrandGoogle, IconLock } from "@tabler/icons";
 
 import AladinLogo from "~/shared/components/AladinLogo";
@@ -70,13 +71,14 @@ export default function SignUp() {
                             Đăng nhập
                         </Button>
                         <Divider label="Hoặc" labelPosition="center" />
-                        <Button
-                            leftIcon={<IconBrandGoogle size={16} />}
-                            variant="light"
-                            color="red"
-                        >
-                            Đăng nhập bằng Google
-                        </Button>
+                        <GoogleLogin
+                            onSuccess={(credentialResponse) => {
+                                console.log(credentialResponse);
+                            }}
+                            onError={() => {
+                                console.log("Login Failed");
+                            }}
+                        />
                         <Space h={16}></Space>
                         <Center>
                             <Text size="sm">

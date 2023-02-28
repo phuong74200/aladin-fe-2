@@ -2,7 +2,9 @@ import { useEffect } from "react";
 import { RouterProvider } from "react-router-dom";
 import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
+import { GOOGLE_CLIENT_ID } from "./constants/env";
 import { useAuthService } from "./features/authentication/services/authService";
 import ConfigMenu from "./features/layout/components/ConfigMenu";
 import { useThemeStore } from "./shared/store/themeStore";
@@ -26,21 +28,23 @@ function App() {
     console.log(themeState.theme.colorScheme);
 
     return (
-        <ColorSchemeProvider
-            colorScheme={themeState.theme.colorScheme || "light"}
-            toggleColorScheme={themeState.toggleColorScheme}
-        >
-            <MantineProvider
-                withGlobalStyles
-                withNormalizeCSS
-                theme={themeState.theme}
+        <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+            <ColorSchemeProvider
+                colorScheme={themeState.theme.colorScheme || "light"}
+                toggleColorScheme={themeState.toggleColorScheme}
             >
-                <ConfigMenu />
-                <NotificationsProvider>
-                    <RouterProvider router={browserRouter} />
-                </NotificationsProvider>
-            </MantineProvider>
-        </ColorSchemeProvider>
+                <MantineProvider
+                    withGlobalStyles
+                    withNormalizeCSS
+                    theme={themeState.theme}
+                >
+                    <ConfigMenu />
+                    <NotificationsProvider>
+                        <RouterProvider router={browserRouter} />
+                    </NotificationsProvider>
+                </MantineProvider>
+            </ColorSchemeProvider>
+        </GoogleOAuthProvider>
     );
 }
 
