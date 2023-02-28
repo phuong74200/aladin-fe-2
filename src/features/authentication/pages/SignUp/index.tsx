@@ -42,7 +42,7 @@ export default function SignUp() {
     return (
         <Box w="100%">
             <Stack spacing={0} mb="lg" ml="md">
-                <AladinLogo>Chào mừng,</AladinLogo>
+                <AladinLogo>Xin chào,</AladinLogo>
                 <Text>Tạo tài khoản và bắt đầu học từ hôm nay</Text>
             </Stack>
             <Paper shadow="xl" p="lg" w="100%">
