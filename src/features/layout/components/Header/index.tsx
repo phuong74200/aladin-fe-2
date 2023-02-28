@@ -65,7 +65,7 @@ export function HeaderMenuColored({ links }: HeaderSearchProps) {
     });
 
     return (
-        <Header height={72} mb={120}>
+        <Header height={64} mb={120}>
             <Container fluid px="xl">
                 <div className={classes.inner}>
                     <AladinLogo size={32} />

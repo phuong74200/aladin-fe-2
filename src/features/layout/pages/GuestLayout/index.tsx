@@ -23,7 +23,7 @@ export default function GuestLayout({ children }: LayoutProps) {
                 },
             })}
         >
-            <Grid grow h="100%" gutter={0}>
+            <Grid grow h="100%" gutter="lg">
                 <Grid.Col span={9} h="100%">
                     <LandingCarousel />
                 </Grid.Col>
