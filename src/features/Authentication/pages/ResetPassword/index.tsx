@@ -1,11 +1,15 @@
+import { useNavigate } from "react-router";
 import { Box, Button, Image, Paper, PasswordInput, Stack } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { IconLock } from "@tabler/icons";
+import { showNotification } from "@mantine/notifications";
+import { IconLock, IconLockOpen } from "@tabler/icons";
 
 import { ASSET_DOUBLE_LOCK } from "~/constants/images";
 import AladinLogo from "~/shared/components/AladinLogo";
 
 export default function ResetPassword() {
+    const navigate = useNavigate();
+
     const form = useForm({
         initialValues: {
             rePassword: "",
@@ -16,6 +20,22 @@ export default function ResetPassword() {
                 value === values.password ? null : "Mật khẩu không khớp",
         },
     });
+
+    const handleConfirm = () => {
+        showNotification({
+            id: "1",
+            disallowClose: true,
+            autoClose: 8000,
+            title: "Đổi lại mật khẩu thành công",
+            message:
+                "Bạn đã đổi mật khẩu thành công. Quay trở lại trang login để đăng nhập bằng mật khẩu mới",
+            color: "lime",
+            icon: <IconLockOpen size={16} />,
+            className: "my-notification-class",
+            loading: false,
+        });
+        navigate("/login");
+    };
 
     return (
         <Box>
@@ -38,7 +58,12 @@ export default function ResetPassword() {
                             icon={<IconLock size={16} />}
                             {...form.getInputProps("rePassword")}
                         />
-                        <Button mt="sm" fullWidth type="submit">
+                        <Button
+                            mt="sm"
+                            fullWidth
+                            type="submit"
+                            onClick={handleConfirm}
+                        >
                             Xác nhận
                         </Button>
                     </Stack>

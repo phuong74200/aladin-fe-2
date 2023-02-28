@@ -3,8 +3,6 @@ import OtpInput from "react-otp-input";
 import { useNavigate } from "react-router-dom";
 import { Box, Button, Flex, Image, Paper, Stack, Text } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { showNotification } from "@mantine/notifications";
-import { IconLockOpen } from "@tabler/icons";
 
 import GoBackButton from "../../components/GoBackButton";
 
@@ -40,22 +38,7 @@ export default function OTP() {
         return () => clearInterval(interval);
     }, []);
 
-    const handleConfirm = () => {
-        showNotification({
-            id: "1",
-            disallowClose: true,
-            autoClose: 8000,
-            title: "Đổi lại mật khẩu thành công",
-            message:
-                "Bạn đã đổi mật khẩu thành công. Quay trở lại trang login để đăng nhập bằng mật khẩu mới",
-            color: "lime",
-            icon: <IconLockOpen size={16} />,
-            className: "my-notification-class",
-            loading: false,
-        });
-        navigate("/login");
-    };
-
+    const handleConfirm = () => navigate("/password-recovery/reset");
     return (
         <Box>
             <Stack spacing={0} mb="lg" ml="md">
