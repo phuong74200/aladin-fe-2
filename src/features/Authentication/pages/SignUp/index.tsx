@@ -12,14 +12,16 @@ import {
     TextInput,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { IconAt, IconBrandGoogle, IconHash, IconLock } from "@tabler/icons";
+import { IconAt, IconBrandGoogle, IconLock } from "@tabler/icons";
 
 import GoBackButton from "../../components/GoBackButton";
 import PasswordRequirement from "../../components/PasswordRequirement";
 
 import { requirements } from "./requirements";
 
+import { schools } from "~/constants/schools";
 import AladinLogo from "~/shared/components/AladinLogo";
+import { SelectItem } from "~/shared/components/SelectItem";
 
 export default function SignUp() {
     const form = useForm({
@@ -69,8 +71,16 @@ export default function SignUp() {
                         <Select
                             label="Bạn đang học tại"
                             placeholder="Nơi đang học"
-                            data={["React", "Angular", "Svelte", "Vue"]}
-                            icon={<IconHash size={14} />}
+                            itemComponent={SelectItem}
+                            data={schools}
+                            searchable
+                            maxDropdownHeight={400}
+                            nothingFound="Nobody here"
+                            filter={(value, item) =>
+                                item.tags
+                                    .toLowerCase()
+                                    .includes(value.toLowerCase().trim())
+                            }
                         />
                         <Checkbox
                             label="I agree to sell my privacy"

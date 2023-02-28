@@ -12,6 +12,8 @@ import {
 
 const autoplayOptions = {
     delay: 2500,
+    stopOnInteraction: false,
+    stopOnMouseEnter: true,
 };
 
 export default function LandingCarousel() {

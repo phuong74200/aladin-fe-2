@@ -1,6 +1,5 @@
 import { AuthRouteObject } from "~/@types";
-import App from "~/App";
-import PrivateRoute from "~/features/Authentication/components/PrivateRoute";
+import PrivateRoute from "~/features/authentication/components/PrivateRoute";
 
 export const userRoute: AuthRouteObject = {
     path: "user",
@@ -9,19 +8,16 @@ export const userRoute: AuthRouteObject = {
         {
             path: "/user",
             element: <div>profile default</div>,
-            layout: App,
             priviliges: [],
         },
         {
             path: "profile1",
             element: <div>profile 1</div>,
             priviliges: [],
-            layout: App,
         },
         {
             path: "profile2",
             element: <div>profile 2</div>,
-            layout: App,
         },
     ],
 };

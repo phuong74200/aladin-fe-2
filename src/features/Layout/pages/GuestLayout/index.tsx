@@ -2,39 +2,18 @@ import { AppShell, Center, SimpleGrid } from "@mantine/core";
 
 import { HeaderMenuColored } from "../../components/Header";
 import LandingCarousel from "../../components/LandingCarousel";
+import { NavbarNested } from "../../components/NavbarNested";
+
+import { navbarData } from "./navbarData";
 
 import { LayoutProps } from "~/@types";
-
-const links = [
-    {
-        label: "Học trợ giảng",
-        link: "google.com",
-        links: [
-            {
-                label: "Application Development",
-                link: "youtube.com",
-            },
-            {
-                label: "Data Analysis",
-                link: "youtube.com",
-            },
-            {
-                label: "Business Administration",
-                link: "youtube.com",
-            },
-        ],
-    },
-    {
-        label: "Tài liệu ôn tập",
-        link: "google.com",
-    },
-];
 
 export default function GuestLayout({ children }: LayoutProps) {
     return (
         <AppShell
             padding="md"
-            header={<HeaderMenuColored links={links}></HeaderMenuColored>}
+            header={<HeaderMenuColored links={navbarData}></HeaderMenuColored>}
+            navbar={<NavbarNested data={navbarData} />}
             styles={(theme) => ({
                 main: {
                     backgroundColor:

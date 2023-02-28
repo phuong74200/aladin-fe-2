@@ -8,8 +8,9 @@ import {
     Header,
     Menu,
 } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons";
+
+import { useNavbarStore } from "../../store/navbarStore";
 
 import { useStyles } from "./style";
 
@@ -24,8 +25,10 @@ interface HeaderSearchProps {
 }
 
 export function HeaderMenuColored({ links }: HeaderSearchProps) {
-    const [opened, { toggle }] = useDisclosure(false);
+    const navbarState = useNavbarStore();
     const { classes } = useStyles();
+
+    const handleClick = () => navbarState.setOpen(!navbarState.isOpen);
 
     const items = links.map((link) => {
         const menuItems = link.links?.map((item) => (
@@ -82,8 +85,8 @@ export function HeaderMenuColored({ links }: HeaderSearchProps) {
                         </Link>
                     </Group>
                     <Burger
-                        opened={opened}
-                        onClick={toggle}
+                        opened={navbarState.isOpen}
+                        onClick={handleClick}
                         className={classes.burger}
                         size="sm"
                     />

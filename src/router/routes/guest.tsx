@@ -1,11 +1,11 @@
 import { AuthRouteObject } from "~/@types";
-import PrivateRoute from "~/features/Authentication/components/PrivateRoute";
-import Login from "~/features/Authentication/pages/Login";
-import OTP from "~/features/Authentication/pages/OTP";
-import PasswordRecovery from "~/features/Authentication/pages/PasswordRecovery";
-import ResetPassword from "~/features/Authentication/pages/ResetPassword";
-import SignUp from "~/features/Authentication/pages/SignUp";
-import GuestLayout from "~/features/Layout/pages/GuestLayout";
+import PrivateRoute from "~/features/authentication/components/PrivateRoute";
+import Login from "~/features/authentication/pages/Login";
+import OTP from "~/features/authentication/pages/OTP";
+import PasswordRecovery from "~/features/authentication/pages/PasswordRecovery";
+import ResetPassword from "~/features/authentication/pages/ResetPassword";
+import SignUp from "~/features/authentication/pages/SignUp";
+import GuestLayout from "~/features/layout/pages/GuestLayout";
 
 export const guestRoute: AuthRouteObject[] = [
     {

@@ -5,7 +5,7 @@ import { guestRoute } from "./routes/guest";
 import { userRoute } from "./routes/user";
 
 import { AuthRouteObject } from "~/@types";
-import Error404 from "~/features/Error/pages/Error404";
+import Error404 from "~/features/error/pages/Error404";
 
 const resolveAllRoutes = (...routes: AuthRouteObject[]): AuthRouteObject[] => {
     return routes.map((route) => {
