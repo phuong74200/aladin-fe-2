@@ -45,7 +45,9 @@ export default function GuestLayout({ children }: LayoutProps) {
             })}
         >
             <SimpleGrid cols={2} mih="100%">
-                <LandingCarousel />
+                <Center>
+                    <LandingCarousel />
+                </Center>
                 <Center>{children}</Center>
             </SimpleGrid>
         </AppShell>

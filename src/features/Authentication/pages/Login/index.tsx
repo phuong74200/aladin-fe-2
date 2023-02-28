@@ -1,23 +1,20 @@
+import { Link } from "react-router-dom";
 import {
     Box,
     Button,
+    Center,
     Checkbox,
     Divider,
     Flex,
     Paper,
     PasswordInput,
-    Select,
+    Space,
     Stack,
     Text,
     TextInput,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { IconAt, IconBrandGoogle, IconHash, IconLock } from "@tabler/icons";
-
-import GoBackButton from "../../components/GoBackButton";
-import PasswordRequirement from "../../components/PasswordRequirement";
-
-import { requirements } from "./requirements";
+import { IconAt, IconBrandGoogle, IconLock } from "@tabler/icons";
 
 import AladinLogo from "~/shared/components/AladinLogo";
 
@@ -25,15 +22,12 @@ export default function SignUp() {
     const form = useForm({
         initialValues: {
             email: "",
-            termsOfService: false,
+            rememberMe: false,
             password: "",
-            rePassword: "",
         },
         validate: {
             email: (value) =>
                 /^\S+@\S+$/.test(value) ? null : "Email không hợp lệ",
-            rePassword: (value, values) =>
-                value === values.password ? null : "Mật khẩu không khớp",
         },
     });
 
@@ -41,7 +35,7 @@ export default function SignUp() {
         <Box>
             <Stack spacing={0} mb="lg" ml="md">
                 <AladinLogo>Chào mừng,</AladinLogo>
-                <Text>Tạo tài khoản và bắt đầu học từ hôm nay</Text>
+                <Text>Đăng nhập và bắt đầu học từ hôm nay</Text>
             </Stack>
             <Paper shadow="xl" p="lg" w={500}>
                 <form onSubmit={form.onSubmit((values) => console.log(values))}>
@@ -53,37 +47,28 @@ export default function SignUp() {
                             icon={<IconAt size={16} />}
                             {...form.getInputProps("email")}
                         />
-                        <PasswordRequirement
-                            requirements={requirements}
+                        <PasswordInput
                             label="Mật khẩu"
                             placeholder="Mật khẩu"
                             icon={<IconLock size={16} />}
                             {...form.getInputProps("password")}
                         />
-                        <PasswordInput
-                            label="Nhập lại mật khẩu"
-                            placeholder="Nhập lại mật khẩu"
-                            icon={<IconLock size={16} />}
-                            {...form.getInputProps("rePassword")}
-                        />
-                        <Select
-                            label="Bạn đang học tại"
-                            placeholder="Nơi đang học"
-                            data={["React", "Angular", "Svelte", "Vue"]}
-                            icon={<IconHash size={14} />}
-                        />
-                        <Checkbox
-                            label="I agree to sell my privacy"
-                            {...form.getInputProps("termsOfService", {
-                                type: "checkbox",
-                            })}
-                        />
-                        <Flex gap="md">
-                            <GoBackButton />
-                            <Button fullWidth type="submit">
-                                Tạo tài khoản
-                            </Button>
+                        <Flex justify="space-between" align="center">
+                            <Checkbox
+                                label="Ghi nhớ đăng nhập"
+                                {...form.getInputProps("rememberMe", {
+                                    type: "checkbox",
+                                })}
+                            />
+                            <Link to="/password-recovery">
+                                <Text color="dimmed" size="sm">
+                                    Quên mật khẩu
+                                </Text>
+                            </Link>
                         </Flex>
+                        <Button fullWidth type="submit">
+                            Đăng nhập
+                        </Button>
                         <Divider label="Hoặc" labelPosition="center" />
                         <Button
                             leftIcon={<IconBrandGoogle size={16} />}
@@ -92,6 +77,15 @@ export default function SignUp() {
                         >
                             Đăng nhập bằng Google
                         </Button>
+                        <Space h={16}></Space>
+                        <Center>
+                            <Text size="sm">
+                                Chưa có tài khoản?{" "}
+                                <Link to="/sign-up">
+                                    <b>Đăng ký</b>
+                                </Link>
+                            </Text>
+                        </Center>
                     </Stack>
                 </form>
             </Paper>

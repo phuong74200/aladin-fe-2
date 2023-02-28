@@ -3,7 +3,7 @@ import { NonIndexRouteObject } from "react-router-dom";
 import { PrivilegeModel } from "./models/PrivilegeModel";
 import { LayoutProps } from "./Prop";
 
-type AuthRouteObject = NonIndexRouteObject & {
+export type AuthRouteObject = NonIndexRouteObject & {
     layout?: (props: LayoutProps) => JSX.Element;
     children?: AuthRouteObject[];
     priviliges?: PrivilegeModel[];

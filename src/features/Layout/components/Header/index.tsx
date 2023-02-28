@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
     Burger,
     Button,
@@ -76,7 +77,9 @@ export function HeaderMenuColored({ links }: HeaderSearchProps) {
                     <AladinLogo size={24} />
                     <Group spacing={5} className={classes.links}>
                         {items}
-                        <Button ml="md">Đăng nhập</Button>
+                        <Link to="/login">
+                            <Button ml="md">Đăng nhập</Button>
+                        </Link>
                     </Group>
                     <Burger
                         opened={opened}
