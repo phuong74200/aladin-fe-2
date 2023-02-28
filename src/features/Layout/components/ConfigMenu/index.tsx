@@ -2,7 +2,6 @@ import {
     ActionIcon,
     Affix,
     DefaultMantineColor,
-    Flex,
     Group,
     Menu,
     Text,

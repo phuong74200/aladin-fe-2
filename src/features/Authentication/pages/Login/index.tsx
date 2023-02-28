@@ -15,7 +15,7 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { GoogleLogin } from "@react-oauth/google";
-import { IconAt, IconBrandGoogle, IconLock } from "@tabler/icons";
+import { IconAt, IconLock } from "@tabler/icons";
 
 import AladinLogo from "~/shared/components/AladinLogo";
 
