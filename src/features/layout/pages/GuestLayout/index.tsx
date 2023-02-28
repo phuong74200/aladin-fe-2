@@ -24,10 +24,9 @@ export default function GuestLayout({ children }: LayoutProps) {
             })}
         >
             <Grid grow h="100%" gutter={0}>
-                <Grid.Col span={8} h="100%">
+                <Grid.Col span={9} h="100%">
                     <LandingCarousel />
                 </Grid.Col>
-                <Grid.Col span={1} />
                 <Grid.Col span={3}>
                     <Flex justify="center" align="center" h="100%">
                         {children}
