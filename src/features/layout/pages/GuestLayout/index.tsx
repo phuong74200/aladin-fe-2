@@ -1,4 +1,4 @@
-import { AppShell, Center, SimpleGrid } from "@mantine/core";
+import { AppShell, Flex, Grid } from "@mantine/core";
 
 import { HeaderMenuColored } from "../../components/Header";
 import LandingCarousel from "../../components/LandingCarousel";
@@ -11,7 +11,7 @@ import { LayoutProps } from "~/@types";
 export default function GuestLayout({ children }: LayoutProps) {
     return (
         <AppShell
-            padding="md"
+            padding="xl"
             header={<HeaderMenuColored links={navbarData}></HeaderMenuColored>}
             navbar={<NavbarNested data={navbarData} />}
             styles={(theme) => ({
@@ -23,12 +23,17 @@ export default function GuestLayout({ children }: LayoutProps) {
                 },
             })}
         >
-            <SimpleGrid cols={2} mih="100%">
-                <Center>
+            <Grid grow h="100%" gutter={0}>
+                <Grid.Col span={8} h="100%">
                     <LandingCarousel />
-                </Center>
-                <Center>{children}</Center>
-            </SimpleGrid>
+                </Grid.Col>
+                <Grid.Col span={1} />
+                <Grid.Col span={3}>
+                    <Flex justify="center" align="center" h="100%">
+                        {children}
+                    </Flex>
+                </Grid.Col>
+            </Grid>
         </AppShell>
     );
 }

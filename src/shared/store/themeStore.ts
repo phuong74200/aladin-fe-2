@@ -16,6 +16,7 @@ export const useThemeStore = create<ThemeState>((set) => ({
     theme: {
         primaryColor: "blue",
         colorScheme: "dark",
+        fontFamily: "Inter, sans-serif",
     },
     setPrimaryColor: (color: DefaultMantineColor) => {
         set((state) => ({

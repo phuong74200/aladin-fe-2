@@ -1,13 +1,4 @@
-import { Link } from "react-router-dom";
-import {
-    Burger,
-    Button,
-    Center,
-    Container,
-    Group,
-    Header,
-    Menu,
-} from "@mantine/core";
+import { Burger, Center, Container, Group, Header, Menu } from "@mantine/core";
 import { IconChevronDown } from "@tabler/icons";
 
 import { useNavbarStore } from "../../store/navbarStore";
@@ -74,15 +65,12 @@ export function HeaderMenuColored({ links }: HeaderSearchProps) {
     });
 
     return (
-        <Header height={64} mb={120}>
-            <Container fluid>
+        <Header height={72} mb={120}>
+            <Container fluid px="xl">
                 <div className={classes.inner}>
-                    <AladinLogo size={24} />
+                    <AladinLogo size={32} />
                     <Group spacing={5} className={classes.links}>
                         {items}
-                        <Link to="/login">
-                            <Button ml="md">Đăng nhập</Button>
-                        </Link>
                     </Group>
                     <Burger
                         opened={navbarState.isOpen}

@@ -5,5 +5,6 @@ export const useStyles = createStyles((theme) => ({
         background: theme.fn.linearGradient(133, "#041EA0", "#1078EC"),
         backgroundClip: "text",
         WebkitTextFillColor: "transparent",
+        fontFamily: "overnap",
     },
 }));

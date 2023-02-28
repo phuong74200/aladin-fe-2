@@ -1,14 +1,8 @@
 import { Carousel } from "@mantine/carousel";
+import { Center } from "@mantine/core";
 import Autoplay from "embla-carousel-autoplay";
 
-import CoverImage from "../CoverImage";
-
-import {
-    ASSET_GIRL_LAPTOP,
-    ASSET_GIRL_TABLET_1,
-    ASSET_GIRL_TABLET_2,
-    ASSET_MALE_LAPTOP,
-} from "~/constants/images";
+import { styles } from "./style";
 
 const autoplayOptions = {
     delay: 2500,
@@ -19,16 +13,31 @@ const autoplayOptions = {
 export default function LandingCarousel() {
     return (
         <Carousel
-            w={800}
+            h="100%"
+            w="auto"
             mx="auto"
             withIndicators
+            withControls={false}
             loop
             plugins={[Autoplay(autoplayOptions)]}
+            styles={styles}
         >
             <Carousel.Slide>
-                <CoverImage src={ASSET_GIRL_LAPTOP} />
+                <Center bg="red" w="100%" h="100%">
+                    1
+                </Center>
             </Carousel.Slide>
             <Carousel.Slide>
+                <Center bg="green" w="100%" h="100%">
+                    2
+                </Center>
+            </Carousel.Slide>
+            <Carousel.Slide>
+                <Center bg="blue" w="100%" h="100%">
+                    3
+                </Center>
+            </Carousel.Slide>
+            {/* <Carousel.Slide>
                 <CoverImage src={ASSET_GIRL_TABLET_1} />
             </Carousel.Slide>
             <Carousel.Slide>
@@ -36,7 +45,7 @@ export default function LandingCarousel() {
             </Carousel.Slide>
             <Carousel.Slide>
                 <CoverImage src={ASSET_MALE_LAPTOP} />
-            </Carousel.Slide>
+            </Carousel.Slide> */}
             {/* ...other slides */}
         </Carousel>
     );

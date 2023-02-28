@@ -40,12 +40,12 @@ export default function SignUp() {
     });
 
     return (
-        <Box>
+        <Box w="100%">
             <Stack spacing={0} mb="lg" ml="md">
                 <AladinLogo>Chào mừng,</AladinLogo>
                 <Text>Tạo tài khoản và bắt đầu học từ hôm nay</Text>
             </Stack>
-            <Paper shadow="xl" p="lg" w={500}>
+            <Paper shadow="xl" p="lg" w="100%">
                 <form onSubmit={form.onSubmit((values) => console.log(values))}>
                     <Stack spacing="md">
                         <TextInput
@@ -83,7 +83,7 @@ export default function SignUp() {
                             }
                         />
                         <Checkbox
-                            label="I agree to sell my privacy"
+                            label="Tôi đồng ý với các điều khoản sử dụng"
                             {...form.getInputProps("termsOfService", {
                                 type: "checkbox",
                             })}

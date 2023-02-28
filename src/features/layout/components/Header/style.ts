@@ -2,7 +2,7 @@ import { createStyles } from "@mantine/core";
 
 export const useStyles = createStyles((theme) => ({
     inner: {
-        height: 64,
+        height: 72,
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
@@ -26,11 +26,8 @@ export const useStyles = createStyles((theme) => ({
         padding: "8px 12px",
         borderRadius: theme.radius.sm,
         textDecoration: "none",
-        color:
-            theme.colorScheme === "dark"
-                ? theme.colors.dark[0]
-                : theme.colors.gray[7],
-        fontSize: theme.fontSizes.sm,
+        color: theme.primaryColor,
+        fontSize: theme.fontSizes.md,
         fontWeight: 500,
 
         "&:hover": {

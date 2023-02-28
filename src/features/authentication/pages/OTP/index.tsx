@@ -40,12 +40,12 @@ export default function OTP() {
 
     const handleConfirm = () => navigate("/password-recovery/reset");
     return (
-        <Box>
+        <Box w="100%">
             <Stack spacing={0} mb="lg" ml="md">
                 <AladinLogo>OTP</AladinLogo>
                 <Text>Nhập mã 6 số nhận được từ email</Text>
             </Stack>
-            <Paper shadow="xl" p="lg" w={500}>
+            <Paper shadow="xl" p="lg" w="100%">
                 <Stack spacing="md">
                     <Image height="50%" src={ASSET_DOUBLE_LOCK} />
                     <Stack spacing={0} align="center">

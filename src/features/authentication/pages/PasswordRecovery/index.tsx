@@ -34,12 +34,12 @@ export default function PasswordRecovery() {
     const handleOTP = () => navigate("./otp");
 
     return (
-        <Box>
+        <Box w="100%">
             <Stack spacing={0} mb="lg" ml="md">
                 <AladinLogo>Quên mật khẩu</AladinLogo>
                 <Text>Lấy lại mật khẩu</Text>
             </Stack>
-            <Paper shadow="xl" p="lg" w={500}>
+            <Paper shadow="xl" p="lg" w="100%">
                 <form onSubmit={form.onSubmit((values) => console.log(values))}>
                     <Stack spacing="md">
                         <Image height="50%" src={ASSET_DOUBLE_LOCK} />
