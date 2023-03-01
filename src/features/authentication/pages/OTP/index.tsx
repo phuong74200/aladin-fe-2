@@ -40,6 +40,7 @@ export default function OTP() {
     }, []);
 
     const handleConfirm = () => navigate("/password-recovery/reset");
+
     return (
         <Box w="100%">
             <Stack spacing={0} mb="lg" ml="md">

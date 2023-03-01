@@ -24,7 +24,7 @@ export const useStyles = createStyles((theme) => ({
         display: "block",
         lineHeight: 1,
         padding: "8px 12px",
-        borderRadius: theme.radius.sm,
+        borderRadius: theme.radius.lg,
         textDecoration: "none",
         color: theme.colors[theme.primaryColor][7],
         fontSize: theme.fontSizes.md,

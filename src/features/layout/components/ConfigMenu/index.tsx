@@ -2,6 +2,7 @@ import {
     ActionIcon,
     Affix,
     DefaultMantineColor,
+    Flex,
     Group,
     Menu,
     Text,
@@ -50,7 +51,6 @@ export default function ConfigMenu() {
                             <ActionIcon
                                 size="lg"
                                 variant="filled"
-                                radius="xl"
                                 style={transitionStyles}
                                 color="primary"
                             >
@@ -62,12 +62,15 @@ export default function ConfigMenu() {
             </Menu.Target>
 
             <Menu.Dropdown>
-                <Menu.Item onClick={handleScheme} icon={<SchemeToggle />}>
-                    <Text>
-                        {themeState.theme.colorScheme === "dark"
-                            ? "Light mode"
-                            : "Dark mode"}
-                    </Text>
+                <Menu.Item onClick={handleScheme}>
+                    <Flex justify="space-between">
+                        <Text>
+                            {themeState.theme.colorScheme === "dark"
+                                ? "Light mode"
+                                : "Dark mode"}
+                        </Text>
+                        <SchemeToggle size="sm" />
+                    </Flex>
                 </Menu.Item>
                 <Menu.Label>Primary color</Menu.Label>
                 <Menu.Item>

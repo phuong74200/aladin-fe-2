@@ -28,6 +28,14 @@ export const useThemeStore = create<ThemeState>((set) => ({
                     radius: "md",
                 },
             },
+            ActionIcon: {
+                defaultProps: {
+                    radius: "xl",
+                },
+            },
+            Menu: {
+                defaultProps: { radius: "lg" },
+            },
         },
     },
     setPrimaryColor: (color: DefaultMantineColor) => {
