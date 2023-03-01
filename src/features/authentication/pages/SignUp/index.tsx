@@ -9,14 +9,13 @@ import {
     PasswordInput,
     Select,
     Stack,
-    Text,
     TextInput,
-    Title,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { GoogleLogin } from "@react-oauth/google";
 import { IconAt, IconLock } from "@tabler/icons";
 
+import FormTitle from "../../components/FormTitle";
 import GoBackButton from "../../components/GoBackButton";
 import PasswordRequirement from "../../components/PasswordRequirement";
 
@@ -43,10 +42,10 @@ export default function SignUp() {
 
     return (
         <Box w="100%">
-            <Stack spacing={0} mb="lg" ml="md">
-                <Title weight="bolder">Xin chào,</Title>
-                <Text size="sm">Đăng ký và bắt đầu học ngay hôm nay</Text>
-            </Stack>
+            <FormTitle
+                title="Xin chào,"
+                content="Đăng ký và bắt đầu học ngay hôm nay"
+            />
             <Paper shadow="xl" p="lg" w="100%">
                 <form onSubmit={form.onSubmit((values) => console.log(values))}>
                     <Stack spacing="md">

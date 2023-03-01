@@ -4,8 +4,9 @@ import { useForm } from "@mantine/form";
 import { showNotification } from "@mantine/notifications";
 import { IconLock, IconLockOpen } from "@tabler/icons";
 
+import FormTitle from "../../components/FormTitle";
+
 import { ASSET_DOUBLE_LOCK } from "~/constants/images";
-import AladinLogo from "~/shared/components/AladinLogo";
 
 export default function ResetPassword() {
     const navigate = useNavigate();
@@ -38,9 +39,7 @@ export default function ResetPassword() {
 
     return (
         <Box w="100%">
-            <Stack spacing={0} mb="lg" ml="md">
-                <AladinLogo>Đặt lại mật khẩu</AladinLogo>
-            </Stack>
+            <FormTitle title="Đặt lại mật khẩu" />
             <Paper shadow="xl" p="lg" w="100%">
                 <form onSubmit={form.onSubmit((values) => console.log(values))}>
                     <Stack spacing="md">

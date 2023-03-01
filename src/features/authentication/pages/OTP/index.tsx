@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { Box, Button, Flex, Image, Paper, Stack, Text } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
+import FormTitle from "../../components/FormTitle";
 import GoBackButton from "../../components/GoBackButton";
 
 import { useStyles } from "./style";
 
 import { ASSET_DOUBLE_LOCK } from "~/constants/images";
-import AladinLogo from "~/shared/components/AladinLogo";
 
 const NUMB_DIGITS = 6;
 
@@ -43,10 +43,7 @@ export default function OTP() {
 
     return (
         <Box w="100%">
-            <Stack spacing={0} mb="lg" ml="md">
-                <AladinLogo>OTP</AladinLogo>
-                <Text>Nhập mã 6 số nhận được từ email</Text>
-            </Stack>
+            <FormTitle title="OTP" />
             <Paper shadow="xl" p="lg" w="100%">
                 <Stack spacing="md">
                     <Image height="50%" src={ASSET_DOUBLE_LOCK} />

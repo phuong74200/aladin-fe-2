@@ -12,11 +12,12 @@ import {
     Stack,
     Text,
     TextInput,
-    Title,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { GoogleLogin } from "@react-oauth/google";
 import { IconAt, IconLock } from "@tabler/icons";
+
+import FormTitle from "../../components/FormTitle";
 
 export default function SignUp() {
     const form = useForm({
@@ -33,10 +34,10 @@ export default function SignUp() {
 
     return (
         <Box w="100%">
-            <Stack spacing={0} mb="lg" ml="md">
-                <Title weight="bolder">Xin chào,</Title>
-                <Text size="sm">Đăng nhập và bắt đầu học ngay hôm nay</Text>
-            </Stack>
+            <FormTitle
+                title="Xin chào,"
+                content="Đăng nhập và bắt đầu học ngay hôm nay"
+            />
             <Paper shadow="xl" p="lg" w="100%">
                 <form onSubmit={form.onSubmit((values) => console.log(values))}>
                     <Stack spacing="md">

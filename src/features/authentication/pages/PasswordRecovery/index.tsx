@@ -6,19 +6,19 @@ import {
     Image,
     Paper,
     Stack,
-    Text,
     TextInput,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { IconAt } from "@tabler/icons";
 
+import FormTitle from "../../components/FormTitle";
 import GoBackButton from "../../components/GoBackButton";
 
 import { ASSET_DOUBLE_LOCK } from "~/constants/images";
-import AladinLogo from "~/shared/components/AladinLogo";
 
 export default function PasswordRecovery() {
     const navigate = useNavigate();
+
     const form = useForm({
         initialValues: {
             email: "",
@@ -35,10 +35,7 @@ export default function PasswordRecovery() {
 
     return (
         <Box w="100%">
-            <Stack spacing={0} mb="lg" ml="md">
-                <AladinLogo>Quên mật khẩu</AladinLogo>
-                <Text>Lấy lại mật khẩu</Text>
-            </Stack>
+            <FormTitle title="Quên mật khẩu" content="Lấy lại mật khẩu" />
             <Paper shadow="xl" p="lg" w="100%">
                 <form onSubmit={form.onSubmit((values) => console.log(values))}>
                     <Stack spacing="md">
