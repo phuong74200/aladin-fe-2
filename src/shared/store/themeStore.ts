@@ -17,6 +17,18 @@ export const useThemeStore = create<ThemeState>((set) => ({
         primaryColor: "blue",
         colorScheme: "light",
         fontFamily: "Inter, sans-serif",
+        components: {
+            Button: {
+                defaultProps: {
+                    radius: "lg",
+                },
+            },
+            Input: {
+                defaultProps: {
+                    radius: "md",
+                },
+            },
+        },
     },
     setPrimaryColor: (color: DefaultMantineColor) => {
         set((state) => ({
@@ -41,6 +53,14 @@ export const useThemeStore = create<ThemeState>((set) => ({
                 colorScheme:
                     scheme ||
                     (state.theme.colorScheme === "dark" ? "light" : "dark"),
+            },
+        }));
+    },
+    setTheme: (theme: MantineThemeOverride) => {
+        set((state) => ({
+            theme: {
+                ...state.theme,
+                ...theme,
             },
         }));
     },

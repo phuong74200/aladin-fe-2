@@ -26,7 +26,7 @@ export const useStyles = createStyles((theme) => ({
         padding: "8px 12px",
         borderRadius: theme.radius.sm,
         textDecoration: "none",
-        color: theme.primaryColor,
+        color: theme.colors[theme.primaryColor][7],
         fontSize: theme.fontSizes.md,
         fontWeight: "bolder",
 

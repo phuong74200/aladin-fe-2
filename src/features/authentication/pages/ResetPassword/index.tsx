@@ -24,8 +24,7 @@ export default function ResetPassword() {
     const handleConfirm = () => {
         showNotification({
             id: "1",
-            disallowClose: true,
-            autoClose: 8000,
+            autoClose: 3000,
             title: "Đổi lại mật khẩu thành công",
             message:
                 "Bạn đã đổi mật khẩu thành công. Quay trở lại trang login để đăng nhập bằng mật khẩu mới",

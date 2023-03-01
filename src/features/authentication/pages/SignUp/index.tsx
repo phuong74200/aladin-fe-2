@@ -1,6 +1,7 @@
 import {
     Box,
     Button,
+    Center,
     Checkbox,
     Divider,
     Flex,
@@ -12,7 +13,8 @@ import {
     TextInput,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { IconAt, IconBrandGoogle, IconLock } from "@tabler/icons";
+import { GoogleLogin } from "@react-oauth/google";
+import { IconAt, IconLock } from "@tabler/icons";
 
 import GoBackButton from "../../components/GoBackButton";
 import PasswordRequirement from "../../components/PasswordRequirement";
@@ -95,13 +97,18 @@ export default function SignUp() {
                             </Button>
                         </Flex>
                         <Divider label="Hoặc" labelPosition="center" />
-                        <Button
-                            leftIcon={<IconBrandGoogle size={16} />}
-                            variant="light"
-                            color="red"
-                        >
-                            Đăng nhập bằng Google
-                        </Button>
+                        <Center>
+                            <GoogleLogin
+                                shape="pill"
+                                locale="vn"
+                                onSuccess={(credentialResponse) => {
+                                    console.log(credentialResponse);
+                                }}
+                                onError={() => {
+                                    console.log("Login Failed");
+                                }}
+                            />
+                        </Center>
                     </Stack>
                 </form>
             </Paper>

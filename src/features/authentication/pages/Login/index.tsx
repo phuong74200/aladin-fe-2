@@ -71,14 +71,18 @@ export default function SignUp() {
                             Đăng nhập
                         </Button>
                         <Divider label="Hoặc" labelPosition="center" />
-                        <GoogleLogin
-                            onSuccess={(credentialResponse) => {
-                                console.log(credentialResponse);
-                            }}
-                            onError={() => {
-                                console.log("Login Failed");
-                            }}
-                        />
+                        <Center>
+                            <GoogleLogin
+                                shape="pill"
+                                locale="vn"
+                                onSuccess={(credentialResponse) => {
+                                    console.log(credentialResponse);
+                                }}
+                                onError={() => {
+                                    console.log("Login Failed");
+                                }}
+                            />
+                        </Center>
                         <Space h={16}></Space>
                         <Center>
                             <Text size="sm">

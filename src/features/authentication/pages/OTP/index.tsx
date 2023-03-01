@@ -6,7 +6,7 @@ import { useForm } from "@mantine/form";
 
 import GoBackButton from "../../components/GoBackButton";
 
-import { containerStyle, inputStyle } from "./style";
+import { useStyles } from "./style";
 
 import { ASSET_DOUBLE_LOCK } from "~/constants/images";
 import AladinLogo from "~/shared/components/AladinLogo";
@@ -14,6 +14,7 @@ import AladinLogo from "~/shared/components/AladinLogo";
 const NUMB_DIGITS = 6;
 
 export default function OTP() {
+    const { classes } = useStyles();
     const navigate = useNavigate();
 
     const form = useForm({
@@ -60,8 +61,9 @@ export default function OTP() {
                         )}
                     >
                         <OtpInput
-                            inputStyle={inputStyle}
-                            containerStyle={containerStyle}
+                            inputStyle={classes.input}
+                            containerStyle={classes.container}
+                            focusStyle={classes.focus}
                             numInputs={NUMB_DIGITS}
                             {...form.getInputProps("email")}
                         />
