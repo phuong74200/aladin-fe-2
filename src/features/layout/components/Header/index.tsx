@@ -52,7 +52,7 @@ export function HeaderMenuColored({ links }: HeaderSearchProps) {
                                 <span className={classes.linkLabel}>
                                     {link.label}
                                 </span>
-                                <IconChevronDown size={12} stroke={1.5} />
+                                {/* <IconChevronDown size={12} stroke={1.5} /> */}
                             </Center>
                         </a>
                     </Menu.Target>

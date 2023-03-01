@@ -44,7 +44,7 @@ export default function SignUp() {
         <Box w="100%">
             <FormTitle
                 title="Xin chào,"
-                content="Đăng ký và bắt đầu học ngay hôm nay"
+                content="Đăng ký và bắt đầu học ngay hôm nay!"
             />
             <Paper shadow="xl" p="lg" w="100%">
                 <form onSubmit={form.onSubmit((values) => console.log(values))}>
