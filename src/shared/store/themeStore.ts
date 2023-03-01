@@ -36,6 +36,19 @@ export const useThemeStore = create<ThemeState>((set) => ({
             Menu: {
                 defaultProps: { radius: "lg" },
             },
+            Carousel: {
+                styles: (theme) => ({
+                    viewport: {
+                        borderRadius: theme.radius.lg,
+                    },
+                }),
+            },
+            Paper: {
+                defaultProps: { radius: "lg" },
+            },
+            InputLabel: {
+                defaultProps: { mb: 4 },
+            },
         },
     },
     setPrimaryColor: (color: DefaultMantineColor) => {

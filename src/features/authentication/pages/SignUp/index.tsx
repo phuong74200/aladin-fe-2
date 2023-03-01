@@ -11,6 +11,7 @@ import {
     Stack,
     Text,
     TextInput,
+    Title,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { GoogleLogin } from "@react-oauth/google";
@@ -22,7 +23,6 @@ import PasswordRequirement from "../../components/PasswordRequirement";
 import { requirements } from "./requirements";
 
 import { schools } from "~/constants/schools";
-import AladinLogo from "~/shared/components/AladinLogo";
 import { SelectItem } from "~/shared/components/SelectItem";
 
 export default function SignUp() {
@@ -44,8 +44,8 @@ export default function SignUp() {
     return (
         <Box w="100%">
             <Stack spacing={0} mb="lg" ml="md">
-                <AladinLogo>Xin chào,</AladinLogo>
-                <Text>Tạo tài khoản và bắt đầu học từ hôm nay</Text>
+                <Title weight="bolder">Xin chào,</Title>
+                <Text size="sm">Đăng ký và bắt đầu học ngay hôm nay</Text>
             </Stack>
             <Paper shadow="xl" p="lg" w="100%">
                 <form onSubmit={form.onSubmit((values) => console.log(values))}>

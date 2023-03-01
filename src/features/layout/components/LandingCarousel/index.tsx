@@ -1,8 +1,15 @@
 import { Carousel } from "@mantine/carousel";
-import { Center } from "@mantine/core";
+import { BackgroundImage } from "@mantine/core";
 import Autoplay from "embla-carousel-autoplay";
 
 import { styles } from "./style";
+
+import {
+    ASSET_GIRL_LAPTOP,
+    ASSET_GIRL_TABLET_1,
+    ASSET_GIRL_TABLET_2,
+    ASSET_MALE_LAPTOP,
+} from "~/constants/images";
 
 const autoplayOptions = {
     delay: 2500,
@@ -23,29 +30,17 @@ export default function LandingCarousel() {
             styles={styles}
         >
             <Carousel.Slide>
-                <Center bg="red" w="100%" h="100%">
-                    1
-                </Center>
+                <BackgroundImage src={ASSET_GIRL_LAPTOP} w="100%" h="100%" />
             </Carousel.Slide>
             <Carousel.Slide>
-                <Center bg="green" w="100%" h="100%">
-                    2
-                </Center>
+                <BackgroundImage src={ASSET_GIRL_TABLET_1} w="100%" h="100%" />
             </Carousel.Slide>
             <Carousel.Slide>
-                <Center bg="blue" w="100%" h="100%">
-                    3
-                </Center>
-            </Carousel.Slide>
-            {/* <Carousel.Slide>
-                <CoverImage src={ASSET_GIRL_TABLET_1} />
+                <BackgroundImage src={ASSET_GIRL_TABLET_2} w="100%" h="100%" />
             </Carousel.Slide>
             <Carousel.Slide>
-                <CoverImage src={ASSET_GIRL_TABLET_2} />
+                <BackgroundImage src={ASSET_MALE_LAPTOP} w="100%" h="100%" />
             </Carousel.Slide>
-            <Carousel.Slide>
-                <CoverImage src={ASSET_MALE_LAPTOP} />
-            </Carousel.Slide> */}
             {/* ...other slides */}
         </Carousel>
     );
