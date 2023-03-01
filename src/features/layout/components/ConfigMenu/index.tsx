@@ -45,7 +45,7 @@ export default function ConfigMenu() {
             transition="pop-bottom-right"
         >
             <Menu.Target>
-                <Affix position={{ bottom: 20, right: 20 }}>
+                <Affix position={{ bottom: 24, right: 24 }}>
                     <Transition transition="slide-up" mounted={true}>
                         {(transitionStyles) => (
                             <ActionIcon
