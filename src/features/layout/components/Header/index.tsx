@@ -8,7 +8,7 @@ import {
     Header,
     Menu,
 } from "@mantine/core";
-import { IconChevronDown, IconUserCircle } from "@tabler/icons";
+import { IconUserCircle } from "@tabler/icons";
 
 import { useNavbarStore } from "../../store/navbarStore";
 
