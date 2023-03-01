@@ -1,5 +1,14 @@
-import { Burger, Center, Container, Group, Header, Menu } from "@mantine/core";
-import { IconChevronDown } from "@tabler/icons";
+import {
+    ActionIcon,
+    Box,
+    Burger,
+    Center,
+    Container,
+    Group,
+    Header,
+    Menu,
+} from "@mantine/core";
+import { IconChevronDown, IconUserCircle } from "@tabler/icons";
 
 import { useNavbarStore } from "../../store/navbarStore";
 
@@ -68,7 +77,9 @@ export function HeaderMenuColored({ links }: HeaderSearchProps) {
         <Header height={64} mb={120}>
             <Container fluid px="xl">
                 <div className={classes.inner}>
-                    <AladinLogo size={32} />
+                    <Box className={classes.md_hide}>
+                        <AladinLogo size={32} />
+                    </Box>
                     <Group spacing={5} className={classes.links}>
                         {items}
                     </Group>
@@ -78,6 +89,12 @@ export function HeaderMenuColored({ links }: HeaderSearchProps) {
                         className={classes.burger}
                         size="sm"
                     />
+                    <Box className={classes.md_show}>
+                        <AladinLogo size={32} />
+                    </Box>
+                    <ActionIcon className={classes.md_show}>
+                        <IconUserCircle size={24} />
+                    </ActionIcon>
                 </div>
             </Container>
         </Header>

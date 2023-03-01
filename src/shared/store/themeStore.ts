@@ -46,6 +46,16 @@ export const useThemeStore = create<ThemeState>((set) => ({
             Paper: {
                 defaultProps: { radius: "lg" },
             },
+            Popover: {
+                defaultProps: { radius: "lg" },
+            },
+            Select: {
+                styles: (theme) => ({
+                    item: {
+                        borderRadius: theme.radius.lg,
+                    },
+                }),
+            },
             InputLabel: {
                 defaultProps: { mb: 4 },
             },

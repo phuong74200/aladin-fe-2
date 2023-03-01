@@ -20,6 +20,19 @@ export const useStyles = createStyles((theme) => ({
         },
     },
 
+    md_show: {
+        display: "none",
+        [theme.fn.smallerThan("sm")]: {
+            display: "block",
+        },
+    },
+
+    md_hide: {
+        [theme.fn.smallerThan("sm")]: {
+            display: "none",
+        },
+    },
+
     link: {
         display: "block",
         lineHeight: 1,

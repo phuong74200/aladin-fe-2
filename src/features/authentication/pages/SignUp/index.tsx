@@ -99,7 +99,7 @@ export default function SignUp() {
                         <Center>
                             <GoogleLogin
                                 shape="pill"
-                                locale="vn"
+                                locale="vi"
                                 onSuccess={(credentialResponse) => {
                                     console.log(credentialResponse);
                                 }}

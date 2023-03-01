@@ -6,5 +6,7 @@ export const useStyles = createStyles((theme) => ({
         backgroundClip: "text",
         WebkitTextFillColor: "transparent",
         fontFamily: "overnap",
+        userSelect: "none",
+        cursor: "pointer",
     },
 }));

@@ -6,4 +6,9 @@ export const useStyles = createStyles((theme) => ({
             display: "none",
         },
     },
+    gradientText: {
+        background: theme.fn.linearGradient(133, "#041EA0", "#1078EC"),
+        backgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+    },
 }));
