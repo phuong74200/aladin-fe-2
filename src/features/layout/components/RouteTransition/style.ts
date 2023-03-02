@@ -1,32 +1,29 @@
-import { createStyles, keyframes } from "@mantine/core";
+import { createStyles } from "@mantine/core";
 
-export const fadeIn = keyframes({
-    from: {
-        opacity: 0,
-        transform: "translate(-20px, 0)",
-    },
-    to: {
-        opacity: 1,
-        transform: "translate(0px, 0px)",
-    },
-});
+import { RouteTransitionProps } from ".";
 
-export const fadeOut = keyframes({
-    from: {
-        opacity: 1,
-        transform: "translate(0px, 0px)",
-    },
-    to: {
-        transform: "translate(-20px, 0)",
-        opacity: 0,
-    },
-});
-
-export const useStyles = createStyles((_theme) => ({
-    fadeIn: {
-        animation: `0.25s ${fadeIn} forwards`,
-    },
-    fadeOut: {
-        animation: `0.1s ${fadeOut} forwards`,
+export const useStyles = createStyles((_, params: RouteTransitionProps) => ({
+    anim: {
+        position: "absolute",
+        left: 15,
+        right: 15,
+        "&-enter": {
+            opacity: 0,
+            transform: "translate(-20px, 0)",
+        },
+        "&-enter-active": {
+            opacity: 1,
+            transform: "translate(0, 0)",
+            transition: `opacity ${params.duration}ms, transform ${params.duration}ms ease-out`,
+        },
+        "&-exit": {
+            opacity: 1,
+            transform: "translate(0, 0)",
+        },
+        "&-exit-active": {
+            opacity: 0,
+            transform: "translate(20px, 0)",
+            transition: `opacity ${params.duration}ms, transform ${params.duration}ms ease-out`,
+        },
     },
 }));

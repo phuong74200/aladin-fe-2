@@ -12,10 +12,4 @@ export const useStyles = createStyles((theme) => ({
             margin: "0 auto",
         },
     },
-    lg_p_0: {
-        [`@media (max-width: ${theme.breakpoints.lg}px)`]: {
-            padding: "0 !important",
-            paddingLeft: 0,
-        },
-    },
 }));

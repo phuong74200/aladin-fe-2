@@ -1,36 +1,34 @@
-import { useEffect, useState } from "react";
+import { PropsWithChildren } from "react";
 import { useLocation } from "react-router-dom";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 
 import { useStyles } from "./style";
 
-interface RouteTransitionProps {
-    children: (classes: string, onAnimationEnd: () => void) => JSX.Element;
-}
+import { resolvedRoutes } from "~/router";
 
-function RouteTransition({ children }: RouteTransitionProps) {
-    const { classes } = useStyles();
+export type RouteTransitionProps = PropsWithChildren & {
+    duration?: number;
+};
 
+function RouteTransition({ children, duration = 300 }: RouteTransitionProps) {
     const location = useLocation();
+    const { nodeRef } =
+        resolvedRoutes.find((route) => route.path === location.pathname) ?? {};
+    const { classes } = useStyles({ duration });
 
-    const [displayLocation, setDisplayLocation] = useState(location);
-    const [transitionStage, setTransistionStage] = useState(classes.fadeIn);
-
-    useEffect(() => {
-        if (
-            location.pathname.split("/")[1] !==
-            displayLocation.pathname.split("/")[1]
-        )
-            setTransistionStage(classes.fadeOut);
-    }, [location, displayLocation]);
-
-    const onAnimationEnd = () => {
-        if (transitionStage === classes.fadeOut) {
-            setTransistionStage(classes.fadeIn);
-            setDisplayLocation(location);
-        }
-    };
-
-    return children(transitionStage, onAnimationEnd);
+    return (
+        <SwitchTransition>
+            <CSSTransition
+                key={location.pathname}
+                nodeRef={nodeRef}
+                timeout={duration}
+                classNames={classes.anim}
+                unmountOnExit
+            >
+                {children}
+            </CSSTransition>
+        </SwitchTransition>
+    );
 }
 
 export default RouteTransition;

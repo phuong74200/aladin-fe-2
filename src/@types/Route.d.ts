@@ -7,4 +7,5 @@ export type AuthRouteObject = NonIndexRouteObject & {
     layout?: (props: LayoutProps) => JSX.Element;
     children?: AuthRouteObject[];
     priviliges?: PrivilegeModel[];
+    nodeRef?: Ref<HTMLDivElement>;
 };

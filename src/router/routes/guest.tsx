@@ -5,12 +5,15 @@ import OTP from "~/features/authentication/pages/OTP";
 import PasswordRecovery from "~/features/authentication/pages/PasswordRecovery";
 import ResetPassword from "~/features/authentication/pages/ResetPassword";
 import SignUp from "~/features/authentication/pages/SignUp";
+import HomePage from "~/features/landing/pages/HomePage";
 import GuestLayout from "~/features/layout/pages/GuestLayout";
+import LandingLayout from "~/features/layout/pages/LandingLayout";
 
 export const guestRoute: AuthRouteObject[] = [
     {
         path: "/home",
-        element: <div>landing home</div>,
+        element: <HomePage />,
+        layout: LandingLayout,
     },
     {
         path: "/sign-up",

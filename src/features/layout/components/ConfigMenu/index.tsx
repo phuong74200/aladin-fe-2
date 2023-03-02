@@ -2,10 +2,9 @@ import {
     ActionIcon,
     Affix,
     DefaultMantineColor,
-    Flex,
     Group,
-    Menu,
-    Text,
+    Popover,
+    Stack,
     Transition,
     useMantineTheme,
 } from "@mantine/core";
@@ -33,18 +32,14 @@ export default function ConfigMenu() {
         />
     ));
 
-    const handleScheme = () => {
-        themeState.toggleColorScheme();
-    };
     return (
-        <Menu
-            closeOnItemClick={false}
+        <Popover
             shadow="md"
             width={200}
             position="top-end"
             transition="pop-bottom-right"
         >
-            <Menu.Target>
+            <Popover.Target>
                 <Affix position={{ bottom: 24, right: 24 }}>
                     <Transition transition="slide-up" mounted={true}>
                         {(transitionStyles) => (
@@ -59,24 +54,13 @@ export default function ConfigMenu() {
                         )}
                     </Transition>
                 </Affix>
-            </Menu.Target>
-
-            <Menu.Dropdown>
-                <Menu.Item onClick={handleScheme}>
-                    <Flex justify="space-between">
-                        <Text>
-                            {themeState.theme.colorScheme === "dark"
-                                ? "Light mode"
-                                : "Dark mode"}
-                        </Text>
-                        <SchemeToggle size="sm" />
-                    </Flex>
-                </Menu.Item>
-                <Menu.Label>Primary color</Menu.Label>
-                <Menu.Item>
+            </Popover.Target>
+            <Popover.Dropdown>
+                <Stack>
+                    <SchemeToggle size={25} />
                     <Group position="apart">{swatches}</Group>
-                </Menu.Item>
-            </Menu.Dropdown>
-        </Menu>
+                </Stack>
+            </Popover.Dropdown>
+        </Popover>
     );
 }

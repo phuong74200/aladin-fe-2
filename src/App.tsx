@@ -3,8 +3,10 @@ import { RouterProvider } from "react-router-dom";
 import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { ErrorBoundary, Provider } from "@rollbar/react";
 
 import { GOOGLE_CLIENT_ID } from "./constants/env";
+import { rollbarConfig } from "./constants/rollbar";
 import { useAuthService } from "./features/authentication/services/authService";
 import ConfigMenu from "./features/layout/components/ConfigMenu";
 import { useThemeStore } from "./shared/store/themeStore";
@@ -28,23 +30,27 @@ function App() {
     console.log(themeState.theme.colorScheme);
 
     return (
-        <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
-            <ColorSchemeProvider
-                colorScheme={themeState.theme.colorScheme || "light"}
-                toggleColorScheme={themeState.toggleColorScheme}
-            >
-                <MantineProvider
-                    withGlobalStyles
-                    withNormalizeCSS
-                    theme={themeState.theme}
-                >
-                    <ConfigMenu />
-                    <NotificationsProvider>
-                        <RouterProvider router={browserRouter} />
-                    </NotificationsProvider>
-                </MantineProvider>
-            </ColorSchemeProvider>
-        </GoogleOAuthProvider>
+        <Provider config={rollbarConfig}>
+            <ErrorBoundary>
+                <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+                    <ColorSchemeProvider
+                        colorScheme={themeState.theme.colorScheme || "light"}
+                        toggleColorScheme={themeState.toggleColorScheme}
+                    >
+                        <MantineProvider
+                            withGlobalStyles
+                            withNormalizeCSS
+                            theme={themeState.theme}
+                        >
+                            <ConfigMenu />
+                            <NotificationsProvider>
+                                <RouterProvider router={browserRouter} />
+                            </NotificationsProvider>
+                        </MantineProvider>
+                    </ColorSchemeProvider>
+                </GoogleOAuthProvider>
+            </ErrorBoundary>
+        </Provider>
     );
 }
 

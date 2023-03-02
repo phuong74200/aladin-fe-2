@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
     ActionIcon,
     Box,
@@ -27,6 +28,8 @@ interface HeaderSearchProps {
 export function HeaderMenuColored({ links }: HeaderSearchProps) {
     const navbarState = useNavbarStore();
     const { classes } = useStyles();
+
+    const navigate = useNavigate();
 
     const handleClick = () => navbarState.setOpen(!navbarState.isOpen);
 
@@ -73,6 +76,10 @@ export function HeaderMenuColored({ links }: HeaderSearchProps) {
         );
     });
 
+    const handleClickLogin = () => {
+        navigate("/login");
+    };
+
     return (
         <Header height={64} mb={120}>
             <Container fluid px="xl">
@@ -92,7 +99,10 @@ export function HeaderMenuColored({ links }: HeaderSearchProps) {
                     <Box className={classes.md_show}>
                         <AladinLogo size={32} />
                     </Box>
-                    <ActionIcon className={classes.md_show}>
+                    <ActionIcon
+                        onClick={handleClickLogin}
+                        className={classes.md_show}
+                    >
                         <IconUserCircle size={24} />
                     </ActionIcon>
                 </div>
