@@ -10,11 +10,13 @@ export type RouteTransitionProps = PropsWithChildren & {
     duration?: number;
 };
 
-function RouteTransition({ children, duration = 300 }: RouteTransitionProps) {
+function RouteTransition({ children, duration = 200 }: RouteTransitionProps) {
     const location = useLocation();
     const { nodeRef } =
         resolvedRoutes.find((route) => route.path === location.pathname) ?? {};
     const { classes } = useStyles({ duration });
+
+    console.log(nodeRef);
 
     return (
         <SwitchTransition>

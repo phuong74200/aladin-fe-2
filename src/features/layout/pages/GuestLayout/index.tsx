@@ -4,7 +4,6 @@ import { AppShell, Flex, Grid } from "@mantine/core";
 import LandingCarousel from "../../../../shared/components/LandingCarousel";
 import { HeaderMenuColored } from "../../components/Header";
 import { NavbarNested } from "../../components/NavbarNested";
-import RouteTransition from "../../components/RouteTransition";
 
 import { navbarData } from "./navbarData";
 import { useStyles } from "./style";
@@ -51,17 +50,15 @@ export default function GuestLayout({ children }: LayoutProps) {
                     xs={4}
                     className={classes.lg_p_0}
                 >
-                    <RouteTransition>
-                        <Flex
-                            ref={nodeRef}
-                            justify="center"
-                            align="center"
-                            h="100%"
-                            className={classes.form}
-                        >
-                            {children}
-                        </Flex>
-                    </RouteTransition>
+                    <Flex
+                        ref={nodeRef}
+                        justify="center"
+                        align="center"
+                        h="100%"
+                        className={classes.form}
+                    >
+                        {children}
+                    </Flex>
                 </Grid.Col>
             </Grid>
         </AppShell>

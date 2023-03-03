@@ -9,7 +9,7 @@ import {
     Header,
     Menu,
 } from "@mantine/core";
-import { IconUserCircle } from "@tabler/icons";
+import { IconArrowBarToRight } from "@tabler/icons";
 
 import { useNavbarStore } from "../../store/navbarStore";
 
@@ -103,7 +103,7 @@ export function HeaderMenuColored({ links }: HeaderSearchProps) {
                         onClick={handleClickLogin}
                         className={classes.md_show}
                     >
-                        <IconUserCircle size={24} />
+                        <IconArrowBarToRight size={24} />
                     </ActionIcon>
                 </div>
             </Container>

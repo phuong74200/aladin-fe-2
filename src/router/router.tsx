@@ -2,6 +2,7 @@ import { createRef } from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import { adminRoute } from "./routes/admin";
+import { allRoute } from "./routes/all";
 import { guestRoute } from "./routes/guest";
 import { userRoute } from "./routes/user";
 
@@ -35,7 +36,8 @@ export const resolvedRoutes = resolveAllRoutes(
                 <Navigate to="login" />
             ),
     },
-    ...guestRoute,
+    guestRoute,
+    allRoute,
     userRoute,
     adminRoute,
     {
@@ -43,5 +45,7 @@ export const resolvedRoutes = resolveAllRoutes(
         element: <Error404 />,
     }
 );
+
+console.log(resolvedRoutes);
 
 export const browserRouter = createBrowserRouter(resolvedRoutes);
