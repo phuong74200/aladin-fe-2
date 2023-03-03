@@ -28,7 +28,12 @@ const resolveAllRoutes = (...routes: AuthRouteObject[]): AuthRouteObject[] => {
 export const resolvedRoutes = resolveAllRoutes(
     {
         path: "/",
-        element: <Navigate to="login" />,
+        element:
+            window.innerWidth <= 1200 ? (
+                <Navigate to="home" />
+            ) : (
+                <Navigate to="login" />
+            ),
     },
     ...guestRoute,
     userRoute,

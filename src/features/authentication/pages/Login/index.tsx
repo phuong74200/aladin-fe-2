@@ -19,8 +19,6 @@ import { IconAt, IconLock } from "@tabler/icons";
 
 import FormTitle from "../../components/FormTitle";
 
-import ErrorTest from "~/shared/components/ErrorTest";
-
 export default function SignUp() {
     const form = useForm({
         initialValues: {
@@ -36,7 +34,6 @@ export default function SignUp() {
 
     return (
         <Box w="100%">
-            <ErrorTest />
             <FormTitle
                 title="Xin chào,"
                 content="Đăng nhập và bắt đầu học ngay hôm nay!"

@@ -1,4 +1,4 @@
-import { Carousel } from "@mantine/carousel";
+import { Carousel, CarouselProps } from "@mantine/carousel";
 import { BackgroundImage } from "@mantine/core";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -17,7 +17,7 @@ const autoplayOptions = {
     stopOnMouseEnter: true,
 };
 
-export default function LandingCarousel() {
+export default function LandingCarousel(props: CarouselProps) {
     return (
         <Carousel
             h="100%"
@@ -28,6 +28,7 @@ export default function LandingCarousel() {
             loop
             plugins={[Autoplay(autoplayOptions)]}
             styles={styles}
+            {...props}
         >
             <Carousel.Slide>
                 <BackgroundImage src={ASSET_GIRL_LAPTOP} w="100%" h="100%" />

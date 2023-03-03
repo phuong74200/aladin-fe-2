@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom";
 import { AppShell, Flex, Grid } from "@mantine/core";
 
+import LandingCarousel from "../../../../shared/components/LandingCarousel";
 import { HeaderMenuColored } from "../../components/Header";
-import LandingCarousel from "../../components/LandingCarousel";
 import { NavbarNested } from "../../components/NavbarNested";
 import RouteTransition from "../../components/RouteTransition";
 
