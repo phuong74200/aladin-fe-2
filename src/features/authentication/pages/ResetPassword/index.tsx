@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import { Box, Button, Image, Paper, PasswordInput, Stack } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { showNotification } from "@mantine/notifications";
@@ -25,10 +26,15 @@ export default function ResetPassword() {
     const handleConfirm = () => {
         showNotification({
             id: "1",
-            autoClose: 3000,
+            autoClose: 30000,
             title: "Đổi lại mật khẩu thành công",
-            message:
-                "Bạn đã đổi mật khẩu thành công. Quay trở lại trang login để đăng nhập bằng mật khẩu mới",
+            message: (
+                <>
+                    Bạn đã đổi mật khẩu thành công. Quay trở lại trang
+                    <Link to="/login"> login </Link>để đăng nhập bằng mật khẩu
+                    mới
+                </>
+            ),
             color: "lime",
             icon: <IconLockOpen size={16} />,
             className: "my-notification-class",

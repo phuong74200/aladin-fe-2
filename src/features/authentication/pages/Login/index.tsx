@@ -19,7 +19,7 @@ import { IconAt, IconLock } from "@tabler/icons";
 
 import FormTitle from "../../components/FormTitle";
 
-export default function SignUp() {
+export default function Login() {
     const form = useForm({
         initialValues: {
             email: "",
@@ -42,6 +42,7 @@ export default function SignUp() {
                 <form onSubmit={form.onSubmit((values) => console.log(values))}>
                     <Stack spacing="md">
                         <TextInput
+                            data-testid="input-email"
                             withAsterisk
                             label="Email"
                             placeholder="your@email.com"
@@ -49,6 +50,7 @@ export default function SignUp() {
                             {...form.getInputProps("email")}
                         />
                         <PasswordInput
+                            data-testid="input-pwd"
                             label="Mật khẩu"
                             placeholder="Mật khẩu"
                             icon={<IconLock size={16} />}
@@ -56,6 +58,7 @@ export default function SignUp() {
                         />
                         <Flex justify="space-between" align="center">
                             <Checkbox
+                                data-testid="input-remember"
                                 label="Ghi nhớ đăng nhập"
                                 {...form.getInputProps("rememberMe", {
                                     type: "checkbox",
