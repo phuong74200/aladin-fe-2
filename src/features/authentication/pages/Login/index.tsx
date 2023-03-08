@@ -19,6 +19,8 @@ import { IconAt, IconLock } from "@tabler/icons";
 
 import FormTitle from "../../components/FormTitle";
 
+import { VALID_EMAIL } from "~/shared/regex/email";
+
 export default function Login() {
     const form = useForm({
         initialValues: {
@@ -28,7 +30,9 @@ export default function Login() {
         },
         validate: {
             email: (value) =>
-                /^\S+@\S+$/.test(value) ? null : "Email không hợp lệ",
+                value.match(VALID_EMAIL) ? null : "Email không hợp lệ",
+            password: (value) =>
+                value.length ? null : "Vui lòng nhập mật khẩu",
         },
     });
 
@@ -64,13 +68,20 @@ export default function Login() {
                                     type: "checkbox",
                                 })}
                             />
-                            <Link to="/password-recovery">
+                            <Link
+                                to="/password-recovery"
+                                data-testid="link-forgot"
+                            >
                                 <Text color="dimmed" size="sm">
                                     Quên mật khẩu
                                 </Text>
                             </Link>
                         </Flex>
-                        <Button fullWidth type="submit">
+                        <Button
+                            fullWidth
+                            type="submit"
+                            data-testid="button-submit"
+                        >
                             Đăng nhập
                         </Button>
                         <Divider label="Hoặc" labelPosition="center" />

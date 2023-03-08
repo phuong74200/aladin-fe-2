@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
 import { Box, Button, Image, Paper, PasswordInput, Stack } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { showNotification } from "@mantine/notifications";
@@ -24,23 +23,22 @@ export default function ResetPassword() {
     });
 
     const handleConfirm = () => {
-        showNotification({
-            id: "1",
-            autoClose: 30000,
-            title: "Đổi lại mật khẩu thành công",
-            message: (
-                <>
-                    Bạn đã đổi mật khẩu thành công. Quay trở lại trang
-                    <Link to="/login"> login </Link>để đăng nhập bằng mật khẩu
-                    mới
-                </>
-            ),
-            color: "lime",
-            icon: <IconLockOpen size={16} />,
-            className: "my-notification-class",
-            loading: false,
-        });
-        navigate("/login");
+        if (form.isValid()) {
+            showNotification({
+                id: "1",
+                title: "Đổi lại mật khẩu thành công",
+                message: (
+                    <>
+                        Bạn đã đổi mật khẩu thành công. Quay trở lại trang login
+                        để đăng nhập bằng mật khẩu mới
+                    </>
+                ),
+                color: "lime",
+                icon: <IconLockOpen size={16} />,
+                loading: false,
+            });
+            navigate("/login");
+        }
     };
 
     return (
@@ -51,18 +49,21 @@ export default function ResetPassword() {
                     <Stack spacing="md">
                         <Image height="50%" src={ASSET_DOUBLE_LOCK} />
                         <PasswordInput
+                            data-testid="input-password"
                             label="Mật khẩu mới"
                             placeholder="Mật khẩu mới"
                             icon={<IconLock size={16} />}
                             {...form.getInputProps("password")}
                         />
                         <PasswordInput
+                            data-testid="input-re-password"
                             label="Nhập lại mật khẩu mới"
                             placeholder="Nhập lại mật khẩu mới"
                             icon={<IconLock size={16} />}
                             {...form.getInputProps("rePassword")}
                         />
                         <Button
+                            data-testid="button-submit"
                             mt="sm"
                             fullWidth
                             type="submit"

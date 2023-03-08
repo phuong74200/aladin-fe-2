@@ -21,8 +21,16 @@ import PasswordRequirement from "../../components/PasswordRequirement";
 
 import { requirements } from "./requirements";
 
+import { Validation } from "~/@types/Validation";
 import { schools } from "~/constants/schools";
 import { SelectItem } from "~/shared/components/SelectItem";
+
+const requirementTest = (validation: Validation[], value = "") => {
+    for (const requirement of validation) {
+        if (!requirement.re.test(value)) return false;
+    }
+    return true;
+};
 
 export default function SignUp() {
     const form = useForm({
@@ -37,6 +45,10 @@ export default function SignUp() {
                 /^\S+@\S+$/.test(value) ? null : "Email không hợp lệ",
             rePassword: (value, values) =>
                 value === values.password ? null : "Mật khẩu không khớp",
+            password: (value) =>
+                requirementTest(requirements, value)
+                    ? null
+                    : "Mật khẩu quá yếu",
         },
     });
 
@@ -50,6 +62,7 @@ export default function SignUp() {
                 <form onSubmit={form.onSubmit((values) => console.log(values))}>
                     <Stack spacing="md">
                         <TextInput
+                            data-testid="input-email"
                             withAsterisk
                             label="Email"
                             placeholder="your@email.com"
@@ -57,6 +70,7 @@ export default function SignUp() {
                             {...form.getInputProps("email")}
                         />
                         <PasswordRequirement
+                            data-testid="input-password"
                             requirements={requirements}
                             label="Mật khẩu"
                             placeholder="Mật khẩu"
@@ -64,6 +78,7 @@ export default function SignUp() {
                             {...form.getInputProps("password")}
                         />
                         <PasswordInput
+                            data-testid="input-re-password"
                             label="Nhập lại mật khẩu"
                             placeholder="Nhập lại mật khẩu"
                             icon={<IconLock size={16} />}
@@ -91,7 +106,11 @@ export default function SignUp() {
                         />
                         <Flex gap="md">
                             <GoBackButton />
-                            <Button fullWidth type="submit">
+                            <Button
+                                data-testid="button-submit"
+                                fullWidth
+                                type="submit"
+                            >
                                 Tạo tài khoản
                             </Button>
                         </Flex>

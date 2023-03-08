@@ -1,15 +1,15 @@
 import { fireEvent, render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import Login from ".";
+import PasswordRecovery from ".";
 
 import TestEnv from "~/shared/components/TestEnv";
 
-describe("Login Form", () => {
+describe("Password Recovery Form", () => {
     it("should valid email", () => {
         const component = render(
             <TestEnv>
-                <Login />
+                <PasswordRecovery />
             </TestEnv>
         );
 
@@ -30,7 +30,7 @@ describe("Login Form", () => {
     it("should invalid email", () => {
         const component = render(
             <TestEnv>
-                <Login />
+                <PasswordRecovery />
             </TestEnv>
         );
 
@@ -41,32 +41,11 @@ describe("Login Form", () => {
             "input-email"
         ) as HTMLInputElement;
 
-        const sut = "ph%^&&*6%^&#$%_)unog^gtmail.com";
+        const sut = "ph%^&&*6%^&#$%_)unoggtmail.com";
 
         fireEvent.change(emailNode, { target: { value: sut } });
         fireEvent.click(submitNode);
 
         expect(emailNode.getAttribute("aria-invalid")).toBe(expected);
-    });
-    it("shouldn't empty password", () => {
-        const component = render(
-            <TestEnv>
-                <Login />
-            </TestEnv>
-        );
-
-        const expected = "true";
-
-        const submitNode = component.getByTestId("button-submit");
-        const pwdNode = component.getByTestId("input-pwd") as HTMLInputElement;
-
-        const sut = "";
-
-        fireEvent.change(pwdNode, { target: { value: sut } });
-        fireEvent.click(submitNode);
-
-        expect(pwdNode.parentElement?.getAttribute("aria-invalid")).toBe(
-            expected
-        );
     });
 });

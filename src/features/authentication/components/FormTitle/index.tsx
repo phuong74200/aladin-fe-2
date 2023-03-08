@@ -10,7 +10,13 @@ interface FormTitle {
 export default function FormTitle(props: FormTitle) {
     const { classes } = useStyles();
     return (
-        <Stack spacing={0} mb="lg" ml="md" className={classes.m_md_hidden}>
+        <Stack
+            data-testid="heading"
+            spacing={0}
+            mb="lg"
+            ml="md"
+            className={classes.m_md_hidden}
+        >
             {props.title && (
                 <Title className={classes.gradientText} weight="bolder">
                     {props.title}

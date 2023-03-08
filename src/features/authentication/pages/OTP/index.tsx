@@ -19,13 +19,7 @@ export default function OTP() {
 
     const form = useForm({
         initialValues: {
-            email: "",
-            rememberMe: false,
-            password: "",
-        },
-        validate: {
-            email: (value) =>
-                /^\S+@\S+$/.test(value) ? null : "Email không hợp lệ",
+            otp: "",
         },
     });
 
@@ -59,20 +53,31 @@ export default function OTP() {
                         )}
                     >
                         <OtpInput
+                            data-testid="input-otp"
                             inputStyle={classes.input}
                             containerStyle={classes.container}
                             focusStyle={classes.focus}
                             numInputs={NUMB_DIGITS}
-                            {...form.getInputProps("email")}
+                            {...form.getInputProps("otp")}
                         />
                     </form>
                     <Flex gap="md">
                         <GoBackButton />
-                        <Button fullWidth type="submit" onClick={handleConfirm}>
+                        <Button
+                            data-testid="button-confirm"
+                            disabled={form.values.otp.length !== NUMB_DIGITS}
+                            fullWidth
+                            type="submit"
+                            onClick={handleConfirm}
+                        >
                             Xác thực
                         </Button>
                     </Flex>
-                    <Button variant="subtle" disabled={timer > 0}>
+                    <Button
+                        data-testid="button-re-send"
+                        variant="subtle"
+                        disabled={timer > 0}
+                    >
                         {timer > 0
                             ? `Gửi lại mã xác thực sau ${timer}s`
                             : "Gửi lại mã xác thực"}

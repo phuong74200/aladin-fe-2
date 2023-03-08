@@ -41,6 +41,7 @@ export default function PasswordRecovery() {
                     <Stack spacing="md">
                         <Image height="50%" src={ASSET_DOUBLE_LOCK} />
                         <TextInput
+                            data-testid="input-email"
                             withAsterisk
                             label="Email"
                             placeholder="your@email.com"
@@ -51,7 +52,12 @@ export default function PasswordRecovery() {
                         <Flex gap="md">
                             <GoBackButton />
 
-                            <Button fullWidth type="submit" onClick={handleOTP}>
+                            <Button
+                                data-testid="button-submit"
+                                fullWidth
+                                type="submit"
+                                onClick={handleOTP}
+                            >
                                 Gửi mã xác thực
                             </Button>
                         </Flex>
