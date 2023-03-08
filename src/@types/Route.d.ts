@@ -8,4 +8,5 @@ export interface AuthRouteObject extends NonIndexRouteObject {
     children?: AuthRouteObject[];
     priviliges?: PrivilegeModel[];
     nodeRef?: Ref<HTMLDivElement>;
+    title?: string;
 }

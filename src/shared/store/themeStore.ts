@@ -18,6 +18,11 @@ export const useThemeStore = create<ThemeState>((set) => ({
         colorScheme: "light",
         fontFamily: "Inter, sans-serif",
         components: {
+            Text: {
+                defaultProps: {
+                    size: "sm",
+                },
+            },
             Button: {
                 defaultProps: {
                     radius: "lg",

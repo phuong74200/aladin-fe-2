@@ -4,6 +4,7 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import { adminRoute } from "./routes/admin";
 import { allRoute } from "./routes/all";
 import { guestRoute } from "./routes/guest";
+import { studentRoute } from "./routes/student";
 import { userRoute } from "./routes/user";
 
 import { AuthRouteObject } from "~/@types";
@@ -40,6 +41,7 @@ export const resolvedRoutes = resolveAllRoutes(
     allRoute,
     userRoute,
     adminRoute,
+    studentRoute,
     {
         path: "*",
         element: <Error404 />,

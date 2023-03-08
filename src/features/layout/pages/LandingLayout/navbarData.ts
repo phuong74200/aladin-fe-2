@@ -13,11 +13,11 @@ export const navbarData = [
             },
             {
                 label: "Data Analysis",
-                link: "youtube.com",
+                link: "google.com",
             },
             {
                 label: "Business Administration",
-                link: "youtube.com",
+                link: "fb.com",
             },
         ],
     },

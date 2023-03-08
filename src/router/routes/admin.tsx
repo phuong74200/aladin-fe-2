@@ -5,7 +5,7 @@ import PrivateRoute from "~/features/authentication/components/PrivateRoute";
 import AdminLayout from "~/features/layout/pages/AdminLayout";
 
 export const adminRoute: AuthRouteObject = {
-    path: "admin",
+    path: "/admin",
     element: <PrivateRoute />,
     children: [
         {
