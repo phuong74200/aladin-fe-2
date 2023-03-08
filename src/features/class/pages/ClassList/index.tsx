@@ -17,7 +17,7 @@ import { mock } from "../ClassDetail/mock";
 
 import { useStyles } from "./style";
 
-const TOTAL = 11;
+const TOTAL = Math.floor((window.innerHeight - 385) / 63);
 
 export default function ClassList() {
     const { classes } = useStyles();

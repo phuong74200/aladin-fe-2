@@ -95,6 +95,9 @@ export default function StudentLayout({ children }: LayoutProps) {
                 </Paper>
                 <Paper
                     h="100%"
+                    style={{
+                        display: "flex",
+                    }}
                     className={classes.md__half_w}
                     shadow="md"
                     p="lg"
