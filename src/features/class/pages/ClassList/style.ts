@@ -4,27 +4,6 @@ export const useStyles = createStyles((theme) => ({
     fixed: {
         tableLayout: "fixed",
     },
-    fullHeightOverflow: {
-        overflow: "auto",
-        height: "100%",
-        display: "block !important",
-    },
-    sticky: {
-        th: {
-            position: "sticky",
-            top: 0,
-            backgroundColor:
-                theme.colorScheme === "dark"
-                    ? theme.colors.dark[8]
-                    : theme.colors.gray[0],
-            "&:first-child": {
-                borderTopLeftRadius: theme.radius.lg,
-            },
-            "&:last-child": {
-                borderTopRightRadius: theme.radius.lg,
-            },
-        },
-    },
     fixed_header: {
         tableLayout: "fixed",
         borderCollapse: "collapse",
@@ -32,6 +11,7 @@ export const useStyles = createStyles((theme) => ({
         flex: "0 1 auto",
         borderRadius: theme.radius.md,
         overflow: "hidden",
+        width: "100%",
 
         tbody: {
             display: "block",
@@ -39,22 +19,22 @@ export const useStyles = createStyles((theme) => ({
             overflow: "auto",
             height: "100%",
             flex: "0 1 auto",
+
+            tr: {
+                width: "100%",
+                display: "flex",
+                cursor: "pointer",
+            },
         },
 
-        th: {
+        "th, td": {
             padding: "5px",
             textAlign: "left",
-            width: "200px",
-        },
-        td: {
-            padding: "5px",
-            textAlign: "left",
-            width: "200px",
+            width: "25%",
+            float: "left",
         },
 
         thead: {
-            // background: "black",
-            // color: "#fff",
             tr: {
                 display: "block",
             },
