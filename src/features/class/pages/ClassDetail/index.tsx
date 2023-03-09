@@ -4,7 +4,7 @@ import { Accordion, Button, Stack, useMantineTheme } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useDebouncedValue } from "@mantine/hooks";
 import { IconCreditCard, IconId, IconSchool } from "@tabler/icons";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs";
 
 import CouponInput from "../../components/CouponInput";
 import DetailGroup from "../../components/DetailGroup";
