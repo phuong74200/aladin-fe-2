@@ -64,6 +64,13 @@ export const useThemeStore = create<ThemeState>((set) => ({
             InputLabel: {
                 defaultProps: { mb: 4 },
             },
+            Tabs: {
+                styles: (theme) => ({
+                    tab: {
+                        borderRadius: theme.radius.md,
+                    },
+                }),
+            },
         },
     },
     setPrimaryColor: (color: DefaultMantineColor) => {

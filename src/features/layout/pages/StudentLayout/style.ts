@@ -1,4 +1,4 @@
-import { createStyles } from "@mantine/core";
+import { createStyles, MantineTheme } from "@mantine/core";
 
 export const useStyles = createStyles((theme) => ({
     m_md_hidden: {
@@ -14,9 +14,26 @@ export const useStyles = createStyles((theme) => ({
     },
     stack: { display: "flex", flexDirection: "column" },
     md__half_w: {
+        minWidth: "33%",
         width: "33%",
-        [`@media (max-width: ${theme.breakpoints.xl}px)`]: {
-            width: "50%",
-        },
+    },
+    overflowTab: {
+        flex: 1,
+        overflow: "auto",
+    },
+    overflow: {
+        overflow: "auto",
     },
 }));
+
+export const appShellStyles = (theme: MantineTheme) => ({
+    main: {
+        backgroundColor:
+            theme.colorScheme === "dark"
+                ? theme.colors.dark[8]
+                : theme.colors.gray[0],
+        height: "100vh",
+        display: "flex",
+        gap: theme.spacing.lg,
+    },
+});

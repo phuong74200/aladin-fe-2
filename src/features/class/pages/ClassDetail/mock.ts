@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 
-export const mock = new Array(1000).fill(undefined).map((_, index) => ({
+export const mock = new Array(50).fill(undefined).map((_, index) => ({
     id: index,
     subject: faker.hacker.noun(),
     time: faker.date.between(
@@ -25,3 +25,5 @@ export const couponMock = new Map(
             parseFloat(faker.commerce.price()) * 100,
         ])
 );
+
+couponMock.set("test", parseFloat(faker.commerce.price()) * 100);

@@ -28,4 +28,7 @@ export default defineConfig({
         environment: "jsdom",
         setupFiles: "./__test__/setup.ts",
     },
+    build: {
+        minify: false,
+    },
 });
