@@ -16,7 +16,11 @@ const resolveAllRoutes = (...routes: AuthRouteObject[]): AuthRouteObject[] => {
         route.errorElement = <ErrorBoundary />;
         if (route.layout)
             route.element = (
-                <route.layout priviliges={route.priviliges}>
+                <route.layout
+                    priviliges={route.priviliges}
+                    _children={route.children}
+                    {...route}
+                >
                     {route.element}
                 </route.layout>
             );
@@ -47,7 +51,5 @@ export const resolvedRoutes = resolveAllRoutes(
         element: <Error404 />,
     }
 );
-
-console.log(resolvedRoutes);
 
 export const browserRouter = createBrowserRouter(resolvedRoutes);

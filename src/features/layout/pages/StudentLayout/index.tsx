@@ -18,7 +18,6 @@ import { navbarData } from "./navbarData";
 import { appShellStyles, useStyles } from "./style";
 
 import { AuthRouteObject, LayoutProps } from "~/@types";
-import ClassDetail from "~/features/class/pages/ClassDetail";
 import { studentRoute } from "~/router/routes/student";
 
 const getTabs = (children?: AuthRouteObject[]) => {
@@ -30,7 +29,7 @@ const getTabs = (children?: AuthRouteObject[]) => {
     }));
 };
 
-export default function StudentLayout({ children }: LayoutProps) {
+export default function StudentLayout(props: LayoutProps) {
     const navigate = useNavigate();
     const location = useLocation();
     const params = useParams();
@@ -46,6 +45,10 @@ export default function StudentLayout({ children }: LayoutProps) {
     const tabs = useMemo(
         () => getTabs(studentRoute.children),
         [studentRoute.children]
+    );
+
+    const detail: AuthRouteObject = props._children?.find((child) =>
+        child.path.includes(defaultTab)
     );
 
     return (
@@ -65,7 +68,7 @@ export default function StudentLayout({ children }: LayoutProps) {
                             onChange={handleTabChange}
                         />
                     </Box>
-                    {children}
+                    {props.children}
                 </Stack>
             </Paper>
             <Paper
@@ -74,7 +77,7 @@ export default function StudentLayout({ children }: LayoutProps) {
                 p="lg"
             >
                 {params.classId ? (
-                    <ClassDetail />
+                    detail.children && detail.child?.element
                 ) : (
                     <Center w="100%" h="100%">
                         <ItemNotFound p="lg" />

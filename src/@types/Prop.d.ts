@@ -2,6 +2,7 @@ import { PropsWithChildren } from "react";
 
 import { PrivilegeModel } from "./models/PrivilegeModel";
 
-export type LayoutProps = PropsWithChildren & {
+export interface LayoutProps extends PropsWithChildren, AuthRouteObject {
     priviliges?: PrivilegeModel[];
-};
+    _children?: AuthRouteObject[];
+}

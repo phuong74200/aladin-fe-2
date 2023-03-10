@@ -1,5 +1,6 @@
 import { Flex, Text, TextInput, TextInputProps } from "@mantine/core";
-import { IconTicket } from "@tabler/icons";
+
+import { styles } from "./style";
 
 export default function CouponInput(props: TextInputProps) {
     return (
@@ -7,13 +8,9 @@ export default function CouponInput(props: TextInputProps) {
             <Text weight="bold">Mã khuyến mãi</Text>
             <TextInput
                 w={150}
-                styles={{
-                    error: {
-                        textAlign: "right",
-                    },
-                }}
-                icon={<IconTicket size={16} />}
+                styles={styles}
                 defaultValue={1}
+                variant="unstyled"
                 placeholder="Mã khuyến mãi"
                 {...props}
             />

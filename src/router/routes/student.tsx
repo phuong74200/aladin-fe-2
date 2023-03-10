@@ -1,6 +1,7 @@
 import { AuthRouteObject } from "~/@types";
 import PrivateRoute from "~/features/authentication/components/PrivateRoute";
-import ClassList from "~/features/class/pages/ClassList";
+import ClassDetail from "~/features/grouping/pages/ClassDetail";
+import ClassList from "~/features/grouping/pages/ClassList";
 import StudentLayout from "~/features/layout/pages/StudentLayout";
 
 export const studentRoute: AuthRouteObject = {
@@ -24,11 +25,14 @@ export const studentRoute: AuthRouteObject = {
             element: <ClassList />,
             priviliges: [],
             title: "Lớp học",
+            child: {
+                path: ":classId",
+                element: <ClassDetail />,
+            },
             children: [
                 {
                     path: ":classId",
-                    element: <div>classId</div>,
-                    priviliges: [],
+                    element: <ClassDetail />,
                 },
             ],
         },
