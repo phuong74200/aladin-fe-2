@@ -14,21 +14,21 @@ export default function ClassList() {
 
     const handleClick = (id: number) => () => navigate(`./${id}`);
 
-    const rows = mock.map((element) => (
-        <tr key={element.id} onClick={handleClick(element.id)}>
+    const rows = mock.map((element, index) => (
+        <tr key={index} onClick={handleClick(index)}>
             <td width={250}>
-                <Text lineClamp={1}>{element.subject}</Text>
+                <Text lineClamp={1}>{element.group.subject}</Text>
             </td>
             <td width={250}>
-                <Text lineClamp={1}>{`19h-22h, ${dayjs(element.time).format(
-                    "DD/MM/YYYY"
-                )}`}</Text>
+                <Text lineClamp={1}>{`19h-22h, ${dayjs(
+                    element.group.schedule[0]
+                ).format("DD/MM/YYYY")}`}</Text>
             </td>
             <td width="30%">
-                <Text lineClamp={1}>{element.location}</Text>
+                <Text lineClamp={1}>{element.group.location}</Text>
             </td>
             <td>
-                <Text lineClamp={1}>{element.ta}</Text>
+                <Text lineClamp={1}>{element.group.ta.name}</Text>
             </td>
         </tr>
     ));

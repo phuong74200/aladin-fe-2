@@ -1,20 +1,20 @@
 import { ReactNode } from "react";
-import { Group, Text } from "@mantine/core";
+import { SimpleGrid, Text } from "@mantine/core";
 
-interface DetailGroupProps {
+interface InfoGroupProps {
     label: ReactNode;
     value: ReactNode;
     last?: ReactNode;
 }
 
-export default function DetailGroup({ label, value, last }: DetailGroupProps) {
+export default function InfoGroup({ label, value, last }: InfoGroupProps) {
     return (
-        <Group position="apart">
+        <SimpleGrid cols={2} spacing="lg" verticalSpacing="sm">
             <Text weight="bold">{label}</Text>
             <Text>
                 {value}
                 {last}
             </Text>
-        </Group>
+        </SimpleGrid>
     );
 }

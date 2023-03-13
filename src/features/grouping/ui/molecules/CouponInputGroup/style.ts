@@ -3,10 +3,9 @@ import { Styles, TextInputStylesNames } from "@mantine/core";
 export const styles:
     | Styles<TextInputStylesNames, Record<string, unknown>>
     | undefined = {
-    error: {
-        textAlign: "right",
-    },
     input: {
-        textAlign: "right",
+        height: "1.356rem",
+        minHeight: "1.356rem",
+        padding: 0,
     },
 };

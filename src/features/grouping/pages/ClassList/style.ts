@@ -20,6 +20,10 @@ export const useStyles = createStyles((theme) => ({
             height: "100%",
             flex: "0 1 auto",
 
+            "::-webkit-scrollbar": {
+                display: "none",
+            },
+
             tr: {
                 width: "100%",
                 display: "flex",

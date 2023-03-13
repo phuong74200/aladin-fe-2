@@ -9,7 +9,7 @@ import {
     Stepper,
 } from "@mantine/core";
 
-import ClassInfo from "../ClassInfo";
+import OrderDetail from "../../ui/templates/OrderDetail";
 
 import { stepStyles, useStyles } from "./style";
 
@@ -69,7 +69,7 @@ export default function SubscribeComfirm(props: SubscribeComfirmProps) {
                     <Center>
                         <FormTitle title="Xác nhận thông tin" />
                     </Center>
-                    <ClassInfo disabled={props.disabled} />
+                    <OrderDetail />
                     <Button fullWidth my="md" onClick={handleConfirm}>
                         Xác nhận
                     </Button>
