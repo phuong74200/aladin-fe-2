@@ -39,7 +39,7 @@ export default function StudentLayout(props: LayoutProps) {
         navigate(value);
     };
 
-    const backSlash = "classId" in params ? -2 : -1;
+    const backSlash = "id" in params ? -2 : -1;
     const defaultTab = location.pathname.split("/").slice(backSlash)[0];
 
     const tabs = useMemo(
@@ -76,8 +76,8 @@ export default function StudentLayout(props: LayoutProps) {
                 shadow="md"
                 p="lg"
             >
-                {params.classId ? (
-                    detail.children && detail.child?.element
+                {params.id ? (
+                    detail.children && detail.children[0].element
                 ) : (
                     <Center w="100%" h="100%">
                         <ItemNotFound p="lg" />

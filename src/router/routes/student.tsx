@@ -1,7 +1,9 @@
 import { AuthRouteObject } from "~/@types";
 import PrivateRoute from "~/features/authentication/components/PrivateRoute";
-import ClassDetail from "~/features/grouping/pages/ClassDetail";
-import ClassList from "~/features/grouping/pages/ClassList";
+import ClassroomList from "~/features/grouping/pages/classroom-list";
+import ClassroomView from "~/features/grouping/pages/classroom-view";
+import GroupingList from "~/features/grouping/pages/group-list";
+import GroupView from "~/features/grouping/pages/group-view";
 import StudentLayout from "~/features/layout/pages/StudentLayout";
 
 export const studentRoute: AuthRouteObject = {
@@ -11,9 +13,15 @@ export const studentRoute: AuthRouteObject = {
     children: [
         {
             path: "grouping",
-            element: <div>grouping profile 1</div>,
+            element: <GroupingList />,
             priviliges: [],
             title: "Nhóm ghép",
+            children: [
+                {
+                    path: ":id",
+                    element: <GroupView />,
+                },
+            ],
         },
         {
             path: "private",
@@ -22,17 +30,13 @@ export const studentRoute: AuthRouteObject = {
         },
         {
             path: "class",
-            element: <ClassList />,
+            element: <ClassroomList />,
             priviliges: [],
             title: "Lớp học",
-            child: {
-                path: ":classId",
-                element: <ClassDetail />,
-            },
             children: [
                 {
-                    path: ":classId",
-                    element: <ClassDetail />,
+                    path: ":id",
+                    element: <ClassroomView />,
                 },
             ],
         },

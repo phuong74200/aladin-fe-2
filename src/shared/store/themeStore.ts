@@ -71,6 +71,14 @@ export const useThemeStore = create<ThemeState>((set) => ({
                     },
                 }),
             },
+            Modal: {
+                exitTransitionDuration: 300,
+                defaultProps: {
+                    overlayBlur: 3,
+                    overlayOpacity: 0.3,
+                    exitTransitionDuration: 300,
+                },
+            },
         },
     },
     setPrimaryColor: (color: DefaultMantineColor) => {
