@@ -1,5 +1,16 @@
 import { useMemo } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+    matchRoutes,
+    renderMatches,
+    useLocation,
+    useMatch,
+    useMatches,
+    useNavigate,
+    useOutlet,
+    useParams,
+    useResolvedPath,
+    useRoutes,
+} from "react-router-dom";
 import {
     AppShell,
     Box,
@@ -18,6 +29,7 @@ import { navbarData } from "./navbarData";
 import { appShellStyles, useStyles } from "./style";
 
 import { AuthRouteObject, LayoutProps } from "~/@types";
+import { resolvedRoutes } from "~/router";
 import { studentRoute } from "~/router/routes/student";
 
 const getTabs = (children?: AuthRouteObject[]) => {
@@ -30,26 +42,7 @@ const getTabs = (children?: AuthRouteObject[]) => {
 };
 
 export default function StudentLayout(props: LayoutProps) {
-    const navigate = useNavigate();
-    const location = useLocation();
-    const params = useParams();
     const { classes, cx } = useStyles();
-
-    const handleTabChange = (value: string) => {
-        navigate(value);
-    };
-
-    const backSlash = "id" in params ? -2 : -1;
-    const defaultTab = location.pathname.split("/").slice(backSlash)[0];
-
-    const tabs = useMemo(
-        () => getTabs(studentRoute.children),
-        [studentRoute.children]
-    );
-
-    const detail: AuthRouteObject = props._children?.find((child) =>
-        child.path.includes(defaultTab)
-    );
 
     return (
         <AppShell
@@ -58,32 +51,7 @@ export default function StudentLayout(props: LayoutProps) {
             navbar={<NavbarNested data={navbarData} />}
             styles={appShellStyles}
         >
-            <Paper shadow="md" p="md" w="100%">
-                <Stack w="100%" h="100%" align="stretch">
-                    <Box w="100%">
-                        <SegmentedControl
-                            defaultValue={defaultTab}
-                            fullWidth
-                            data={tabs}
-                            onChange={handleTabChange}
-                        />
-                    </Box>
-                    {props.children}
-                </Stack>
-            </Paper>
-            <Paper
-                className={cx(classes.md__half_w, classes.overflow)}
-                shadow="md"
-                p="lg"
-            >
-                {params.id ? (
-                    detail.children && detail.children[0].element
-                ) : (
-                    <Center w="100%" h="100%">
-                        <ItemNotFound p="lg" />
-                    </Center>
-                )}
-            </Paper>
+            {props.children}
         </AppShell>
     );
 }

@@ -11,16 +11,14 @@ import { AuthRouteObject } from "~/@types";
 import ErrorBoundary from "~/features/error/components/ErrorBoundary";
 import Error404 from "~/features/error/pages/Error404";
 
-const resolveAllRoutes = (...routes: AuthRouteObject[]): AuthRouteObject[] => {
+export const resolveAllRoutes = (
+    ...routes: AuthRouteObject[]
+): AuthRouteObject[] => {
     return routes.map((route) => {
         route.errorElement = <ErrorBoundary />;
         if (route.layout)
             route.element = (
-                <route.layout
-                    priviliges={route.priviliges}
-                    _children={route.children}
-                    {...route}
-                >
+                <route.layout priviliges={route.priviliges}>
                     {route.element}
                 </route.layout>
             );

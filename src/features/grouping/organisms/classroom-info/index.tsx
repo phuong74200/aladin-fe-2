@@ -24,7 +24,7 @@ export interface GroupAccordionProps {
     };
 }
 
-export default function GroupAccordion({
+export default function ClassroomInfo({
     subject,
     students,
     lessons,

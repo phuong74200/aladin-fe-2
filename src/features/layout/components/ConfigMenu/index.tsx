@@ -40,7 +40,7 @@ export default function ConfigMenu() {
             transition="pop-bottom-right"
         >
             <Popover.Target>
-                <Affix position={{ bottom: 24, right: 24 }}>
+                <Affix position={{ bottom: 24 + 8, right: 24 + 8 }}>
                     <Transition transition="slide-up" mounted={true}>
                         {(transitionStyles) => (
                             <ActionIcon

@@ -42,7 +42,7 @@ export default function PersonalAccordion({
                     {phone ? (
                         <Text label="Số điện thoại" value={phone} />
                     ) : null}
-                    {email ? <Text label="Email" value={name} /> : null}
+                    {email ? <Text label="Email" value={email} /> : null}
                 </Stack>
             </Accordion.Panel>
         </>

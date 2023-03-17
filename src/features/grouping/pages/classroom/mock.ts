@@ -12,7 +12,7 @@ export const mock = new Array(50).fill(undefined).map(() => ({
         lessons: 0,
         duration: 0,
         description: faker.hacker.phrase() + " " + faker.hacker.phrase(),
-        location: `${faker.address.streetAddress()}, ${faker.address.cityName()}, ${faker.address.country()}`,
+        location: `${faker.address.streetAddress()}, ${faker.address.cityName()}, ${faker.address.country()} ${faker.address.streetAddress()}, ${faker.address.cityName()}, ${faker.address.country()} ${faker.address.streetAddress()}, ${faker.address.cityName()}, ${faker.address.country()}`,
         schedule: [
             faker.date.between(
                 "2020-01-01T00:00:00.000Z",

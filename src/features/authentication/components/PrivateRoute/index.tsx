@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useOutlet, useOutletContext } from "react-router-dom";
 
 import Error404 from "~/features/error/pages/Error404";
 

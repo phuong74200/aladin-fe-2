@@ -26,7 +26,7 @@ export interface GroupInfoProps {
     };
 }
 
-export default function GroupInfo({
+export default function GroupCreate({
     subject,
     students,
     lessons,
@@ -94,7 +94,6 @@ export default function GroupInfo({
                         label="Nội dung buổi học"
                         value={subject}
                     />
-                    <Text label="Tên TA phụ trách" value={ta?.name} />
                 </Stack>
             </Accordion.Panel>
         </>

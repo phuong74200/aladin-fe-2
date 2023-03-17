@@ -46,7 +46,8 @@ export default function Checkout({ coupon, sale, price }: CheckoutProps) {
                             label="Tạm tính"
                             value={
                                 <>
-                                    {price} <small>VND</small>
+                                    {price.toLocaleString("en-US")}{" "}
+                                    <small>VND</small>
                                 </>
                             }
                         />
@@ -56,7 +57,8 @@ export default function Checkout({ coupon, sale, price }: CheckoutProps) {
                             label="Giảm giá"
                             value={
                                 <>
-                                    {sale} <small>VND</small>
+                                    {sale.toLocaleString("en-US")}{" "}
+                                    <small>VND</small>
                                 </>
                             }
                         />
@@ -66,7 +68,8 @@ export default function Checkout({ coupon, sale, price }: CheckoutProps) {
                             label="Tổng tiền"
                             value={
                                 <>
-                                    {price - sale} <small>VND</small>
+                                    {(price - sale).toLocaleString("en-US")}{" "}
+                                    <small>VND</small>
                                 </>
                             }
                         />
