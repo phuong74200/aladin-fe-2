@@ -1,4 +1,10 @@
-import { useNavigate, useParams } from "react-router-dom";
+import {
+    Outlet,
+    useNavigate,
+    useOutlet,
+    useOutletContext,
+    useParams,
+} from "react-router-dom";
 import {
     Accordion,
     Button,
@@ -17,6 +23,8 @@ import PersonalAccordion from "../../organisms/classroom-personal";
 import Navbar from "../../organisms/nav-bar";
 
 import { mock } from "./mock";
+import NotFound from "./not-found";
+import Side from "./side";
 import { accordion, useStyles } from "./style";
 
 import ItemNotFound from "~/features/layout/components/ItemNotFound";
@@ -26,6 +34,10 @@ export default function ClassroomList() {
     const navigate = useNavigate();
     const params = useParams();
     const id = parseInt(params.id || "0", 10);
+
+    const outlet = useOutlet();
+
+    console.log("xxx", outlet);
 
     const data = mock[id];
 
@@ -73,37 +85,7 @@ export default function ClassroomList() {
                     </Table>
                 </Stack>
             </Paper>
-            <Paper
-                className={cx(classes.md__half_w, classes.overflow)}
-                shadow="md"
-                p="lg"
-            >
-                {params.id ? (
-                    <Stack>
-                        <Accordion
-                            multiple
-                            radius="xl"
-                            defaultValue={["personal", "group", "check-out"]}
-                            styles={accordion}
-                        >
-                            <Accordion.Item value="personal">
-                                <PersonalAccordion {...data.personnal} />
-                            </Accordion.Item>
-                            <Accordion.Item value="group">
-                                <ClassroomInfo {...data.group} />
-                            </Accordion.Item>
-                            <Accordion.Item value="check-out">
-                                <Checkout {...data.checkout} />
-                            </Accordion.Item>
-                        </Accordion>
-                        <Button>Đăng ký ngay</Button>
-                    </Stack>
-                ) : (
-                    <Center w="100%" h="100%">
-                        <ItemNotFound p="lg" />
-                    </Center>
-                )}
-            </Paper>
+            {outlet || <NotFound />}
         </>
     );
 }

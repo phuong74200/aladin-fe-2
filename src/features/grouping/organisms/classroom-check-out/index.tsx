@@ -1,6 +1,7 @@
 import {
     Accordion,
     Divider,
+    SimpleGrid,
     Stack,
     Text as MantineText,
     useMantineTheme,
@@ -9,10 +10,12 @@ import {
 import Text from "../../molecules/text";
 import TextInput from "../../molecules/text-input";
 
+import Display from "~/shared/components/display";
+
 export interface CheckoutProps {
     coupon?: string;
-    sale?: number;
-    price?: number;
+    sale: number;
+    price: number;
     payment?: "Bank" | "Zalo" | "Momo";
 }
 
@@ -52,17 +55,24 @@ export default function Checkout({ coupon, sale, price }: CheckoutProps) {
                             }
                         />
                     ) : null}
-                    {sale ? (
-                        <Text
-                            label="Giảm giá"
-                            value={
-                                <>
-                                    {sale.toLocaleString("en-US")}{" "}
-                                    <small>VND</small>
-                                </>
-                            }
-                        />
-                    ) : null}
+                    <Display mounted={sale}>
+                        <SimpleGrid>
+                            <MantineText>Giảm giá</MantineText>
+                            <MantineText>
+                                {sale?.toLocaleString("en-US")}
+                                <small> VND</small>
+                            </MantineText>
+                        </SimpleGrid>
+                    </Display>
+                    <Display mounted={price && sale}>
+                        <SimpleGrid>
+                            <MantineText>Tổng tiền</MantineText>
+                            <MantineText>
+                                {(price - sale).toLocaleString("en-US")}
+                                <small> VND</small>
+                            </MantineText>
+                        </SimpleGrid>
+                    </Display>
                     {price && sale ? (
                         <Text
                             label="Tổng tiền"

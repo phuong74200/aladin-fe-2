@@ -7,9 +7,12 @@ import {
 } from "@mantine/core";
 import dayjs from "dayjs";
 
+import DividerControl from "../../molecules/divider-control";
 import NumberInput from "../../molecules/number-input";
 import SpoilerGroup from "../../molecules/spoiler";
 import Text from "../../molecules/text";
+
+import Display from "~/shared/components/display";
 
 export interface GroupAccordionProps {
     subject?: string;
@@ -38,39 +41,29 @@ export default function ClassroomInfo({
 
     return (
         <>
-            <Accordion.Control>
-                <Divider
-                    label={
-                        <MantineText
-                            color={theme.primaryColor}
-                            weight="bold"
-                            size="md"
-                        >
-                            Thông tin nhóm
-                        </MantineText>
-                    }
-                />
-            </Accordion.Control>
+            <DividerControl textProps={{ color: theme.primaryColor }}>
+                Thông tin nhóm
+            </DividerControl>
             <Accordion.Panel>
                 <Stack>
-                    {subject ? (
+                    <Display mounted={subject}>
                         <Text label="Môn đăng ký" value={subject} />
-                    ) : null}
-                    {typeof students === "number" ? (
+                    </Display>
+                    <Display mounted={typeof students === "number"}>
                         <NumberInput
                             label="Số lượng sinh viên"
                             placeholder="Số lượng sinh viên"
                         />
-                    ) : null}
-                    {lessons ? (
+                    </Display>
+                    <Display mounted={lessons}>
                         <Text label="Số lượng buổi học" value={lessons} />
-                    ) : null}
-                    {duration ? (
+                    </Display>
+                    <Display mounted={duration}>
                         <Text label="Thời lượng buổi học" value={duration} />
-                    ) : null}
-                    {location ? (
+                    </Display>
+                    <Display mounted={location}>
                         <Text label="Địa điểm" value={location} />
-                    ) : null}
+                    </Display>
                     {schedule?.map((time, index) => (
                         <Text
                             key={time.getTime()}
@@ -78,12 +71,12 @@ export default function ClassroomInfo({
                             value={dayjs(time).format("DD/MM/YYYY")}
                         />
                     ))}
-                    {description ? (
+                    <Display mounted={description}>
                         <SpoilerGroup
                             label="Nội dung buổi học"
                             value={description}
                         />
-                    ) : null}
+                    </Display>
                     {ta?.name ? (
                         <Text label="Tên TA phụ trách" value={ta.name} />
                     ) : null}

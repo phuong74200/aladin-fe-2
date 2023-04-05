@@ -1,6 +1,7 @@
 import { AuthRouteObject } from "~/@types";
 import PrivateRoute from "~/features/authentication/components/PrivateRoute";
 import ClassroomList from "~/features/grouping/pages/classroom";
+import Side from "~/features/grouping/pages/classroom/side";
 import Grouping from "~/features/grouping/pages/group";
 import StudentLayout from "~/features/layout/pages/StudentLayout";
 
@@ -34,6 +35,7 @@ export const studentRoute: AuthRouteObject = {
             children: [
                 {
                     path: ":id",
+                    element: <Side />,
                 },
             ],
         },
