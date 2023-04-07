@@ -1,9 +1,9 @@
 import { createStyles } from "@mantine/core";
 
 export const useStyles = createStyles(() => ({
-    noPaddingTop: {
-        '[role="radiogroup"]': {
-            paddingTop: 0,
-        },
+  noPaddingTop: {
+    '[role="radiogroup"]': {
+      paddingTop: 0,
     },
+  },
 }));

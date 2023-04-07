@@ -1,18 +1,14 @@
 import { createStyles } from "@mantine/styles";
 
 export const useStyles = createStyles((theme) => ({
-    user: {
-        display: "block",
-        width: "100%",
-        padding: theme.spacing.md,
-        color:
-            theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
+  user: {
+    display: "block",
+    width: "100%",
+    padding: theme.spacing.md,
+    color: theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
 
-        "&:hover": {
-            backgroundColor:
-                theme.colorScheme === "dark"
-                    ? theme.colors.dark[8]
-                    : theme.colors.gray[0],
-        },
+    "&:hover": {
+      backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[0],
     },
+  },
 }));

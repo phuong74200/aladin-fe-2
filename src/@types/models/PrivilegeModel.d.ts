@@ -1,7 +1,7 @@
 export interface PrivilegeModel {
-    entity: string;
-    create?: boolean;
-    read?: boolean;
-    update?: boolean;
-    delete?: boolean;
+  entity: string;
+  create?: boolean;
+  read?: boolean;
+  update?: boolean;
+  delete?: boolean;
 }

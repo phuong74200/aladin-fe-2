@@ -3,9 +3,9 @@ import { Outlet } from "react-router-dom";
 import Error404 from "~/features/error/pages/Error404";
 
 export default function PrivateRoute() {
-    const isLoggedIn = true;
+  const isLoggedIn = true;
 
-    if (isLoggedIn) return <Outlet />;
+  if (isLoggedIn) return <Outlet />;
 
-    return <Error404 />;
+  return <Error404 />;
 }

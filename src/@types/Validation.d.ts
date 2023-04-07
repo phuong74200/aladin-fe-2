@@ -1,4 +1,4 @@
 export interface Validation {
-    re: RegExp;
-    label: string;
+  re: RegExp;
+  label: string;
 }

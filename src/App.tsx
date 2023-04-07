@@ -13,45 +13,41 @@ import { useThemeStore } from "./shared/store/themeStore";
 import { browserRouter } from "./router";
 
 function App() {
-    const themeState = useThemeStore();
+  const themeState = useThemeStore();
 
-    const me = useAuthService((state) => state.me);
+  const me = useAuthService((state) => state.me);
 
-    const getAuth = useAuthService((state) => state.get);
+  const getAuth = useAuthService((state) => state.get);
 
-    useEffect(() => {
-        getAuth();
-    }, []);
+  useEffect(() => {
+    getAuth();
+  }, []);
 
-    useEffect(() => {
-        console.log(me);
-    }, [me]);
+  useEffect(() => {
+    console.log(me);
+  }, [me]);
 
-    console.log(themeState.theme.colorScheme);
+  console.log(themeState.theme.colorScheme);
 
-    return (
-        <Provider config={rollbarConfig}>
-            <ErrorBoundary>
-                <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
-                    <ColorSchemeProvider
-                        colorScheme={themeState.theme.colorScheme || "light"}
-                        toggleColorScheme={themeState.toggleColorScheme}
-                    >
-                        <MantineProvider
-                            withGlobalStyles
-                            withNormalizeCSS
-                            theme={themeState.theme}
-                        >
-                            <ConfigMenu />
-                            <NotificationsProvider>
-                                <RouterProvider router={browserRouter} />
-                            </NotificationsProvider>
-                        </MantineProvider>
-                    </ColorSchemeProvider>
-                </GoogleOAuthProvider>
-            </ErrorBoundary>
-        </Provider>
-    );
+  return (
+    <Provider config={rollbarConfig}>
+      <ErrorBoundary>
+        <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+          <ColorSchemeProvider
+            colorScheme={themeState.theme.colorScheme || "light"}
+            toggleColorScheme={themeState.toggleColorScheme}
+          >
+            <MantineProvider withGlobalStyles withNormalizeCSS theme={themeState.theme}>
+              <ConfigMenu />
+              <NotificationsProvider>
+                <RouterProvider router={browserRouter} />
+              </NotificationsProvider>
+            </MantineProvider>
+          </ColorSchemeProvider>
+        </GoogleOAuthProvider>
+      </ErrorBoundary>
+    </Provider>
+  );
 }
 
 export default App;

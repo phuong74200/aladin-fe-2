@@ -9,41 +9,41 @@ import GuestLayout from "~/features/layout/pages/GuestLayout";
 import TransitionLayout from "~/features/layout/pages/TransitionLayout";
 
 export const guestRoute: AuthRouteObject = {
-    path: "/",
-    element: <PrivateRoute />,
-    layout: GuestLayout,
-    children: [
+  path: "/",
+  element: <PrivateRoute />,
+  layout: GuestLayout,
+  children: [
+    {
+      path: "login",
+      element: <Login />,
+      layout: TransitionLayout,
+    },
+    {
+      path: "/sign-up",
+      element: <SignUp />,
+      layout: TransitionLayout,
+    },
+    {
+      path: "/password-recovery",
+      element: <PrivateRoute />,
+      layout: TransitionLayout,
+      children: [
         {
-            path: "login",
-            element: <Login />,
-            layout: TransitionLayout,
+          path: "/password-recovery",
+          element: <PasswordRecovery />,
+          layout: TransitionLayout,
         },
         {
-            path: "/sign-up",
-            element: <SignUp />,
-            layout: TransitionLayout,
+          layout: TransitionLayout,
+          path: "otp",
+          element: <OTP />,
         },
         {
-            path: "/password-recovery",
-            element: <PrivateRoute />,
-            layout: TransitionLayout,
-            children: [
-                {
-                    path: "/password-recovery",
-                    element: <PasswordRecovery />,
-                    layout: TransitionLayout,
-                },
-                {
-                    layout: TransitionLayout,
-                    path: "otp",
-                    element: <OTP />,
-                },
-                {
-                    layout: TransitionLayout,
-                    path: "reset",
-                    element: <ResetPassword />,
-                },
-            ],
+          layout: TransitionLayout,
+          path: "reset",
+          element: <ResetPassword />,
         },
-    ],
+      ],
+    },
+  ],
 };
