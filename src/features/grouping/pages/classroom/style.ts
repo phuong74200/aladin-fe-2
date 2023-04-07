@@ -82,6 +82,7 @@ export const appShellStyles = (theme: MantineTheme) => ({
 });
 
 export const stepper = { steps: { padding: 16 } };
+
 export const accordion = (theme: MantineTheme) => ({
   item: {
     borderBottom: "none",

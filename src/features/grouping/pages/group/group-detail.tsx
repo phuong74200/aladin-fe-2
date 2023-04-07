@@ -13,7 +13,7 @@ export default function GroupDetail() {
   const params = useParams();
   const id = parseInt(params.id || "0", 10);
 
-  const { personnal, checkout, group } = mock[id];
+  const { personal, checkout, group } = mock[id];
 
   return (
     <Paper className={cx(classes.md__half_w, classes.overflow)} shadow="md" p="lg">
@@ -26,9 +26,9 @@ export default function GroupDetail() {
         >
           <Accordion.Item value="personal">
             <Information label="Thông tin cá nhân">
-              <Information.Text label="Họ và tên" value={personnal.name} />
-              <Information.Text label="Email" value={personnal.email} />
-              <Information.Text label="Số điện thoại" value={personnal.phone} />
+              <Information.Text label="Họ và tên" value={personal.name} />
+              <Information.Text label="Email" value={personal.email} />
+              <Information.Text label="Số điện thoại" value={personal.phone} />
             </Information>
           </Accordion.Item>
 

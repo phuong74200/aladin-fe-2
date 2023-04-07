@@ -38,7 +38,12 @@ export default function PasswordRequirement({
   const color = strength === 100 ? "teal" : strength > 50 ? "yellow" : "red";
 
   return (
-    <Popover opened={popoverOpened} position="bottom" width="target" transition="pop">
+    <Popover
+      opened={popoverOpened}
+      position="bottom"
+      width="target"
+      transitionProps={{ transition: "pop" }}
+    >
       <Popover.Target>
         <div
           onFocusCapture={() => setPopoverOpened(true)}

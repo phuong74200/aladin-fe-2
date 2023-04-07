@@ -33,7 +33,12 @@ export default function ConfigMenu() {
   ));
 
   return (
-    <Popover shadow="md" width={200} position="top-end" transition="pop-bottom-right">
+    <Popover
+      shadow="md"
+      width={200}
+      position="top-end"
+      transitionProps={{ transition: "pop-bottom-right" }}
+    >
       <Popover.Target>
         <Affix position={{ bottom: 24 + 8, right: 24 + 8 }}>
           <Transition transition="slide-up" mounted={true}>

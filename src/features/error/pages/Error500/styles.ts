@@ -49,7 +49,7 @@ export const useStyles = createStyles((theme) => ({
     maxWidth: 460,
     margin: "auto",
     marginTop: theme.spacing.xl,
-    marginBottom: theme.spacing.xl * 1.5,
+    marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
     color: theme.colors[theme.primaryColor][1],
   },
 }));

@@ -7,7 +7,7 @@ interface DividerControlProps extends AccordionControlProps {
 
 export default function DividerControl(props: DividerControlProps) {
   return (
-    <Accordion.Control {...props}>
+    <Accordion.Control>
       <Divider
         label={
           <Text weight="bold" size="md" {...props.textProps}>

@@ -68,11 +68,15 @@ export const useThemeStore = create<ThemeState>((set) => ({
         }),
       },
       Modal: {
-        exitTransitionDuration: 300,
         defaultProps: {
-          overlayBlur: 3,
-          overlayOpacity: 0.3,
-          exitTransitionDuration: 300,
+          overlayProps: {
+            blur: 3,
+            opacity: 0.3,
+          },
+
+          transitionProps: {
+            exitTransitionDuration: 300,
+          },
         },
       },
     },

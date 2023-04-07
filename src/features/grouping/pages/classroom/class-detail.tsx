@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { Accordion, Button, Paper, Stack } from "@mantine/core";
 
+import ClassRoomForm from "../../organisms/classroom-form";
 import Information from "../../organisms/information";
 
 import { mock } from "./mock";
@@ -11,7 +12,7 @@ export default function ClassDetail() {
 
   const { id } = useParams();
 
-  const { personnal, checkout, group } = mock[parseInt(id || "0", 10)];
+  const { personal, checkout, group } = mock[parseInt(id || "0", 10)];
 
   return (
     <Paper className={cx(classes.md__half_w, classes.overflow)} shadow="md" p="lg">
@@ -24,9 +25,9 @@ export default function ClassDetail() {
         >
           <Accordion.Item value="personal">
             <Information label="Thông tin cá nhân">
-              <Information.Text label="Họ và tên" value={personnal.name} />
-              <Information.Text label="Email" value={personnal.email} />
-              <Information.Text label="Số điện thoại" value={personnal.phone} />
+              <Information.Text label="Họ và tên" value={personal.name} />
+              <Information.Text label="Email" value={personal.email} />
+              <Information.Text label="Số điện thoại" value={personal.phone} />
             </Information>
           </Accordion.Item>
 
@@ -60,6 +61,7 @@ export default function ClassDetail() {
         </Accordion>
         <Button>Đăng ký ngay</Button>
       </Stack>
+      <ClassRoomForm personal={personal} checkout={checkout} group={group} />
     </Paper>
   );
 }

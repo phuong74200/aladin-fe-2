@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 
 export const mock = new Array(50).fill(undefined).map(() => ({
-  personnal: {
+  personal: {
     name: faker.name.fullName(),
     phone: faker.phone.number(),
     email: faker.internet.email(),
