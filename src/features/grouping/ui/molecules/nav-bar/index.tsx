@@ -12,8 +12,8 @@ const getTabs = (children?: AuthRouteObject[]) => {
   }));
 };
 
-import { AuthRouteObject } from "~/@types";
-import { studentRoute } from "~/router/routes/student";
+import { AuthRouteObject } from "@/@types";
+import { studentRoute } from "@/router/routes/student";
 
 export default function NavBar() {
   const navigate = useNavigate();

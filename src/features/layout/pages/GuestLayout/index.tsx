@@ -1,15 +1,15 @@
 import { useLocation } from "react-router-dom";
 import { AppShell, Flex, Grid } from "@mantine/core";
 
+import { LayoutProps } from "@/@types";
+import { resolvedRoutes } from "@/router";
+
 import LandingCarousel from "../../../../shared/components/LandingCarousel";
 import { HeaderMenuColored } from "../../components/Header";
 import { NavbarNested } from "../../components/NavbarNested";
 
 import { navbarData } from "./navbarData";
 import { useStyles } from "./style";
-
-import { LayoutProps } from "~/@types";
-import { resolvedRoutes } from "~/router";
 
 export default function GuestLayout({ children }: LayoutProps) {
   const { cx, classes } = useStyles();

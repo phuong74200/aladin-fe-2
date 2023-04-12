@@ -1,9 +1,9 @@
 import { fireEvent, render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import Login from ".";
+import TestEnv from "@/shared/components/TestEnv";
 
-import TestEnv from "~/shared/components/TestEnv";
+import Login from ".";
 
 describe("Login Form", () => {
   it("should valid email", () => {

@@ -1,4 +1,4 @@
-import { LayoutProps } from "~/@types";
+import { LayoutProps } from "@/@types";
 
 export default function AdminLayout({ children }: LayoutProps) {
   return (

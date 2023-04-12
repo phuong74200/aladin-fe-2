@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { Box, Button, Flex, Image, Paper, Stack, Text } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
+import { ASSET_DOUBLE_LOCK } from "@/constants/images";
+
 import FormTitle from "../../components/FormTitle";
 import GoBackButton from "../../components/GoBackButton";
 
 import { useStyles } from "./style";
-
-import { ASSET_DOUBLE_LOCK } from "~/constants/images";
 
 const NUMB_DIGITS = 6;
 

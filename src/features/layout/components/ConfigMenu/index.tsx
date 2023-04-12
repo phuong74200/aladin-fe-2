@@ -8,11 +8,11 @@ import {
   Transition,
   useMantineTheme,
 } from "@mantine/core";
-import { IconSettings2 } from "@tabler/icons";
+import { IconSettings2 } from "@tabler/icons-react";
 
-import CheckableColorSwatch from "~/shared/components/CheckableColorSwatch";
-import SchemeToggle from "~/shared/components/SchemeToggle";
-import { useThemeStore } from "~/shared/store/themeStore";
+import CheckableColorSwatch from "@/shared/components/CheckableColorSwatch";
+import SchemeToggle from "@/shared/components/SchemeToggle";
+import { useThemeStore } from "@/shared/store/themeStore";
 
 export default function ConfigMenu() {
   const theme = useMantineTheme();

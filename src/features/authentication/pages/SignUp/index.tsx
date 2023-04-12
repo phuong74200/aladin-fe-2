@@ -13,17 +13,17 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { GoogleLogin } from "@react-oauth/google";
-import { IconAt, IconLock } from "@tabler/icons";
+import { IconAt, IconLock } from "@tabler/icons-react";
+
+import { Validation } from "@/@types/Validation";
+import { schools } from "@/constants/schools";
+import { SelectItem } from "@/shared/components/SelectItem";
 
 import FormTitle from "../../components/FormTitle";
 import GoBackButton from "../../components/GoBackButton";
 import PasswordRequirement from "../../components/PasswordRequirement";
 
 import { requirements } from "./requirements";
-
-import { Validation } from "~/@types/Validation";
-import { schools } from "~/constants/schools";
-import { SelectItem } from "~/shared/components/SelectItem";
 
 const requirementTest = (validation: Validation[], value = "") => {
   for (const requirement of validation) {

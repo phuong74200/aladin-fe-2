@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Box, PasswordInput, PasswordInputProps, Popover, Progress, Text } from "@mantine/core";
-import { IconCheck, IconX } from "@tabler/icons";
+import { IconCheck, IconX } from "@tabler/icons-react";
+
+import { Validation } from "@/@types/Validation";
 
 import getStrength from "../../utils/getStrength";
-
-import { Validation } from "~/@types/Validation";
 
 function RequirementField({ meets, label }: { meets: boolean; label: string }) {
   return (
@@ -35,7 +35,9 @@ export default function PasswordRequirement({
   ));
 
   const strength = getStrength(value, requirements);
-  const color = strength === 100 ? "teal" : strength > 50 ? "yellow" : "red";
+
+  const waringColor = strength > 50 ? "yellow" : "red";
+  const color = strength === 100 ? "teal" : waringColor;
 
   return (
     <Popover

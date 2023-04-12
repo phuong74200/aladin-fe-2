@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { ActionIcon, Box, Burger, Center, Container, Group, Header, Menu } from "@mantine/core";
-import { IconArrowBarToRight } from "@tabler/icons";
+import { IconArrowBarToRight } from "@tabler/icons-react";
+
+import AladinLogo from "@/shared/components/AladinLogo";
 
 import { useNavbarStore } from "../../store/navbarStore";
 
 import { useStyles } from "./style";
-
-import AladinLogo from "~/shared/components/AladinLogo";
 
 interface HeaderSearchProps {
   links: {

@@ -2,9 +2,9 @@ import { PropsWithChildren } from "react";
 import { useLocation } from "react-router-dom";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 
-import { useStyles } from "./style";
+import { resolvedRoutes } from "@/router";
 
-import { resolvedRoutes } from "~/router";
+import { useStyles } from "./style";
 
 export type RouteTransitionProps = PropsWithChildren & {
   duration?: number;

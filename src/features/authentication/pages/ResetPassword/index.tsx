@@ -2,11 +2,11 @@ import { useNavigate } from "react-router";
 import { Box, Button, Image, Paper, PasswordInput, Stack } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { showNotification } from "@mantine/notifications";
-import { IconLock, IconLockOpen } from "@tabler/icons";
+import { IconLock, IconLockOpen } from "@tabler/icons-react";
+
+import { ASSET_DOUBLE_LOCK } from "@/constants/images";
 
 import FormTitle from "../../components/FormTitle";
-
-import { ASSET_DOUBLE_LOCK } from "~/constants/images";
 
 export default function ResetPassword() {
   const navigate = useNavigate();

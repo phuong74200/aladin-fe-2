@@ -14,8 +14,6 @@ export default function ClassroomList() {
   const navigate = useNavigate();
   const outlet = useOutlet();
 
-  console.log("xxx", outlet);
-
   const handleClick = (id: number) => () => navigate(`./${id}`);
 
   const rows = mock.map((element, index) => (

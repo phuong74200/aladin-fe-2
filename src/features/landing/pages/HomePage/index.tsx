@@ -2,9 +2,9 @@ import { Navigate } from "react-router-dom";
 import { useMantineTheme } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 
-import { styles } from "./style";
+import LandingCarousel from "@/shared/components/LandingCarousel";
 
-import LandingCarousel from "~/shared/components/LandingCarousel";
+import { styles } from "./style";
 
 export default function HomePage() {
   const theme = useMantineTheme();

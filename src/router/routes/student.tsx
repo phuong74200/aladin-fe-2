@@ -1,10 +1,10 @@
-import { AuthRouteObject } from "~/@types";
-import PrivateRoute from "~/features/authentication/components/PrivateRoute";
-import ClassroomList from "~/features/grouping/pages/classroom";
-import ClassDetail from "~/features/grouping/pages/classroom/class-detail";
-import Grouping from "~/features/grouping/pages/group";
-import GroupDetail from "~/features/grouping/pages/group/group-detail";
-import StudentLayout from "~/features/layout/pages/StudentLayout";
+import { AuthRouteObject } from "@/@types";
+import PrivateRoute from "@/features/authentication/components/PrivateRoute";
+import ClassroomList from "@/features/grouping/ui/pages/classroom";
+import ClassDetail from "@/features/grouping/ui/pages/classroom/class-detail";
+import Grouping from "@/features/grouping/ui/pages/group";
+import GroupDetail from "@/features/grouping/ui/pages/group/group-detail";
+import StudentLayout from "@/features/layout/pages/StudentLayout";
 
 export const studentRoute: AuthRouteObject = {
   path: "/student",

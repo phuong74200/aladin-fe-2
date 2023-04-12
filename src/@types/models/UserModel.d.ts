@@ -1,6 +1,8 @@
 export interface UserModel {
-  createdAt: string;
-  name: string;
-  avatar: string;
+  name?: string;
+  avatar?: string;
   id: string;
+  name?: string;
+  phone?: string;
+  email?: string;
 }

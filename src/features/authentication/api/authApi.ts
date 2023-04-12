@@ -1,5 +1,5 @@
-import { UserModel } from "~/@types";
-import axiosInstance from "~/axios/axios";
+import { UserModel } from "@/@types";
+import axiosInstance from "@/axios/axios";
 
 const END_POINT = "/auth";
 

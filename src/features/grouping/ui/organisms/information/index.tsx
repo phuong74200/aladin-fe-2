@@ -1,8 +1,11 @@
 import { createContext, useMemo } from "react";
 import {
   Accordion,
+  Group,
   NumberInput,
   NumberInputProps,
+  Radio,
+  RadioProps,
   SimpleGrid,
   Spoiler,
   Stack,
@@ -12,12 +15,12 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 
-import DiSimpleGrid from "../../atoms/DiSimpleGrid";
+import { CompoundContext } from "@/@types/Compound";
+
+import DiSimpleGrid from "../../atoms/di-simple-grid";
 import DividerControl from "../../molecules/divider-control";
 
 import { numberInputStyle, textInputStyle } from "./style";
-
-import { CompoundContext } from "~/@types/Compound";
 
 const InformationContext = createContext<CompoundContext>({
   displayName: "Information",
@@ -35,7 +38,7 @@ export default function Information({ children, label }: InformationProps) {
   return (
     <InformationContext.Provider value={value}>
       <DividerControl textProps={{ color: theme.primaryColor }}>{label}</DividerControl>
-      <Accordion.Panel>
+      <Accordion.Panel px={4}>
         <Stack>{children}</Stack>
       </Accordion.Panel>
     </InformationContext.Provider>
@@ -118,6 +121,17 @@ Information.TextInput = (props: TextInputProps) => {
     <DiSimpleGrid>
       <Text weight="bold">{props.label}</Text>
       <TextInput {...props} w="100%" label={undefined} variant="unstyled" styles={textInputStyle} />
+    </DiSimpleGrid>
+  );
+};
+
+Information.Radio = (props: RadioProps) => {
+  return (
+    <DiSimpleGrid>
+      <Text weight="bold">{props.label}</Text>
+      <Radio.Group>
+        <Group mt="xs">{props.children}</Group>
+      </Radio.Group>
     </DiSimpleGrid>
   );
 };

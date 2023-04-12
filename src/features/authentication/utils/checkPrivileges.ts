@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-import { PrivilegeModel } from "~/@types";
+import { PrivilegeModel } from "@/@types";
 
 const isMatchAny = (o1: PrivilegeModel, o2: Partial<PrivilegeModel>) => {
   const keys = Object.keys(o2);

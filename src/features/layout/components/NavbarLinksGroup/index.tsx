@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Box, Collapse, Group, Text, ThemeIcon, UnstyledButton } from "@mantine/core";
-import { IconCalendarStats, IconChevronLeft, IconChevronRight, TablerIcon } from "@tabler/icons";
+import { IconCalendarStats, IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 
 import { useStyles } from "./style";
 
 interface LinksGroupProps {
-  icon: TablerIcon;
+  icon: React.ElementType;
   label: string;
   initiallyOpened?: boolean;
   links?: { label: string; link: string }[];

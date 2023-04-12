@@ -1,15 +1,15 @@
 import { createRef } from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
+import { AuthRouteObject } from "@/@types";
+import ErrorBoundary from "@/features/error/components/ErrorBoundary";
+import Error404 from "@/features/error/pages/Error404";
+
 import { adminRoute } from "./routes/admin";
 import { allRoute } from "./routes/all";
 import { guestRoute } from "./routes/guest";
 import { studentRoute } from "./routes/student";
 import { userRoute } from "./routes/user";
-
-import { AuthRouteObject } from "~/@types";
-import ErrorBoundary from "~/features/error/components/ErrorBoundary";
-import Error404 from "~/features/error/pages/Error404";
 
 export const resolveAllRoutes = (...routes: AuthRouteObject[]): AuthRouteObject[] => {
   return routes.map((route) => {

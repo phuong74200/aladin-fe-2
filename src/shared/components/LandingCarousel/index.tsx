@@ -2,14 +2,14 @@ import { Carousel, CarouselProps } from "@mantine/carousel";
 import { BackgroundImage } from "@mantine/core";
 import Autoplay from "embla-carousel-autoplay";
 
-import { styles } from "./style";
-
 import {
   ASSET_GIRL_LAPTOP,
   ASSET_GIRL_TABLET_1,
   ASSET_GIRL_TABLET_2,
   ASSET_MALE_LAPTOP,
-} from "~/constants/images";
+} from "@/constants/images";
+
+import { styles } from "./style";
 
 const autoplayOptions = {
   delay: 2500,

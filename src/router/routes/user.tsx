@@ -1,5 +1,5 @@
-import { AuthRouteObject } from "~/@types";
-import PrivateRoute from "~/features/authentication/components/PrivateRoute";
+import { AuthRouteObject } from "@/@types";
+import PrivateRoute from "@/features/authentication/components/PrivateRoute";
 
 export const userRoute: AuthRouteObject = {
   path: "/user",

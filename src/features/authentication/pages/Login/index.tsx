@@ -15,11 +15,11 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { GoogleLogin } from "@react-oauth/google";
-import { IconAt, IconLock } from "@tabler/icons";
+import { IconAt, IconLock } from "@tabler/icons-react";
+
+import { VALID_EMAIL } from "@/shared/regex/email";
 
 import FormTitle from "../../components/FormTitle";
-
-import { VALID_EMAIL } from "~/shared/regex/email";
 
 export default function Login() {
   const form = useForm({

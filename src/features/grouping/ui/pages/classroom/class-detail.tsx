@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Accordion, Button, Paper, Stack } from "@mantine/core";
 
@@ -9,10 +10,13 @@ import { accordion, useStyles } from "./style";
 
 export default function ClassDetail() {
   const { classes, cx } = useStyles();
-
   const { id } = useParams();
+  const [opened, setOpened] = useState(false);
 
-  const { personal, checkout, group } = mock[parseInt(id || "0", 10)];
+  const { personal, checkout, group, step } = mock[parseInt(id || "0", 10)];
+
+  const handleClose = () => setOpened(false);
+  const handleOpen = () => setOpened(true);
 
   return (
     <Paper className={cx(classes.md__half_w, classes.overflow)} shadow="md" p="lg">
@@ -30,7 +34,6 @@ export default function ClassDetail() {
               <Information.Text label="Số điện thoại" value={personal.phone} />
             </Information>
           </Accordion.Item>
-
           <Accordion.Item value="group">
             <Information label="Thông tin nhóm">
               <Information.Text label="Môn học" value={group.subject} />
@@ -45,7 +48,6 @@ export default function ClassDetail() {
               <Information.Text label="Tên TA phụ trách" value={group.ta.name} />
             </Information>
           </Accordion.Item>
-
           <Accordion.Item value="check-out">
             <Information label="Thông tin thanh toán">
               <Information.TextInput
@@ -59,9 +61,18 @@ export default function ClassDetail() {
             </Information>
           </Accordion.Item>
         </Accordion>
-        <Button>Đăng ký ngay</Button>
+        <Button mx={20} onClick={handleOpen}>
+          Đăng ký ngay
+        </Button>
       </Stack>
-      <ClassRoomForm personal={personal} checkout={checkout} group={group} />
+      <ClassRoomForm
+        opened={opened}
+        onClose={handleClose}
+        personal={personal}
+        checkout={checkout}
+        group={group}
+        step={step}
+      />
     </Paper>
   );
 }

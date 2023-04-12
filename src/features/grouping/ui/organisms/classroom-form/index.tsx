@@ -1,18 +1,24 @@
+import { useState } from "react";
 import {
   Accordion,
   Button,
+  Flex,
+  Group,
   Modal,
   Paper,
-  rem,
+  Radio,
   ScrollArea,
   Stack,
   Stepper,
-  StepperProps,
+  Text,
 } from "@mantine/core";
+import { IconHelpCircleFilled } from "@tabler/icons-react";
+
+import MomoQR from "@/assets/Momo.svg";
 
 import Information from "../information";
 
-import { accordionStyles, modalStyles, useStyles } from "./style";
+import { accordionStyles, modalStyles, stepperStyles, useStyles } from "./style";
 
 interface ClassRoomFormProps {
   personal: {
@@ -37,54 +43,42 @@ interface ClassRoomFormProps {
       name: string;
     };
   };
+  opened: boolean;
+  onClose: () => void;
+  step: number;
 }
 
-function StyledStepper(props: StepperProps) {
-  return (
-    <Stepper
-      styles={{
-        stepBody: {
-          display: "none",
-        },
+export default function ClassRoomForm({
+  personal,
+  checkout,
+  group,
+  opened,
+  onClose,
+  step,
+}: ClassRoomFormProps) {
+  const { classes } = useStyles();
+  const [active, setActive] = useState(step);
 
-        step: {
-          padding: 0,
-        },
+  console.log(MomoQR);
 
-        stepIcon: {
-          borderWidth: rem(4),
-        },
-
-        separator: {
-          marginLeft: rem(-2),
-          marginRight: rem(-2),
-          height: rem(10),
-        },
-      }}
-      {...props}
-    />
-  );
-}
-
-export default function ClassRoomForm({ personal, checkout, group }: ClassRoomFormProps) {
   return (
     <Modal
-      size="lg"
-      opened={true}
-      onClose={() => true}
+      size={800}
+      opened={opened}
+      onClose={onClose}
       withCloseButton={false}
       styles={modalStyles}
     >
-      <Stack>
+      <Stack h="100%">
         <Paper p="md">
-          <StyledStepper active={0} onStepClick={() => true}>
+          <Stepper styles={stepperStyles} active={active}>
             <Stepper.Step label="Step 1" description="Create an account" />
             <Stepper.Step label="Step 2" description="Verify email" />
             <Stepper.Step label="Step 3" description="Get full access" />
-          </StyledStepper>
+          </Stepper>
         </Paper>
-        <Paper p="md">
-          <ScrollArea h={700}>
+        <Paper p="md" className={classes.paper} display={step === 1 ? "block" : "none"}>
+          <ScrollArea h="100%">
             <Stack>
               <Accordion
                 styles={accordionStyles}
@@ -99,7 +93,6 @@ export default function ClassRoomForm({ personal, checkout, group }: ClassRoomFo
                     <Information.Text label="Số điện thoại" value={personal.phone} />
                   </Information>
                 </Accordion.Item>
-
                 <Accordion.Item value="group">
                   <Information label="Thông tin nhóm">
                     <Information.Text label="Môn học" value={group.subject} />
@@ -114,7 +107,6 @@ export default function ClassRoomForm({ personal, checkout, group }: ClassRoomFo
                     <Information.Text label="Tên TA phụ trách" value={group.ta.name} />
                   </Information>
                 </Accordion.Item>
-
                 <Accordion.Item value="check-out">
                   <Information label="Thông tin thanh toán">
                     <Information.TextInput
@@ -128,12 +120,31 @@ export default function ClassRoomForm({ personal, checkout, group }: ClassRoomFo
                       label="Tổng tiền"
                       value={checkout.price - checkout.sale}
                     />
+                    <Information.Radio label="Thanh toán bằng:">
+                      <Radio value="bank" label="Ngân hàng" />
+                      <Radio value="zalo" label="Zalo pay" />
+                      <Radio value="momo" label="Momo" />
+                    </Information.Radio>
                   </Information>
                 </Accordion.Item>
               </Accordion>
-              <Button>Đăng ký ngay</Button>
+              <Button mx={20}>Xác nhận</Button>
             </Stack>
           </ScrollArea>
+        </Paper>
+        <Paper p="lg" className={classes.paper} display={step === 2 ? "block" : "none"}>
+          <Stack justify="space-between" h="100%">
+            <Flex align="center" justify="center" style={{ minHeight: 0, flexGrow: 1 }}>
+              <img src={MomoQR} alt="momo" height="70%" />
+            </Flex>
+            <Stack align="center" w="100%">
+              <Button w={300}>Xác nhận đã thanh toán</Button>
+              <Group spacing="sm" align="center">
+                <Text variant="subtle">Thanh toán sau</Text>
+                <IconHelpCircleFilled />
+              </Group>
+            </Stack>
+          </Stack>
         </Paper>
       </Stack>
     </Modal>

@@ -1,12 +1,12 @@
 import { AppShell } from "@mantine/core";
 
+import { LayoutProps } from "@/@types";
+
 import { HeaderMenuColored } from "../../components/Header";
 import { NavbarNested } from "../../components/NavbarNested";
 
 import { navbarData } from "./navbarData";
 import { appShellStyles } from "./style";
-
-import { LayoutProps } from "~/@types";
 
 export default function StudentLayout(props: LayoutProps) {
   return (

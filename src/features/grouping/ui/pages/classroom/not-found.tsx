@@ -1,8 +1,8 @@
 import { Center, Image, Paper, Stack, Title } from "@mantine/core";
 
-import { useStyles } from "./style";
+import { ASSET_NO_RESULT } from "@/constants/images";
 
-import { ASSET_NO_RESULT } from "~/constants/images";
+import { useStyles } from "./style";
 
 export interface NotFoundProps {
   text?: string;

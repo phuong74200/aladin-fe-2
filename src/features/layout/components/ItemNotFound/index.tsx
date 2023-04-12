@@ -1,6 +1,6 @@
 import { Center, Image, Stack, StackProps, Title } from "@mantine/core";
 
-import { ASSET_NO_RESULT } from "~/constants/images";
+import { ASSET_NO_RESULT } from "@/constants/images";
 
 export default function ItemNotFound(props: StackProps) {
   return (

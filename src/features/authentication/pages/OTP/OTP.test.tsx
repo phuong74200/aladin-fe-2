@@ -2,9 +2,9 @@ import { act } from "react-dom/test-utils";
 import { fireEvent, render } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
-import OTP from ".";
+import TestEnv from "@/shared/components/TestEnv";
 
-import TestEnv from "~/shared/components/TestEnv";
+import OTP from ".";
 
 describe("Password Recovery Form", () => {
   it("should re-send button enabled", () => {

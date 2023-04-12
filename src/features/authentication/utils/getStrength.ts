@@ -1,4 +1,4 @@
-import { Validation } from "~/@types/Validation";
+import { Validation } from "@/@types/Validation";
 
 export default function getStrength(password: string, requirements: Validation[] = []) {
   let multiplier = password.length > 5 ? 0 : 1;

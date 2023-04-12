@@ -1,11 +1,11 @@
 import { AppShell } from "@mantine/core";
 
+import { LayoutProps } from "@/@types";
+
 import { HeaderMenuColored } from "../../components/Header";
 import { NavbarNested } from "../../components/NavbarNested";
 
 import { navbarData } from "./navbarData";
-
-import { LayoutProps } from "~/@types";
 
 export default function LandingLayout({ children }: LayoutProps) {
   return (

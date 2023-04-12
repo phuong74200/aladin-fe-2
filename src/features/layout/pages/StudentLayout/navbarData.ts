@@ -1,4 +1,4 @@
-import { IconNotes, IconPresentationAnalytics } from "@tabler/icons";
+import { IconNotes, IconPresentationAnalytics } from "@tabler/icons-react";
 
 export const navbarData = [
   {

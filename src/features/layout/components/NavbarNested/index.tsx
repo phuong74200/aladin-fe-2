@@ -1,5 +1,4 @@
 import { Navbar, ScrollArea, Transition } from "@mantine/core";
-import { TablerIcon } from "@tabler/icons";
 
 import { useNavbarStore } from "../../store/navbarStore";
 import { LinksGroup } from "../NavbarLinksGroup";
@@ -10,7 +9,7 @@ import { useStyles } from "./style";
 export interface NavbarNestedProps {
   data: {
     label: string;
-    icon: TablerIcon;
+    icon: React.ElementType;
     initiallyOpened?: boolean;
     links?: { label: string; link: string }[];
   }[];

@@ -1,9 +1,9 @@
 import { fireEvent, render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import PasswordRecovery from ".";
+import TestEnv from "@/shared/components/TestEnv";
 
-import TestEnv from "~/shared/components/TestEnv";
+import PasswordRecovery from ".";
 
 describe("Password Recovery Form", () => {
   it("should valid email", () => {
