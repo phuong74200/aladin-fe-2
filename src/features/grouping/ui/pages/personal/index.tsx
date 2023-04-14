@@ -1,5 +1,5 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import { Accordion, Button, Paper, Radio, Stack } from "@mantine/core";
+import { Accordion, Box, Button, Paper, Radio, Stack } from "@mantine/core";
 
 import Information from "../../organisms/information";
 import Navbar from "../../organisms/nav-bar";
@@ -18,7 +18,9 @@ export default function Personal() {
       <Paper pos="relative" shadow="md" p="md" w="100%">
         <Stack w="100%" h="100%" spacing="lg">
           <Navbar />
-          <Outlet />
+          <Box style={{ overflow: "auto", flexGrow: 1, minHeight: 0 }}>
+            <Outlet />
+          </Box>
         </Stack>
       </Paper>
       <Paper className={cx(classes.md__half_w, classes.overflow)} shadow="md" p="lg">
