@@ -1,5 +1,5 @@
 import { Link, useNavigate, useOutlet } from "react-router-dom";
-import { ActionIcon, Affix, Paper, Stack, Text } from "@mantine/core";
+import { ActionIcon, Affix, Paper, Stack } from "@mantine/core";
 import { IconPlus } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { v4 } from "uuid";
