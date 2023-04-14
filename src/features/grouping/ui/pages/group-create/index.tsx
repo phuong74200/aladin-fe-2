@@ -1,17 +1,17 @@
 import { Link, useNavigate, useOutlet } from "react-router-dom";
-import { ActionIcon, Affix, Paper, Stack, Text } from "@mantine/core";
-import { IconPlus } from "@tabler/icons-react";
+import { Affix, Button, Paper, Stack } from "@mantine/core";
 import dayjs from "dayjs";
 import { v4 } from "uuid";
 
 import ScrollTable from "../../atoms/scroll-table";
 import Navbar from "../../organisms/nav-bar";
 import NotFound from "../../organisms/not-found/not-found";
+import TimePicker from "../../organisms/time-picker";
 import { mock } from "../mock";
 
 import { createBtn } from "./style";
 
-export default function Grouping() {
+export default function GroupCreate() {
   const navigate = useNavigate();
 
   const outlet = useOutlet();
@@ -20,12 +20,11 @@ export default function Grouping() {
 
   const rows = mock.map((element, index) => (
     <tr key={v4()} onClick={handleClick(index)}>
-      <td>{element.group.id}</td>
       <td>{element.group.subject}</td>
-      <td style={{ textAlign: "center" }}>{element.group.students}</td>
-      <td>{element.group.location}</td>
+      <td>2</td>
+      <td>{`19h-22h, ${dayjs(element.group.schedule[0]).format("DD/MM/YYYY")}`}</td>
       <td>2/10</td>
-      <td>{dayjs(element.group.schedule[0]).format("DD/MM/YYYY")}</td>
+      <td>{element.group.description}</td>
     </tr>
   ));
 
@@ -34,30 +33,23 @@ export default function Grouping() {
       <Paper pos="relative" shadow="md" p="md" w="100%">
         <Stack w="100%" h="100%" spacing="lg">
           <Navbar />
-          {/* <Box>
-            <Collapse transitionDuration={500} in={id === "create"} w="100%">
-              <TimePicker />
-            </Collapse>
-          </Box> */}
+          <TimePicker />
           <ScrollTable>
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Tên môn học</th>
+                <th>Tên môn học chờ ghép</th>
                 <th>Số lượng buổi học</th>
-                <th>Địa điểm</th>
+                <th>Thời lượng buổi học</th>
                 <th>Số lượng hiện có</th>
-                <th>Thời gian buổi 1</th>
+                <th>Nội dung buổi học</th>
               </tr>
             </thead>
             <tbody>{rows}</tbody>
           </ScrollTable>
         </Stack>
         <Affix withinPortal={false} style={createBtn}>
-          <Link to="/student/create-group">
-            <ActionIcon color="blue" variant="filled" size="lg">
-              <IconPlus />
-            </ActionIcon>
+          <Link to="/student/grouping">
+            <Button>Quay lại</Button>
           </Link>
         </Affix>
       </Paper>

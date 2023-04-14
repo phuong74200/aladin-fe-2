@@ -1,16 +1,14 @@
 import { useNavigate, useOutlet } from "react-router-dom";
-import { Paper, Stack, Table, Text } from "@mantine/core";
+import { Paper, Stack } from "@mantine/core";
 import dayjs from "dayjs";
 import { v4 } from "uuid";
 
+import ScrollTable from "../../atoms/scroll-table";
 import Navbar from "../../organisms/nav-bar";
-
-import { mock } from "./mock";
-import NotFound from "./not-found";
-import { useStyles } from "./style";
+import NotFound from "../../organisms/not-found/not-found";
+import { mock } from "../mock";
 
 export default function ClassroomList() {
-  const { classes } = useStyles();
   const navigate = useNavigate();
   const outlet = useOutlet();
 
@@ -18,44 +16,33 @@ export default function ClassroomList() {
 
   const rows = mock.map((element, index) => (
     <tr key={v4()} onClick={handleClick(index)}>
-      <td width={250}>
-        <Text lineClamp={1}>{element.group.subject}</Text>
-      </td>
-      <td width={250}>
-        <Text lineClamp={1}>{`19h-22h, ${dayjs(element.group.schedule[0]).format(
-          "DD/MM/YYYY"
-        )}`}</Text>
-      </td>
-      <td width="30%">
-        <Text lineClamp={1}>{element.group.location}</Text>
-      </td>
+      <td>{element.group.subject}</td>
       <td>
-        <Text lineClamp={1}>{element.group.ta.name}</Text>
+        {element.group.subject} {element.step}
       </td>
+      <td>{element.group.location}</td>
+      <td>{dayjs(element.group.schedule[0]).format("DD/MM/YYYY")}</td>
+      <td>{element.group.ta.name}</td>
     </tr>
   ));
 
   return (
     <>
       <Paper shadow="md" p="md" w="100%">
-        <Stack w="100%" h="100%" align="stretch">
+        <Stack w="100%" h="100%" spacing="lg">
           <Navbar />
-          <Table
-            className={classes.fixed_header}
-            highlightOnHover
-            horizontalSpacing="xl"
-            verticalSpacing="lg"
-          >
+          <ScrollTable>
             <thead>
               <tr>
-                <th>Tên môn học</th>
-                <th>Thời gian</th>
+                <th>ID</th>
+                <th align="left">Tên môn học</th>
                 <th>Địa điểm</th>
+                <th>Thời gian</th>
                 <th>Tên trợ giảng</th>
               </tr>
             </thead>
             <tbody>{rows}</tbody>
-          </Table>
+          </ScrollTable>
         </Stack>
       </Paper>
       {outlet || <NotFound />}

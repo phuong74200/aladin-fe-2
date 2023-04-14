@@ -8,6 +8,7 @@ export default function Navbar() {
 
   const isMatchClassroom = useMatch("/student/class/*");
   const isMatchGrouping = useMatch("/student/grouping/*");
+  const isMatchGroupCreate = useMatch("/student/create-group/*");
   const isMatchPersonal = useMatch("/student/personal/*");
 
   const navigate = useNavigate();
@@ -19,16 +20,14 @@ export default function Navbar() {
   return (
     <Flex w="100%" gap="md" align="center" justify="center">
       <Button
-        size="md"
         fullWidth
-        variant={isMatchGrouping ? "filled" : "subtle"}
+        variant={isMatchGrouping || isMatchGroupCreate ? "filled" : "subtle"}
         onClick={handleClick("/student/grouping")}
       >
         Nhóm ghép
       </Button>
       <Divider orientation="vertical" className={classes.divider} />
       <Button
-        size="md"
         fullWidth
         variant={isMatchPersonal ? "filled" : "subtle"}
         onClick={handleClick("/student/personal")}
@@ -37,7 +36,6 @@ export default function Navbar() {
       </Button>
       <Divider orientation="vertical" className={classes.divider} />
       <Button
-        size="md"
         fullWidth
         variant={isMatchClassroom ? "filled" : "subtle"}
         onClick={handleClick("/student/class")}

@@ -4,9 +4,9 @@ import { Accordion, Button, Paper, Stack } from "@mantine/core";
 
 import ClassRoomForm from "../../organisms/classroom-form";
 import Information from "../../organisms/information";
+import { mock } from "../mock";
 
-import { mock } from "./mock";
-import { accordion, useStyles } from "./style";
+import { accordion, useStyles } from "./class-detail.style";
 
 export default function ClassDetail() {
   const { classes, cx } = useStyles();

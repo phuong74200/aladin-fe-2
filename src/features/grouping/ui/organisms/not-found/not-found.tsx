@@ -2,7 +2,7 @@ import { Center, Image, Paper, Stack, Title } from "@mantine/core";
 
 import { ASSET_NO_RESULT } from "@/constants/images";
 
-import { useStyles } from "./style";
+import { useStyles } from "../../pages/classroom/class-detail.style";
 
 export interface NotFoundProps {
   text?: string;

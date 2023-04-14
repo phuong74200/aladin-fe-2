@@ -7,7 +7,6 @@ import {
   Group,
   Modal,
   Paper,
-  Radio,
   ScrollArea,
   Stack,
   Stepper,
@@ -15,22 +14,16 @@ import {
   Tooltip,
 } from "@mantine/core";
 import { IconHelpCircleFilled } from "@tabler/icons-react";
+import dayjs from "dayjs";
 
 import MomoQR from "@/assets/Momo.svg";
 
 import Information from "../information";
 
-import { ClassRoomFormProps } from "./props";
+import { GroupForm } from "./props";
 import { accordionStyles, modalStyles, stepperStyles, useStyles } from "./style";
 
-export default function ClassRoomForm({
-  personal,
-  checkout,
-  group,
-  opened,
-  onClose,
-  step,
-}: ClassRoomFormProps) {
+export default function GroupForm({ personal, checkout, group, opened, onClose, step }: GroupForm) {
   const id = useParams();
   const { classes } = useStyles();
   const [active, setActive] = useState(step);
@@ -78,38 +71,34 @@ export default function ClassRoomForm({
                     <Information.Text label="Số điện thoại" value={personal.phone} />
                   </Information>
                 </Accordion.Item>
+
                 <Accordion.Item value="group">
                   <Information label="Thông tin nhóm">
-                    <Information.Text label="Môn học" value={group.subject} />
-                    <Information.NumberInput
-                      label="Số lượng sinh viên"
-                      value={group.students}
-                      placeholder="Nhập số lượng sinh viên"
-                    />
-                    <Information.Spoiler label="Nội dung" value={group.description} />
-                    <Information.Spoiler label="Thời gian" value="19h-22h, 23/03/2023" />
-                    <Information.Text label="Địa điểm" value={group.location} />
+                    <Information.Text label="ID nhóm ghép" value="HK22023G001" />
+                    <Information.Text label="Môn đăng ký" value={group.subject} />
+                    <Information.Text label="Số lượng sinh viên" value={group.lessons} />
+                    <Information.Text label="Số lượng buổi học" value={group.lessons} />
+                    {group.schedule.map((time, index) => (
+                      <Information.Text
+                        key={time.getTime()}
+                        label={`Thời gian buổi ${index + 1}`}
+                        value={dayjs(time).format("DD/MM/YYYY")}
+                      />
+                    ))}
+                    <Information.Spoiler label="Nội dung buổi học" value={group.description} />
                     <Information.Text label="Tên TA phụ trách" value={group.ta.name} />
                   </Information>
                 </Accordion.Item>
+
                 <Accordion.Item value="check-out">
                   <Information label="Thông tin thanh toán">
-                    <Information.TextInput
-                      label="Mã khuyến mãi"
-                      value={checkout.coupon}
-                      placeholder="Nhập mã khuyến mãi"
-                    />
+                    <Information.Text label="Mã khuyến mãi" value={checkout.coupon} />
                     <Information.Currency label="Tạm tính" value={checkout.price} />
                     <Information.Currency label="Giảm giá" value={checkout.sale} />
                     <Information.Currency
                       label="Tổng tiền"
                       value={checkout.price - checkout.sale}
                     />
-                    <Information.Radio label="Thanh toán bằng:">
-                      <Radio value="bank" label="Ngân hàng" />
-                      <Radio value="zalo" label="Zalo pay" />
-                      <Radio value="momo" label="Momo" />
-                    </Information.Radio>
                   </Information>
                 </Accordion.Item>
               </Accordion>

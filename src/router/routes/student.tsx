@@ -4,6 +4,7 @@ import ClassroomList from "@/features/grouping/ui/pages/classroom";
 import ClassDetail from "@/features/grouping/ui/pages/classroom/class-detail";
 import Grouping from "@/features/grouping/ui/pages/group";
 import GroupDetail from "@/features/grouping/ui/pages/group/group-detail";
+import GroupCreate from "@/features/grouping/ui/pages/group-create";
 import StudentLayout from "@/features/layout/pages/StudentLayout";
 
 export const studentRoute: AuthRouteObject = {
@@ -14,6 +15,18 @@ export const studentRoute: AuthRouteObject = {
     {
       path: "grouping",
       element: <Grouping />,
+      priviliges: [],
+      title: "Nhóm ghép",
+      children: [
+        {
+          path: ":id",
+          element: <GroupDetail />,
+        },
+      ],
+    },
+    {
+      path: "create-group",
+      element: <GroupCreate />,
       priviliges: [],
       title: "Nhóm ghép",
       children: [
