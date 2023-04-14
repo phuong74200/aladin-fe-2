@@ -8,10 +8,17 @@ export const useStyles = createStyles((theme, { color = "red" }: Params) => ({
   table: {
     borderCollapse: "collapse",
     tableLayout: "fixed",
+    "::-webkit-scrollbar": {
+      display: "none",
+    },
     thead: {
       tr: {
         borderTop: `1px solid ${theme.colors[color][5]}`,
         borderBottom: `1px solid ${theme.colors[color][5]}`,
+        background: theme.colors[color][0],
+        color: theme.colors[color][7],
+        position: "sticky",
+        top: 0,
       },
     },
     tr: {
