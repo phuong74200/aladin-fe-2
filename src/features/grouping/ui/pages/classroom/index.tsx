@@ -16,7 +16,7 @@ export default function ClassroomList() {
 
   const rows = mock.map((element, index) => (
     <tr key={v4()} onClick={handleClick(index)}>
-      <td>{element.group.subject}</td>
+      <td>{element.group.id}</td>
       <td>
         {element.group.subject} {element.step}
       </td>

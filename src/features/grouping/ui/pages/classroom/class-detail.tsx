@@ -61,7 +61,7 @@ export default function ClassDetail() {
             </Information>
           </Accordion.Item>
         </Accordion>
-        <Button mx={20} onClick={handleOpen}>
+        <Button px="lg" mx={20} onClick={handleOpen}>
           Đăng ký ngay
         </Button>
       </Stack>

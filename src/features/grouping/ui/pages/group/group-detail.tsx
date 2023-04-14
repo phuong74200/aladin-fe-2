@@ -66,7 +66,9 @@ export default function GroupDetail() {
             </Information>
           </Accordion.Item>
         </Accordion>
-        <Button onClick={handleOpen}>Đăng ký ngay</Button>
+        <Button px="lg" mx={20} onClick={handleOpen}>
+          Đăng ký ngay
+        </Button>
       </Stack>
       <GroupForm
         opened={opened}

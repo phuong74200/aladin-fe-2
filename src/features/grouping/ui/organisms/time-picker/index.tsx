@@ -8,7 +8,7 @@ import { v4 } from "uuid";
 import { useStyles } from "./style";
 
 const DAYS = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "Chủ nhật"];
-const slots = [
+const _slots = [
   "08h - 11h",
   "09h - 12h",
   "10h - 13h",
@@ -18,7 +18,11 @@ const slots = [
   "16h - 17h",
 ];
 
-export default function TimePicker() {
+interface TimePickerProps {
+  slots?: string[];
+}
+
+export default function TimePicker({ slots = _slots }: TimePickerProps) {
   const [time, setTime] = useState<boolean[][]>(
     new Array(slots.length).fill(null).map(() => new Array(DAYS.length).fill(false))
   );

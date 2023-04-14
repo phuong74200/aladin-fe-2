@@ -6,6 +6,8 @@ import {
   NumberInputProps,
   Radio,
   RadioProps,
+  Select,
+  SelectProps,
   SimpleGrid,
   Spoiler,
   Stack,
@@ -125,12 +127,21 @@ Information.TextInput = (props: TextInputProps) => {
   );
 };
 
+Information.Select = (props: SelectProps) => {
+  return (
+    <DiSimpleGrid>
+      <Text weight="bold">{props.label}</Text>
+      <Select {...props} w="100%" label={undefined} variant="unstyled" styles={textInputStyle} />
+    </DiSimpleGrid>
+  );
+};
+
 Information.Radio = (props: RadioProps) => {
   return (
     <DiSimpleGrid>
       <Text weight="bold">{props.label}</Text>
       <Radio.Group>
-        <Group mt="xs">{props.children}</Group>
+        <Group>{props.children}</Group>
       </Radio.Group>
     </DiSimpleGrid>
   );

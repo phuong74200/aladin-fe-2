@@ -5,10 +5,10 @@ import { v4 } from "uuid";
 
 import ScrollTable from "../../atoms/scroll-table";
 import Navbar from "../../organisms/nav-bar";
-import NotFound from "../../organisms/not-found/not-found";
 import TimePicker from "../../organisms/time-picker";
 import { mock } from "../mock";
 
+import CreateGroup from "./group-create";
 import { createBtn } from "./style";
 
 export default function GroupCreate() {
@@ -53,7 +53,7 @@ export default function GroupCreate() {
           </Link>
         </Affix>
       </Paper>
-      {outlet || <NotFound />}
+      {outlet || <CreateGroup />}
     </>
   );
 }

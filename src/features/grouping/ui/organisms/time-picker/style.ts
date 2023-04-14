@@ -7,7 +7,7 @@ interface Params {
 export const useStyles = createStyles((theme, { color = "red" }: Params) => ({
   table: {
     borderCollapse: "collapse",
-    tableLayout: "auto",
+    tableLayout: "fixed",
     thead: {
       tr: {
         borderTop: `1px solid ${theme.colors[color][5]}`,

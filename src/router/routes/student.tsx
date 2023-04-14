@@ -5,6 +5,10 @@ import ClassDetail from "@/features/grouping/ui/pages/classroom/class-detail";
 import Grouping from "@/features/grouping/ui/pages/group";
 import GroupDetail from "@/features/grouping/ui/pages/group/group-detail";
 import GroupCreate from "@/features/grouping/ui/pages/group-create";
+import GroupCreateDetail from "@/features/grouping/ui/pages/group-create/group-detail";
+import Personal from "@/features/grouping/ui/pages/personal";
+import Map from "@/features/grouping/ui/pages/personal/map";
+import TimePick from "@/features/grouping/ui/pages/personal/time-pick";
 import StudentLayout from "@/features/layout/pages/StudentLayout";
 
 export const studentRoute: AuthRouteObject = {
@@ -32,14 +36,24 @@ export const studentRoute: AuthRouteObject = {
       children: [
         {
           path: ":id",
-          element: <GroupDetail />,
+          element: <GroupCreateDetail />,
         },
       ],
     },
     {
       path: "personal",
-      element: <div>private profile 2</div>,
+      element: <Personal />,
       title: "Nhóm riêng",
+      children: [
+        {
+          path: "map",
+          element: <Map />,
+        },
+        {
+          path: "time-pick",
+          element: <TimePick />,
+        },
+      ],
     },
     {
       path: "class",
