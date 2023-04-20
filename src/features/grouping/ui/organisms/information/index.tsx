@@ -1,6 +1,7 @@
 import { createContext, useMemo } from "react";
 import {
   Accordion,
+  Grid,
   Group,
   NumberInput,
   NumberInputProps,
@@ -8,7 +9,6 @@ import {
   RadioProps,
   Select,
   SelectProps,
-  SimpleGrid,
   Spoiler,
   Stack,
   Text,
@@ -17,6 +17,7 @@ import {
   TextProps as MantineTextProps,
   useMantineTheme,
 } from "@mantine/core";
+import { IconSchool } from "@tabler/icons-react";
 
 import { CompoundContext } from "@/@types/Compound";
 
@@ -51,19 +52,23 @@ export default function Information({ children, label }: InformationProps) {
 type CurrencyProps = MantineTextProps & {
   label: string;
   value: number;
+  gridAlign?: AlignContent;
 };
 
 Information.Currency = (props: CurrencyProps) => {
   return (
-    <DiSimpleGrid>
-      <Text weight="bold" {...props}>
-        {props.label}
-      </Text>
+    <Grid gutter={0} justify="space-between">
+      <Group>
+        <IconSchool size={16} />
+        <Text {...props} weight="bold">
+          {props.label}
+        </Text>
+      </Group>
       <Text {...props}>
         {props.value.toLocaleString("en-US")}
         <sup> đ</sup>
       </Text>
-    </DiSimpleGrid>
+    </Grid>
   );
 };
 
@@ -74,10 +79,17 @@ interface TextProps {
 
 Information.Text = (props: TextProps) => {
   return (
-    <DiSimpleGrid>
-      <Text weight="bold">{props.label}</Text>
-      <Text>{props.value}</Text>
-    </DiSimpleGrid>
+    <Grid gutter={0}>
+      <Grid.Col span={4}>
+        <Group>
+          <IconSchool size={16} />
+          <Text weight="bold">{props.label}</Text>
+        </Group>
+      </Grid.Col>
+      <Grid.Col span={8}>
+        <Text>{props.value}</Text>
+      </Grid.Col>
+    </Grid>
   );
 };
 
@@ -92,41 +104,69 @@ Information.Spoiler = ({ label, value }: SpoilerProps) => {
   const DISPLAY_LINES = 3;
 
   return (
-    <DiSimpleGrid>
-      <Text weight="bold">{label}</Text>
-      <Spoiler
-        maxHeight={FONT_SIZE * LINE_HEIGHT_IN_REM * DISPLAY_LINES}
-        showLabel="Thêm"
-        hideLabel="Ẩn"
-        style={{ fontSize: FONT_SIZE }}
-      >
-        {value}
-      </Spoiler>
-    </DiSimpleGrid>
+    <Grid gutter={0}>
+      <Grid.Col span={4}>
+        <Group>
+          <IconSchool size={16} />
+          <Text weight="bold">{label}</Text>
+        </Group>
+      </Grid.Col>
+      <Grid.Col span={8}>
+        <Spoiler
+          maxHeight={FONT_SIZE * LINE_HEIGHT_IN_REM * DISPLAY_LINES}
+          showLabel="Thêm"
+          hideLabel="Ẩn"
+          style={{ fontSize: FONT_SIZE }}
+        >
+          {value}
+        </Spoiler>
+      </Grid.Col>
+    </Grid>
   );
 };
 
 Information.NumberInput = (props: NumberInputProps) => {
   return (
-    <SimpleGrid cols={2} spacing="lg" verticalSpacing="sm">
-      <Text weight="bold">{props.label}</Text>
-      <NumberInput
-        {...props}
-        w="100%"
-        variant="unstyled"
-        styles={numberInputStyle}
-        label={undefined}
-      />
-    </SimpleGrid>
+    <Grid gutter={0}>
+      <Grid.Col span={4}>
+        <Group>
+          <IconSchool size={16} />
+          <Text weight="bold">{props.label}</Text>
+        </Group>
+      </Grid.Col>
+      <Grid.Col span={8}>
+        <NumberInput
+          {...props}
+          w="100%"
+          variant="unstyled"
+          styles={numberInputStyle}
+          label={undefined}
+        />
+      </Grid.Col>
+    </Grid>
   );
 };
 
-Information.TextInput = (props: TextInputProps) => {
+interface TextInputType extends TextInputProps {
+  justify?: "space-between" | "center";
+}
+
+Information.TextInput = (props: TextInputType) => {
   return (
-    <DiSimpleGrid>
-      <Text weight="bold">{props.label}</Text>
-      <TextInput {...props} w="100%" label={undefined} variant="unstyled" styles={textInputStyle} />
-    </DiSimpleGrid>
+    <Grid gutter={0} justify={props.justify}>
+      <Group>
+        <IconSchool size={16} />
+        <Text weight="bold">{props.label}</Text>
+      </Group>
+      <TextInput
+        {...props}
+        w={145}
+        label={undefined}
+        variant="unstyled"
+        styles={textInputStyle}
+        style={{ textAlign: "right" }}
+      />
+    </Grid>
   );
 };
 

@@ -22,7 +22,7 @@ interface HeaderSearchProps {
   links: {
     link: string;
     label: string;
-    links?: { link: string; label: string }[];
+    links?: { link: string; label: string; icon: React.ElementType }[];
     icon: React.ElementType;
   }[];
 }
@@ -38,7 +38,14 @@ export function HeaderMenuColored({ links }: HeaderSearchProps) {
 
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link}>{item.label}</Menu.Item>
+      <Menu.Item key={item.link}>
+        <Center inline>
+          <item.icon size={16} color={theme.fn.primaryColor()} />
+          <Box component="span" ml={8}>
+            {item.label}
+          </Box>
+        </Center>
+      </Menu.Item>
     ));
 
     if (menuItems) {

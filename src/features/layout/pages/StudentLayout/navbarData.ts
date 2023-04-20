@@ -22,7 +22,7 @@ export const navbarData = [
     ],
   },
   {
-    label: "Tài liệu ôn tập",
+    label: "Ôn tập",
     icon: IconPresentationAnalytics,
     link: "google.com",
   },

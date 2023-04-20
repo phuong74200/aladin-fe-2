@@ -8,12 +8,13 @@ import {
   Container,
   Group,
   Header,
+  Indicator,
   Menu,
   Text,
   UnstyledButton,
   useMantineTheme,
 } from "@mantine/core";
-import { IconArrowBarToRight } from "@tabler/icons-react";
+import { IconArrowBarToRight, IconBell } from "@tabler/icons-react";
 
 import AladinLogo from "@/shared/components/AladinLogo";
 
@@ -100,13 +101,20 @@ export function StudentHeader({ links }: HeaderSearchProps) {
             </Group>
             <UnstyledButton>
               <Group>
+                <Indicator inline label="29" size={16} color="red">
+                  <ActionIcon size={40} radius="lg" color="blue">
+                    <IconBell />
+                  </ActionIcon>
+                </Indicator>
                 <Avatar size={40} radius="lg" color="blue">
                   BH
                 </Avatar>
                 <div>
-                  <Text>Nguyễn Văn A</Text>
+                  <Text weight="bold" transform="uppercase">
+                    Nguyễn Văn A
+                  </Text>
                   <Text size="xs" color="red">
-                    TRỞ THÀNH TA NGAY
+                    Trở thành trợ giảng ngay!
                   </Text>
                 </div>
               </Group>
