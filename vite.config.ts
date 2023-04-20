@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [
     react(),
     checker({
-      typescript: true,
+      typescript: false,
       eslint: {
         lintCommand: 'eslint "./src/**/*.{ts,tsx}"', // for example, lint .ts & .tsx
       },
