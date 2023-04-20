@@ -14,6 +14,7 @@ import {
   Text,
   TextInput,
   TextInputProps,
+  TextProps as MantineTextProps,
   useMantineTheme,
 } from "@mantine/core";
 
@@ -47,18 +48,20 @@ export default function Information({ children, label }: InformationProps) {
   );
 }
 
-interface CurrencyProps {
+type CurrencyProps = MantineTextProps & {
   label: string;
   value: number;
-}
+};
 
 Information.Currency = (props: CurrencyProps) => {
   return (
     <DiSimpleGrid>
-      <Text weight="bold">{props.label}</Text>
-      <Text>
+      <Text weight="bold" {...props}>
+        {props.label}
+      </Text>
+      <Text {...props}>
         {props.value.toLocaleString("en-US")}
-        <small> VND</small>
+        <sup> đ</sup>
       </Text>
     </DiSimpleGrid>
   );

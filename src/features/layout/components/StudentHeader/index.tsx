@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import {
   ActionIcon,
+  Avatar,
   Box,
   Burger,
   Center,
@@ -8,6 +9,8 @@ import {
   Group,
   Header,
   Menu,
+  Text,
+  UnstyledButton,
   useMantineTheme,
 } from "@mantine/core";
 import { IconArrowBarToRight } from "@tabler/icons-react";
@@ -27,7 +30,7 @@ interface HeaderSearchProps {
   }[];
 }
 
-export function HeaderMenuColored({ links }: HeaderSearchProps) {
+export function StudentHeader({ links }: HeaderSearchProps) {
   const navbarState = useNavbarStore();
   const { classes } = useStyles();
   const theme = useMantineTheme();
@@ -91,8 +94,23 @@ export function HeaderMenuColored({ links }: HeaderSearchProps) {
           <Box className={classes.md_hide}>
             <AladinLogo size={32} />
           </Box>
-          <Group spacing={5} className={classes.links}>
-            {items}
+          <Group>
+            <Group spacing={5} className={classes.links}>
+              {items}
+            </Group>
+            <UnstyledButton>
+              <Group>
+                <Avatar size={40} radius="lg" color="blue">
+                  BH
+                </Avatar>
+                <div>
+                  <Text>Nguyễn Văn A</Text>
+                  <Text size="xs" color="red">
+                    TRỞ THÀNH TA NGAY
+                  </Text>
+                </div>
+              </Group>
+            </UnstyledButton>
           </Group>
           <Burger
             opened={navbarState.isOpen}

@@ -23,15 +23,11 @@ export default function GroupCreate({ subject }: GroupInfoProps) {
 
   return (
     <>
-      <DividerControl textProps={{ color: theme.primaryColor }}>Thông tin nhóm</DividerControl>
+      <DividerControl textProps={{ color: theme.primaryColor }}>THÔNG TIN NHÓM</DividerControl>
       <Accordion.Panel>
         <Stack>
           <Select data={[]} placeholder="Môn đăng ký" label="Chọn môn học" value={subject} />
-          <NumberInput
-            label="Số lượng sinh viên"
-            placeholder="Nhập số lượng sinh viên"
-            value={undefined}
-          />
+          <NumberInput label="số lượng" placeholder="Nhập số lượng sinh viên" value={undefined} />
           <NumberInput
             label="Số lượng buổi học"
             placeholder="Số lượng buổi học"

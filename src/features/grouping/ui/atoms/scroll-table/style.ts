@@ -31,6 +31,9 @@ export const useStyles = createStyles((theme, { color = "gray" }: Params) => ({
       "tr:last-child": {
         borderBottom: "none",
       },
+      td: {
+        cursor: "pointer",
+      },
     },
     tr: {
       "td, th": {

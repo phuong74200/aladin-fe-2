@@ -32,7 +32,7 @@ export default function Personal() {
             styles={accordion}
           >
             <Accordion.Item value="personal">
-              <Information label="Thông tin cá nhân">
+              <Information label="THÔNG TIN CÁ NHÂN">
                 <Information.Text label="Họ và tên" value="Nguyễn Văn A" />
                 <Information.Text label="Email" value="nguyenvana@gmail.com" />
                 <Information.Text label="Số điện thoại" value="0123456789" />
@@ -40,7 +40,7 @@ export default function Personal() {
             </Accordion.Item>
 
             <Accordion.Item value="group">
-              <Information label="Thông tin nhóm">
+              <Information label="THÔNG TIN NHÓM">
                 <Information.Select
                   label="Môn đăng ký"
                   data={[
@@ -52,7 +52,7 @@ export default function Personal() {
                   placeholder="Chọn môn học"
                 />
                 <Information.Select
-                  label="Số lượng sinh viên"
+                  label="số lượng"
                   data={[
                     { value: "1", label: "1" },
                     { value: "2", label: "2" },
@@ -98,11 +98,11 @@ export default function Personal() {
             </Accordion.Item>
 
             <Accordion.Item value="check-out">
-              <Information label="Thông tin thanh toán">
+              <Information label="THÔNG TIN THANH TOÁN">
                 <Information.Text label="Mã khuyến mãi" value={100000} />
                 <Information.Currency label="Tạm tính" value={30000} />
                 <Information.Currency label="Giảm giá" value={12342} />
-                <Information.Currency label="Tổng tiền" value={13123} />
+                <Information.Currency label="Tổng thanh toán" value={13123} />
               </Information>
             </Accordion.Item>
           </Accordion>

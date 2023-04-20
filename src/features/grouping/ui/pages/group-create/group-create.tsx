@@ -31,7 +31,7 @@ export default function CreateGroup() {
           styles={accordion}
         >
           <Accordion.Item value="personal">
-            <Information label="Thông tin cá nhân">
+            <Information label="THÔNG TIN CÁ NHÂN">
               <Information.Text label="Họ và tên" value={personal.name} />
               <Information.Text label="Email" value={personal.email} />
               <Information.Text label="Số điện thoại" value={personal.phone} />
@@ -39,7 +39,7 @@ export default function CreateGroup() {
           </Accordion.Item>
 
           <Accordion.Item value="group">
-            <Information label="Thông tin nhóm">
+            <Information label="THÔNG TIN NHÓM">
               <Information.Select
                 label="Môn đăng ký"
                 data={[
@@ -51,7 +51,7 @@ export default function CreateGroup() {
                 placeholder="Chọn môn học"
               />
               <Information.Select
-                label="Số lượng sinh viên"
+                label="số lượng"
                 data={[
                   { value: "1", label: "1" },
                   { value: "2", label: "2" },
@@ -83,11 +83,14 @@ export default function CreateGroup() {
           </Accordion.Item>
 
           <Accordion.Item value="check-out">
-            <Information label="Thông tin thanh toán">
+            <Information label="THÔNG TIN THANH TOÁN">
               <Information.Text label="Mã khuyến mãi" value={checkout.coupon} />
               <Information.Currency label="Tạm tính" value={checkout.price} />
               <Information.Currency label="Giảm giá" value={checkout.sale} />
-              <Information.Currency label="Tổng tiền" value={checkout.price - checkout.sale} />
+              <Information.Currency
+                label="Tổng thanh toán"
+                value={checkout.price - checkout.sale}
+              />
             </Information>
           </Accordion.Item>
         </Accordion>

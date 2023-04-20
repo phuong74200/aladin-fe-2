@@ -1,10 +1,10 @@
-import { IconNotes, IconPresentationAnalytics } from "@tabler/icons-react";
+import { IconBook, IconSchool } from "@tabler/icons-react";
 
 export const navbarData = [
   {
-    label: "Học trợ giảng",
+    label: "HỌC TA",
     initiallyOpened: true,
-    icon: IconNotes,
+    icon: IconSchool,
     link: "google.com",
     links: [
       {
@@ -22,8 +22,8 @@ export const navbarData = [
     ],
   },
   {
-    label: "Tài liệu ôn tập",
-    icon: IconPresentationAnalytics,
+    label: "ÔN TẬP",
+    icon: IconBook,
     link: "google.com",
   },
 ];

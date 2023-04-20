@@ -57,9 +57,9 @@ export default function ClassRoomForm({
       <Stack h="100%">
         <Paper p="md">
           <Stepper styles={stepperStyles} active={active}>
-            <Stepper.Step label="Step 1" description="Create an account" />
-            <Stepper.Step label="Step 2" description="Verify email" />
-            <Stepper.Step label="Step 3" description="Get full access" />
+            <Stepper.Step label="Step 1" description="Đăng ký" />
+            <Stepper.Step label="Step 2" description="Xác nhận" />
+            <Stepper.Step label="Step 3" description="Thanh toán" />
           </Stepper>
         </Paper>
         <Paper p="md" className={classes.paper} display={active === 1 ? "block" : "none"}>
@@ -72,37 +72,35 @@ export default function ClassRoomForm({
                 defaultValue={["personal", "group", "check-out"]}
               >
                 <Accordion.Item value="personal">
-                  <Information label="Thông tin cá nhân">
+                  <Information label="THÔNG TIN CÁ NHÂN">
                     <Information.Text label="Họ và tên" value={personal.name} />
                     <Information.Text label="Email" value={personal.email} />
                     <Information.Text label="Số điện thoại" value={personal.phone} />
                   </Information>
                 </Accordion.Item>
                 <Accordion.Item value="group">
-                  <Information label="Thông tin nhóm">
+                  <Information label="THÔNG TIN NHÓM">
                     <Information.Text label="Môn học" value={group.subject} />
                     <Information.NumberInput
-                      label="Số lượng sinh viên"
+                      label="số lượng"
                       value={group.students}
                       placeholder="Nhập số lượng sinh viên"
                     />
                     <Information.Spoiler label="Nội dung" value={group.description} />
                     <Information.Spoiler label="Thời gian" value="19h-22h, 23/03/2023" />
-                    <Information.Text label="Địa điểm" value={group.location} />
-                    <Information.Text label="Tên TA phụ trách" value={group.ta.name} />
+                    <Tooltip label="Link buổi học sẽ được gửi qua mail sau khi bạn hoàn tất thanh toán.">
+                      <Information.Text label="Địa điểm" value={group.location} />
+                    </Tooltip>
+                    <Information.Text label="TA phụ trách" value={group.ta.name} />
                   </Information>
                 </Accordion.Item>
                 <Accordion.Item value="check-out">
-                  <Information label="Thông tin thanh toán">
-                    <Information.TextInput
-                      label="Mã khuyến mãi"
-                      value={checkout.coupon}
-                      placeholder="Nhập mã khuyến mãi"
-                    />
+                  <Information label="THÔNG TIN THANH TOÁN">
+                    <Information.Text label="Mã khuyến mãi" value="ALADIN123" />
                     <Information.Currency label="Tạm tính" value={checkout.price} />
                     <Information.Currency label="Giảm giá" value={checkout.sale} />
                     <Information.Currency
-                      label="Tổng tiền"
+                      label="Tổng thanh toán"
                       value={checkout.price - checkout.sale}
                     />
                     <Information.Radio label="Thanh toán bằng:">
@@ -131,7 +129,7 @@ export default function ClassRoomForm({
               <Group spacing={4} align="center">
                 <Text variant="subtle">Thanh toán sau</Text>
                 <Tooltip
-                  label="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Rhoncus entesque"
+                  label="Bạn sẽ hoàn thành thanh toán 24h trước buổi học đầu!"
                   position="bottom"
                   withArrow
                   withinPortal

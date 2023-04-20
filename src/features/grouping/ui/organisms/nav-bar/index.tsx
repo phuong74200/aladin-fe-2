@@ -1,5 +1,6 @@
 import { useMatch, useNavigate } from "react-router-dom";
 import { Button, Divider, Flex } from "@mantine/core";
+import { IconUser, IconUserPlus, IconUsersGroup } from "@tabler/icons-react";
 
 import { useStyles } from "./style";
 
@@ -23,6 +24,7 @@ export default function Navbar() {
         fullWidth
         variant={isMatchGrouping || isMatchGroupCreate ? "filled" : "subtle"}
         onClick={handleClick("/student/grouping")}
+        leftIcon={<IconUserPlus size={16} />}
       >
         Nhóm ghép
       </Button>
@@ -31,6 +33,7 @@ export default function Navbar() {
         fullWidth
         variant={isMatchPersonal ? "filled" : "subtle"}
         onClick={handleClick("/student/personal")}
+        leftIcon={<IconUser />}
       >
         Nhóm riêng
       </Button>
@@ -39,6 +42,7 @@ export default function Navbar() {
         fullWidth
         variant={isMatchClassroom ? "filled" : "subtle"}
         onClick={handleClick("/student/class")}
+        leftIcon={<IconUsersGroup />}
       >
         Lớp học
       </Button>

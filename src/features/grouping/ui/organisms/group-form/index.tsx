@@ -65,7 +65,7 @@ export default function GroupForm({ personal, checkout, group, opened, onClose, 
                 defaultValue={["personal", "group", "check-out"]}
               >
                 <Accordion.Item value="personal">
-                  <Information label="Thông tin cá nhân">
+                  <Information label="THÔNG TIN CÁ NHÂN">
                     <Information.Text label="Họ và tên" value={personal.name} />
                     <Information.Text label="Email" value={personal.email} />
                     <Information.Text label="Số điện thoại" value={personal.phone} />
@@ -73,10 +73,10 @@ export default function GroupForm({ personal, checkout, group, opened, onClose, 
                 </Accordion.Item>
 
                 <Accordion.Item value="group">
-                  <Information label="Thông tin nhóm">
+                  <Information label="THÔNG TIN NHÓM">
                     <Information.Text label="ID nhóm ghép" value="HK22023G001" />
                     <Information.Text label="Môn đăng ký" value={group.subject} />
-                    <Information.Text label="Số lượng sinh viên" value={group.lessons} />
+                    <Information.Text label="số lượng" value={group.lessons} />
                     <Information.Text label="Số lượng buổi học" value={group.lessons} />
                     {group.schedule.map((time, index) => (
                       <Information.Text
@@ -86,17 +86,17 @@ export default function GroupForm({ personal, checkout, group, opened, onClose, 
                       />
                     ))}
                     <Information.Spoiler label="Nội dung buổi học" value={group.description} />
-                    <Information.Text label="Tên TA phụ trách" value={group.ta.name} />
+                    <Information.Text label="TA phụ trách" value={group.ta.name} />
                   </Information>
                 </Accordion.Item>
 
                 <Accordion.Item value="check-out">
-                  <Information label="Thông tin thanh toán">
+                  <Information label="THÔNG TIN THANH TOÁN">
                     <Information.Text label="Mã khuyến mãi" value={checkout.coupon} />
                     <Information.Currency label="Tạm tính" value={checkout.price} />
                     <Information.Currency label="Giảm giá" value={checkout.sale} />
                     <Information.Currency
-                      label="Tổng tiền"
+                      label="Tổng thanh toán"
                       value={checkout.price - checkout.sale}
                     />
                   </Information>
@@ -120,7 +120,7 @@ export default function GroupForm({ personal, checkout, group, opened, onClose, 
               <Group spacing={4} align="center">
                 <Text variant="subtle">Thanh toán sau</Text>
                 <Tooltip
-                  label="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Rhoncus entesque"
+                  label="Bạn sẽ hoàn thành thanh toán 24h trước buổi học đầu!"
                   position="bottom"
                   withArrow
                   withinPortal

@@ -1,6 +1,5 @@
 import { useNavigate, useOutlet } from "react-router-dom";
 import { Paper, Stack } from "@mantine/core";
-import dayjs from "dayjs";
 import { v4 } from "uuid";
 
 import ScrollTable from "../../atoms/scroll-table";
@@ -16,12 +15,11 @@ export default function ClassroomList() {
 
   const rows = mock.map((element, index) => (
     <tr key={v4()} onClick={handleClick(index)}>
-      <td>{element.group.id}</td>
       <td>
         {element.group.subject} {element.step}
       </td>
       <td>{element.group.location}</td>
-      <td>{dayjs(element.group.schedule[0]).format("DD/MM/YYYY")}</td>
+      <td>19h-22h, thứ 5 23/03/2023</td>
       <td>{element.group.ta.name}</td>
     </tr>
   ));
@@ -34,7 +32,6 @@ export default function ClassroomList() {
           <ScrollTable>
             <thead>
               <tr>
-                <th>ID</th>
                 <th align="left">Tên môn học</th>
                 <th>Địa điểm</th>
                 <th>Thời gian</th>
