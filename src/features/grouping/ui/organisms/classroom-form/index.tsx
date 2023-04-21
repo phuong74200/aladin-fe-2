@@ -157,15 +157,15 @@ export default function ClassRoomForm({
                       label="Hình thức thanh toán:"
                     >
                       <Group>
-                        <Radio value="zalo" label="Momo" />
+                        <Radio value="momo" label="MoMo" />
                         <img alt="" src={MomoLogo} width={16} />
                       </Group>
                       <Group>
-                        <Radio value="zalo" label="Zalo pay" />
+                        <Radio value="zalo" label="ZaloPay" />
                         <img alt="" src={ZaloPay} width={16} />
                       </Group>
                       <Group>
-                        <Radio value="zalo" label="Ngân hàng" />
+                        <Radio value="bank" label="Ngân hàng" />
                         <IconBuildingBank size={16} />
                       </Group>
                     </Information.Radio>
