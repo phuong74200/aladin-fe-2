@@ -61,6 +61,7 @@ export function StudentHeader({ links }: HeaderSearchProps) {
           <Menu.Target>
             <Link to={link.link}>
               <Button
+                style={{ fontSize: 17 }}
                 variant="subtle"
                 leftIcon={link?.icon && <link.icon size={24} color={theme.fn.primaryColor()} />}
               >
@@ -78,6 +79,7 @@ export function StudentHeader({ links }: HeaderSearchProps) {
         <Button
           variant="subtle"
           leftIcon={link?.icon && <link.icon size={24} color={theme.fn.primaryColor()} />}
+          style={{ fontSize: 17 }}
         >
           {link.label}
         </Button>
