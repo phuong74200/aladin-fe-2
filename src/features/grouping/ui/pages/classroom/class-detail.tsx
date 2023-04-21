@@ -106,11 +106,17 @@ export default function ClassDetail() {
                 icon={<IconTicket size={16} />}
               />
               <Information.Currency label="Tạm tính" value={checkout.price} />
-              <Information.Currency color="green" label="Giảm giá" value={-checkout.sale} />
+              <Information.Currency
+                color="green"
+                label="Giảm giá"
+                value={-checkout.sale}
+                weight="bold"
+              />
               <Information.Currency
                 color="rgba(255,0,0)"
                 label="Tổng thanh toán"
                 value={checkout.price - checkout.sale}
+                weight="bold"
               />
             </Information>
           </Accordion.Item>
