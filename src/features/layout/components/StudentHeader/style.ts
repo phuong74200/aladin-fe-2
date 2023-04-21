@@ -14,6 +14,10 @@ export const useStyles = createStyles((theme) => ({
     },
   },
 
+  defaultLink: {
+    color: "initial",
+  },
+
   burger: {
     [theme.fn.largerThan("sm")]: {
       display: "none",

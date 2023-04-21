@@ -1,29 +1,32 @@
-import { IconNotes, IconPresentationAnalytics } from "@tabler/icons-react";
+import { IconBook, IconSchool, IconUserPlus, IconUsers, IconUsersGroup } from "@tabler/icons-react";
 
 export const navbarData = [
   {
     label: "Học trợ giảng",
     initiallyOpened: true,
-    icon: IconNotes,
+    icon: IconSchool,
     link: "google.com",
     links: [
       {
-        label: "Application Development",
-        link: "youtube.com",
+        label: "Nhóm ghép",
+        link: "/student/grouping",
+        icon: IconUserPlus,
       },
       {
-        label: "Data Analysis",
-        link: "google.com",
+        label: "Nhóm riêng",
+        link: "/student/personal",
+        icon: IconUsers,
       },
       {
-        label: "Business Administration",
-        link: "fb.com",
+        label: "Lớp học",
+        link: "/student/class",
+        icon: IconUsersGroup,
       },
     ],
   },
   {
     label: "Ôn tập",
-    icon: IconPresentationAnalytics,
+    icon: IconBook,
     link: "google.com",
   },
 ];

@@ -43,7 +43,7 @@ export default function Grouping() {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Tên môn học</th>
+                <th>Môn học</th>
                 <th>Số lượng buổi học</th>
                 <th>Địa điểm</th>
                 <th>Số lượng hiện có</th>

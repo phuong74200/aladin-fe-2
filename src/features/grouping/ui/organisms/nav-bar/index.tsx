@@ -24,7 +24,7 @@ export default function Navbar() {
         fullWidth
         variant={isMatchGrouping || isMatchGroupCreate ? "filled" : "subtle"}
         onClick={handleClick("/student/grouping")}
-        leftIcon={<IconUserPlus size={16} />}
+        leftIcon={<IconUserPlus />}
       >
         Nhóm ghép
       </Button>

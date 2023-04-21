@@ -19,7 +19,7 @@ export default function ClassroomList() {
         {element.group.subject} {element.step}
       </td>
       <td>{element.group.location}</td>
-      <td>19h-22h, thứ 5 23/03/2023</td>
+      <td>19h-22h, 23/03/2023</td>
       <td>{element.group.ta.name}</td>
     </tr>
   ));
@@ -32,10 +32,10 @@ export default function ClassroomList() {
           <ScrollTable>
             <thead>
               <tr>
-                <th align="left">Tên môn học</th>
+                <th align="left">Môn học</th>
                 <th>Địa điểm</th>
                 <th>Thời gian</th>
-                <th>Tên trợ giảng</th>
+                <th>Trợ giảng</th>
               </tr>
             </thead>
             <tbody>{rows}</tbody>

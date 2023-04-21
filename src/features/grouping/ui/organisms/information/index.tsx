@@ -1,12 +1,13 @@
-import { createContext, useMemo } from "react";
+import { createContext, ReactNode, useMemo } from "react";
 import {
   Accordion,
+  Flex,
+  FlexProps,
   Grid,
   Group,
   NumberInput,
   NumberInputProps,
   Radio,
-  RadioProps,
   Select,
   SelectProps,
   Spoiler,
@@ -17,7 +18,6 @@ import {
   TextProps as MantineTextProps,
   useMantineTheme,
 } from "@mantine/core";
-import { IconSchool } from "@tabler/icons-react";
 
 import { CompoundContext } from "@/@types/Compound";
 
@@ -52,14 +52,14 @@ export default function Information({ children, label }: InformationProps) {
 type CurrencyProps = MantineTextProps & {
   label: string;
   value: number;
-  gridAlign?: AlignContent;
+  icon?: ReactNode;
 };
 
 Information.Currency = (props: CurrencyProps) => {
   return (
     <Grid gutter={0} justify="space-between">
       <Group>
-        <IconSchool size={16} />
+        {props.icon}
         <Text {...props} weight="bold">
           {props.label}
         </Text>
@@ -75,6 +75,8 @@ Information.Currency = (props: CurrencyProps) => {
 interface TextProps {
   label: string;
   value: React.ReactNode;
+  icon?: ReactNode;
+  rightTextProps?: MantineTextProps;
 }
 
 Information.Text = (props: TextProps) => {
@@ -82,12 +84,12 @@ Information.Text = (props: TextProps) => {
     <Grid gutter={0}>
       <Grid.Col span={4}>
         <Group>
-          <IconSchool size={16} />
+          {props.icon}
           <Text weight="bold">{props.label}</Text>
         </Group>
       </Grid.Col>
       <Grid.Col span={8}>
-        <Text>{props.value}</Text>
+        <Text {...props.rightTextProps}>{props.value}</Text>
       </Grid.Col>
     </Grid>
   );
@@ -96,9 +98,10 @@ Information.Text = (props: TextProps) => {
 interface SpoilerProps {
   label: string;
   value: React.ReactNode;
+  icon?: ReactNode;
 }
 
-Information.Spoiler = ({ label, value }: SpoilerProps) => {
+Information.Spoiler = ({ label, value, icon }: SpoilerProps) => {
   const FONT_SIZE = 14;
   const LINE_HEIGHT_IN_REM = 16 / 14;
   const DISPLAY_LINES = 3;
@@ -107,7 +110,7 @@ Information.Spoiler = ({ label, value }: SpoilerProps) => {
     <Grid gutter={0}>
       <Grid.Col span={4}>
         <Group>
-          <IconSchool size={16} />
+          {icon}
           <Text weight="bold">{label}</Text>
         </Group>
       </Grid.Col>
@@ -125,18 +128,22 @@ Information.Spoiler = ({ label, value }: SpoilerProps) => {
   );
 };
 
-Information.NumberInput = (props: NumberInputProps) => {
+interface InformationNumberInputProps extends NumberInputProps {
+  NumberInputProps?: NumberInputProps;
+}
+
+Information.NumberInput = (props: InformationNumberInputProps) => {
   return (
     <Grid gutter={0}>
       <Grid.Col span={4}>
         <Group>
-          <IconSchool size={16} />
+          {props.icon}
           <Text weight="bold">{props.label}</Text>
         </Group>
       </Grid.Col>
       <Grid.Col span={8}>
         <NumberInput
-          {...props}
+          {...props.NumberInputProps}
           w="100%"
           variant="unstyled"
           styles={numberInputStyle}
@@ -149,22 +156,22 @@ Information.NumberInput = (props: NumberInputProps) => {
 
 interface TextInputType extends TextInputProps {
   justify?: "space-between" | "center";
+  icon?: ReactNode;
+  textInputProps?: TextInputProps;
 }
 
 Information.TextInput = (props: TextInputType) => {
   return (
     <Grid gutter={0} justify={props.justify}>
       <Group>
-        <IconSchool size={16} />
+        {props.icon}
         <Text weight="bold">{props.label}</Text>
       </Group>
       <TextInput
-        {...props}
-        w={145}
         label={undefined}
         variant="unstyled"
         styles={textInputStyle}
-        style={{ textAlign: "right" }}
+        {...props.textInputProps}
       />
     </Grid>
   );
@@ -179,12 +186,17 @@ Information.Select = (props: SelectProps) => {
   );
 };
 
-Information.Radio = (props: RadioProps) => {
+interface InformationRadioProps extends FlexProps {
+  label: string;
+  children: ReactNode;
+}
+
+Information.Radio = (props: InformationRadioProps) => {
   return (
     <DiSimpleGrid>
       <Text weight="bold">{props.label}</Text>
       <Radio.Group>
-        <Group>{props.children}</Group>
+        <Flex {...props}>{props.children}</Flex>
       </Radio.Group>
     </DiSimpleGrid>
   );

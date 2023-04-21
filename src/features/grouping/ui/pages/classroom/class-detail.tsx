@@ -1,8 +1,16 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Accordion, Button, Flex, Paper, Stack, Text, Tooltip } from "@mantine/core";
-
-import FormTitle from "@/features/authentication/components/FormTitle";
+import {
+  IconBook2,
+  IconCalendarTime,
+  IconId,
+  IconMapPin,
+  IconNote,
+  IconSchool,
+  IconTicket,
+  IconUsers,
+} from "@tabler/icons-react";
 
 import ClassRoomForm from "../../organisms/classroom-form";
 import Information from "../../organisms/information";
@@ -43,21 +51,42 @@ export default function ClassDetail() {
           </Accordion.Item> */}
           <Accordion.Item value="group">
             <Stack p={20}>
-              <Information.Text label="ID lớp" value={group.id} />
-              <Information.Text label="Môn học" value={group.subject} />
+              <Information.Text label="ID lớp" value={group.id} icon={<IconId size={16} />} />
+              <Information.Text
+                label="Môn học"
+                value={group.subject}
+                icon={<IconBook2 size={16} />}
+              />
               <Information.NumberInput
                 label="Số lượng"
                 value={group.students}
                 placeholder="Nhập số lượng sinh viên"
+                icon={<IconUsers size={16} />}
               />
-              <Information.Spoiler label="Nội dung" value={group.description} />
-              <Information.Spoiler label="Thời gian" value="19h-22h, 23/03/2023" />
+              <Information.Spoiler
+                label="Nội dung"
+                value={group.description}
+                icon={<IconNote size={16} />}
+              />
+              <Information.Spoiler
+                label="Thời gian"
+                value="19h-22h, 23/03/2023"
+                icon={<IconCalendarTime size={16} />}
+              />
               <Tooltip label="Link buổi học sẽ được gửi qua mail sau khi bạn hoàn tất thanh toán.">
                 <div>
-                  <Information.Text label="Địa điểm" value={group.location} />
+                  <Information.Text
+                    label="Địa điểm"
+                    value={group.location}
+                    icon={<IconMapPin size={16} />}
+                  />
                 </div>
               </Tooltip>
-              <Information.Text label="Trợ giảng" value={group.ta.name} />
+              <Information.Text
+                label="Trợ giảng"
+                value={group.ta.name}
+                icon={<IconSchool size={16} />}
+              />
             </Stack>
           </Accordion.Item>
           <Accordion.Item value="check-out">
@@ -66,13 +95,17 @@ export default function ClassDetail() {
                 label="Mã khuyến mãi"
                 justify="space-between"
                 value={checkout.coupon}
-                placeholder="Nhập mã khuyến mãi"
+                textInputProps={{
+                  placeholder: "Nhập mã khuyến mãi",
+                  sx: {
+                    input: {
+                      textAlign: "right",
+                    },
+                  },
+                }}
+                icon={<IconTicket size={16} />}
               />
-              <Information.Currency
-                gridAlign="space-between"
-                label="Tạm tính"
-                value={checkout.price}
-              />
+              <Information.Currency label="Tạm tính" value={checkout.price} />
               <Information.Currency color="green" label="Giảm giá" value={-checkout.sale} />
               <Information.Currency
                 color="rgba(255,0,0)"

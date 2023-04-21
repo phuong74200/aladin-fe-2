@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   ActionIcon,
   Avatar,
   Box,
   Burger,
+  Button,
   Center,
   Container,
   Group,
@@ -26,7 +27,7 @@ interface HeaderSearchProps {
   links: {
     link: string;
     label: string;
-    links?: { link: string; label: string }[];
+    links?: { link: string; label: string; icon: React.ElementType }[];
     icon: React.ElementType;
   }[];
 }
@@ -42,45 +43,42 @@ export function StudentHeader({ links }: HeaderSearchProps) {
 
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link}>{item.label}</Menu.Item>
+      <Menu.Item key={item.link} color={theme.primaryColor}>
+        <Link to={item.link} className={classes.defaultLink}>
+          <Center inline>
+            <item.icon size={16} color={theme.fn.primaryColor()} />
+            <Box component="span" ml={8}>
+              {item.label}
+            </Box>
+          </Center>
+        </Link>
+      </Menu.Item>
     ));
 
     if (menuItems) {
       return (
         <Menu key={link.label} trigger="hover" transitionProps={{ exitDuration: 0 }}>
           <Menu.Target>
-            <a
-              href={link.link}
-              className={classes.link}
-              onClick={(event) => event.preventDefault()}
-            >
-              <Center inline>
-                <link.icon size={16} color={theme.fn.primaryColor()} />
-                <Box component="span" ml={8}>
-                  {link.label}
-                </Box>
-              </Center>
-            </a>
+            <Link to={link.link}>
+              <Button
+                variant="subtle"
+                leftIcon={<link.icon size={16} color={theme.fn.primaryColor()} />}
+              >
+                {link.label}
+              </Button>
+            </Link>
           </Menu.Target>
-          <Menu.Dropdown>{menuItems}</Menu.Dropdown>
+          <Menu.Dropdown p="sm">{menuItems}</Menu.Dropdown>
         </Menu>
       );
     }
 
     return (
-      <a
-        key={link.label}
-        href={link.link}
-        className={classes.link}
-        onClick={(event) => event.preventDefault()}
-      >
-        <Center inline>
-          <link.icon size={16} color={theme.fn.primaryColor()} />
-          <Box component="span" ml={8}>
-            {link.label}
-          </Box>
-        </Center>
-      </a>
+      <Link key={link.label} to={link.link}>
+        <Button variant="subtle" leftIcon={<link.icon size={16} color={theme.fn.primaryColor()} />}>
+          {link.label}
+        </Button>
+      </Link>
     );
   });
 

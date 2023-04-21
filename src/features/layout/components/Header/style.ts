@@ -9,9 +9,14 @@ export const useStyles = createStyles((theme) => ({
   },
 
   links: {
+    color: "initial",
     [theme.fn.smallerThan("sm")]: {
       display: "none",
     },
+  },
+
+  defaultLink: {
+    color: "initial",
   },
 
   burger: {

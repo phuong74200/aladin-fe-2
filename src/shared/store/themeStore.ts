@@ -17,7 +17,7 @@ export const useThemeStore = create<ThemeState>((set) => ({
       Text: {
         defaultProps: {
           size: "sm",
-          color: "#272727",
+          color: "gray.7",
         },
       },
       Button: {

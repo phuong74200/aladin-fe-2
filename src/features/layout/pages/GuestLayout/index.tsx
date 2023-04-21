@@ -1,10 +1,10 @@
 import { useLocation } from "react-router-dom";
-import { AppShell, Flex, Grid } from "@mantine/core";
+import { AppShell, Center, Flex } from "@mantine/core";
 
 import { LayoutProps } from "@/@types";
 import { resolvedRoutes } from "@/router";
+import LandingCarousel from "@/shared/components/LandingCarousel";
 
-import LandingCarousel from "../../../../shared/components/LandingCarousel";
 import { HeaderMenuColored } from "../../components/Header";
 import { NavbarNested } from "../../components/NavbarNested";
 
@@ -12,7 +12,7 @@ import { navbarData } from "./navbarData";
 import { useStyles } from "./style";
 
 export default function GuestLayout({ children }: LayoutProps) {
-  const { cx, classes } = useStyles();
+  const { classes } = useStyles();
 
   const location = useLocation();
   const { nodeRef } = resolvedRoutes.find((route) => route.path === location.pathname) ?? {};
@@ -29,23 +29,21 @@ export default function GuestLayout({ children }: LayoutProps) {
         },
       })}
     >
-      <Grid grow h="100%" gutter="xl" m={0}>
-        <Grid.Col
-          h="100%"
-          p={0}
-          pr={12}
-          xl={9}
-          xs={8}
-          className={cx(classes.m_md_hidden, classes.lg_p_0)}
-        >
-          <LandingCarousel />
-        </Grid.Col>
-        <Grid.Col p={0} pl={12} xl={3} xs={4} className={classes.lg_p_0}>
-          <Flex ref={nodeRef} justify="center" align="center" h="100%" className={classes.form}>
+      <Center w="100%" h="100%">
+        <Flex gap="xl" m={0} h={600}>
+          <LandingCarousel w={900} h="auto" mih={0} />
+          <Flex
+            ref={nodeRef}
+            h="100%"
+            justify="center"
+            align="center"
+            w={350}
+            className={classes.form}
+          >
             {children}
           </Flex>
-        </Grid.Col>
-      </Grid>
+        </Flex>
+      </Center>
     </AppShell>
   );
 }

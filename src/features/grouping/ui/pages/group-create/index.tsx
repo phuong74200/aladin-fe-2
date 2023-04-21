@@ -37,7 +37,7 @@ export default function GroupCreate() {
           <ScrollTable>
             <thead>
               <tr>
-                <th>Tên môn học chờ ghép</th>
+                <th>Môn học chờ ghép</th>
                 <th>Số lượng buổi học</th>
                 <th>Thời lượng buổi học</th>
                 <th>Số lượng hiện có</th>

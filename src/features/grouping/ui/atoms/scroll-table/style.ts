@@ -18,10 +18,18 @@ export const useStyles = createStyles((theme, { color = "gray" }: Params) => ({
     },
     thead: {
       tr: {
-        background: theme.colors[color][0],
         color: theme.colors[color][7],
         position: "sticky",
         top: 0,
+        th: {
+          background: theme.colors[color][0],
+        },
+        "& th:nth-child(1)": {
+          borderBottomLeftRadius: theme.radius.md,
+        },
+        "& th:nth-last-child(1)": {
+          borderBottomRightRadius: theme.radius.md,
+        },
       },
     },
     tbody: {

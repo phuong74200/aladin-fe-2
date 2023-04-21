@@ -11,11 +11,22 @@ import {
   ScrollArea,
   Stack,
   Stepper,
-  Text,
   Tooltip,
 } from "@mantine/core";
-import { IconHelpCircleFilled } from "@tabler/icons-react";
+import {
+  IconBook2,
+  IconBuildingBank,
+  IconCalendarTime,
+  IconHelpCircleFilled,
+  IconMapPin,
+  IconNote,
+  IconSchool,
+  IconTicket,
+  IconUsers,
+} from "@tabler/icons-react";
 
+import MomoLogo from "@/assets/LogoMomo.svg";
+import ZaloPay from "@/assets/LogoZalopay.svg";
 import MomoQR from "@/assets/Momo.svg";
 
 import Information from "../information";
@@ -34,15 +45,25 @@ export default function ClassRoomForm({
   const id = useParams();
   const { classes } = useStyles();
   const [active, setActive] = useState(step);
+  const [countdown, setCountdown] = useState(-1);
 
   const handleStep = (step: number) => () => {
     setActive(step);
+    if (step == 2) setCountdown(15);
     if (step > 2) onClose();
   };
 
   useEffect(() => {
+    const interval = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev === 0) clearInterval(interval);
+        return prev - 1;
+      });
+    }, 1000);
     return () => {
       setActive(step);
+      setCountdown(15);
+      clearInterval(interval);
     };
   }, [id]);
 
@@ -80,33 +101,73 @@ export default function ClassRoomForm({
                 </Accordion.Item>
                 <Accordion.Item value="group">
                   <Information label="THÔNG TIN NHÓM">
-                    <Information.Text label="Môn học" value={group.subject} />
+                    <Information.Text
+                      label="Môn học"
+                      value={group.subject}
+                      icon={<IconBook2 size={16} />}
+                    />
                     <Information.NumberInput
-                      label="số lượng"
+                      label="Số lượng"
                       value={group.students}
                       placeholder="Nhập số lượng sinh viên"
+                      icon={<IconUsers size={16} />}
                     />
-                    <Information.Spoiler label="Nội dung" value={group.description} />
-                    <Information.Spoiler label="Thời gian" value="19h-22h, 23/03/2023" />
+                    <Information.Spoiler
+                      label="Nội dung"
+                      value={group.description}
+                      icon={<IconNote size={16} />}
+                    />
+                    <Information.Spoiler
+                      label="Thời gian"
+                      value="19h-22h, 23/03/2023"
+                      icon={<IconCalendarTime size={16} />}
+                    />
                     <Tooltip label="Link buổi học sẽ được gửi qua mail sau khi bạn hoàn tất thanh toán.">
-                      <Information.Text label="Địa điểm" value={group.location} />
+                      <Information.Text
+                        label="Địa điểm"
+                        value={group.location}
+                        icon={<IconMapPin size={16} />}
+                      />
                     </Tooltip>
-                    <Information.Text label="TA phụ trách" value={group.ta.name} />
+                    <Information.Text
+                      label="TA phụ trách"
+                      value={group.ta.name}
+                      icon={<IconSchool size={16} />}
+                    />
                   </Information>
                 </Accordion.Item>
                 <Accordion.Item value="check-out">
                   <Information label="THÔNG TIN THANH TOÁN">
-                    <Information.Text label="Mã khuyến mãi" value="ALADIN123" />
+                    <Information.Text
+                      label="Mã khuyến mãi"
+                      value="ALADIN123"
+                      rightTextProps={{ align: "right" }}
+                      icon={<IconTicket size={16} />}
+                    />
                     <Information.Currency label="Tạm tính" value={checkout.price} />
                     <Information.Currency label="Giảm giá" value={checkout.sale} />
                     <Information.Currency
                       label="Tổng thanh toán"
                       value={checkout.price - checkout.sale}
                     />
-                    <Information.Radio label="Thanh toán bằng:">
-                      <Radio value="bank" label="Ngân hàng" />
-                      <Radio value="zalo" label="Zalo pay" />
-                      <Radio value="momo" label="Momo" />
+                    <Information.Radio
+                      direction="column"
+                      align="flex-end"
+                      gap="sm"
+                      label="Hình thức thanh toán:"
+                    >
+                      <Group>
+                        <Radio value="zalo" label="Momo" />
+                        <img alt="" src={MomoLogo} width={16} />
+                      </Group>
+                      <Group>
+                        <Radio value="zalo" label="Zalo pay" />
+                        <img alt="" src={ZaloPay} width={16} />
+                      </Group>
+                      <Group>
+                        <Radio value="zalo" label="Ngân hàng" />
+                        <IconBuildingBank size={16} />
+                      </Group>
                     </Information.Radio>
                   </Information>
                 </Accordion.Item>
@@ -123,21 +184,27 @@ export default function ClassRoomForm({
               <img src={MomoQR} alt="momo" height="70%" />
             </Flex>
             <Stack align="center" w="100%">
-              <Button w={300} onClick={handleStep(3)}>
-                Xác nhận đã thanh toán
+              <Button w={300} onClick={handleStep(3)} disabled={countdown > 0}>
+                Xác nhận đã thanh toán {countdown > 0 && `${countdown}s`}
               </Button>
               <Group spacing={4} align="center">
-                <Text variant="subtle">Thanh toán sau</Text>
-                <Tooltip
-                  label="Bạn sẽ hoàn thành thanh toán 24h trước buổi học đầu!"
-                  position="bottom"
-                  withArrow
-                  withinPortal
-                  multiline
-                  width={300}
+                <Button
+                  variant="subtle"
+                  rightIcon={
+                    <Tooltip
+                      label="Bạn sẽ hoàn thành thanh toán 24h trước buổi học đầu!"
+                      position="bottom"
+                      withArrow
+                      withinPortal
+                      multiline
+                      width={300}
+                    >
+                      <IconHelpCircleFilled />
+                    </Tooltip>
+                  }
                 >
-                  <IconHelpCircleFilled />
-                </Tooltip>
+                  Thanh toán sau
+                </Button>
               </Group>
             </Stack>
           </Stack>

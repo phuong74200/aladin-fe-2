@@ -1,4 +1,4 @@
-import { IconBook, IconSchool, IconUser, IconUserPlus, IconUsers, IconUsersGroup } from "@tabler/icons-react";
+import { IconBook, IconSchool, IconUserPlus, IconUsers, IconUsersGroup } from "@tabler/icons-react";
 
 export const navbarData = [
   {
@@ -9,18 +9,18 @@ export const navbarData = [
     links: [
       {
         label: "Nhóm ghép",
-        link: "youtube.com",
-        icon: IconUserPlus
+        link: "/student/grouping",
+        icon: IconUserPlus,
       },
       {
         label: "Nhóm riêng",
-        link: "google.com",
-        icon: IconUsers
+        link: "/student/personal",
+        icon: IconUsers,
       },
       {
         label: "Lớp học",
-        link: "fb.com",
-        icon: IconUsersGroup
+        link: "/student/class",
+        icon: IconUsersGroup,
       },
     ],
   },

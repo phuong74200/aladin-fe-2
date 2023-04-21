@@ -41,7 +41,11 @@ export default function CreateGroup() {
           <Accordion.Item value="group">
             <Information label="THÔNG TIN NHÓM">
               <Information.Select
-                label="Môn đăng ký"
+                searchable
+                filter={(value, item) =>
+                  !!item.label?.toLowerCase().includes(value.toLowerCase().trim())
+                }
+                label="Môn học"
                 data={[
                   { value: "react", label: "React" },
                   { value: "ng", label: "Angular" },
@@ -51,7 +55,11 @@ export default function CreateGroup() {
                 placeholder="Chọn môn học"
               />
               <Information.Select
-                label="số lượng"
+                searchable
+                filter={(value, item) =>
+                  !!item.label?.toLowerCase().includes(value.toLowerCase().trim())
+                }
+                label="Số lượng"
                 data={[
                   { value: "1", label: "1" },
                   { value: "2", label: "2" },
@@ -64,7 +72,7 @@ export default function CreateGroup() {
                 label="Số lượng buổi học"
                 placeholder="Nhập số lượng buối học"
               />
-              <Information.Radio label="Thời lượng 1 buổi">
+              <Information.Radio gap="sm" label="Thời lượng 1 buổi">
                 <Radio value="2" label="2 giờ" />
                 <Radio value="3" label="3 giờ" />
                 <Radio value="4" label="4 giờ" />
