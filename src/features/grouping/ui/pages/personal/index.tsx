@@ -86,7 +86,7 @@ export default function Personal() {
                   placeholder="Chọn địa điểm"
                   onClick={handleMap}
                 />
-                <Information.Radio>
+                <Information.Radio label="Hình thức">
                   <Radio value="online" label="Online" />
                   <Radio value="offline" label="Offline" />
                 </Information.Radio>

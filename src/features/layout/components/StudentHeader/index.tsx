@@ -27,8 +27,8 @@ interface HeaderSearchProps {
   links: {
     link: string;
     label: string;
-    links?: { link: string; label: string; icon: React.ElementType }[];
-    icon: React.ElementType;
+    links?: { link: string; label: string; icon?: React.ElementType }[];
+    icon?: React.ElementType;
   }[];
 }
 
@@ -46,7 +46,7 @@ export function StudentHeader({ links }: HeaderSearchProps) {
       <Menu.Item key={item.link} color={theme.primaryColor}>
         <Link to={item.link} className={classes.defaultLink}>
           <Center inline>
-            <item.icon size={16} color={theme.fn.primaryColor()} />
+            {item?.icon && <item.icon size={16} color={theme.fn.primaryColor()} />}
             <Box component="span" ml={8}>
               {item.label}
             </Box>
@@ -62,7 +62,7 @@ export function StudentHeader({ links }: HeaderSearchProps) {
             <Link to={link.link}>
               <Button
                 variant="subtle"
-                leftIcon={<link.icon size={16} color={theme.fn.primaryColor()} />}
+                leftIcon={link?.icon && <link.icon size={16} color={theme.fn.primaryColor()} />}
               >
                 {link.label}
               </Button>
@@ -75,7 +75,10 @@ export function StudentHeader({ links }: HeaderSearchProps) {
 
     return (
       <Link key={link.label} to={link.link}>
-        <Button variant="subtle" leftIcon={<link.icon size={16} color={theme.fn.primaryColor()} />}>
+        <Button
+          variant="subtle"
+          leftIcon={link?.icon && <link.icon size={16} color={theme.fn.primaryColor()} />}
+        >
           {link.label}
         </Button>
       </Link>
