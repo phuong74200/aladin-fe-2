@@ -39,10 +39,6 @@
         "prettier"
     ],
     "rules": {
-        "max-lines": [
-            "error",
-            1500
-        ],
         "import/no-unresolved": "error",
         "prettier/prettier": "error",
         "react/react-in-jsx-scope": "off",
